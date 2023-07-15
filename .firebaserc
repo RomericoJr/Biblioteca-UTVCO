@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "bilblioteca-utvco"
+  },
+  "targets": {
+    "bilblioteca-utvco": {
+      "hosting": {
+        "bibliotecaUtvco": [
+          "bilblioteca-utvco"
+        ]
+      }
+    }
+  }
+}
