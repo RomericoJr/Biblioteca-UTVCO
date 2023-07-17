@@ -24,7 +24,7 @@ const routes: Routes = [
   component: ProfileUserComponent
   },
   {
-    path: '',
+    path: '**',
     redirectTo: 'login',
   }
 ]
