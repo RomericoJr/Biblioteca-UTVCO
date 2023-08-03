@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthFirebaseService } from 'src/app/service/auth-firebase.service';
 
 @Component({
@@ -7,11 +8,11 @@ import { AuthFirebaseService } from 'src/app/service/auth-firebase.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit{
   constructor(
     private fb : FormBuilder,
-    private auth: AuthFirebaseService
-
+    private auth: AuthFirebaseService,
+    private router: Router,
   ){}
 
   formLogin: FormGroup = this.fb.group({
@@ -20,13 +21,23 @@ export class RegisterComponent {
 
 })
 
+ngOnInit(): void {
+}
 
-register(){
+onSubmit() {
+  this.auth.register(this.formLogin.value)
+  .then(response=>{
+    console.log(response);
+    this.router.navigate(['/login']);
+  })
+  .catch(error => console.log(error));
+}
+//register(){
   // console.log(this.login.value);
-  this.auth.registro(this.formLogin.value.email, this.formLogin.value.password).then((data)=>{
+  //this.auth.register(this.formLogin.value.email, this.formLogin.value.password).then((data)=>{
 
-  }).catch((error)=>{
-    error;
-  });
+  //}).catch((error)=>{
+    //error;
+  //});
 }
-}
+
