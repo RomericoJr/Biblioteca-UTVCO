@@ -7,6 +7,8 @@ const routes: Routes = [
   { path: 'estadias', loadChildren: () => import('./components/estadias/estadias.module').then(m => m.EstadiasModule)},
   { path: 'header', loadChildren: () => import('./components/header/header.module').then(m => m.HeaderModule)},
 
+  { path: '', redirectTo: 'auth', pathMatch: 'full' },
+
 ];
 
 @NgModule({

@@ -1,0 +1,58 @@
+<app-nav-bar></app-nav-bar>
+
+  <<div class="container">
+
+ <div class="row row-cols-7">
+  <div class="col">
+  Isbn
+  </div>
+  <div class="col">
+    Titulo
+  </div>
+  <div class="col">
+    Autores
+  </div>
+  <div class="col">
+    Categoria
+  </div>
+  <div class="col">
+    Subcategoria
+  </div>
+  <div class="col">
+    Editorial
+  </div>
+  <div class="col">
+    Edición
+  </div>
+</div>
+
+ <div class="container" *ngFor="let book of books">
+    <div class="row row-cols-7">
+      <div class="col">
+        {{ book.titulo }}
+      </div>
+      <div class="col">
+        {{ book.autores }}
+      </div>
+      <div class="col">
+        {{ book.categoria }}
+      </div>
+      <div class="col">
+        {{ book.subcategoria }}
+      </div>
+      <div class="col">
+        {{ book.editorial }}
+      </div>
+      <div class="col">
+        {{ book.edicion }}
+      </div>
+      <div class="col">
+        <br>
+        <button type="button" class="btn btn-danger" (click)="deleteBook(book.id)">Eliminar</button>
+
+        <button type="button" class="btn btn-warning">Editar</button>
+      </div>
+    </div>
+  </div>
+
+</div>
