@@ -14,11 +14,14 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment.development';
 import { ReactiveFormsModule } from '@angular/forms';
+
 import { provideAuth,getAuth } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
     AppComponent,
+    BookListComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

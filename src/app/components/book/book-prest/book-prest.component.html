@@ -1,0 +1,29 @@
+  
+
+  <h1>Realizar un prestamo</h1>
+
+
+  <form [formGroup]="formPrest">
+  
+  
+    <div class="form-floating mb-3">
+      <input formControlName="isbn" type="text" class="form-control" id="algo" placeholder="Hola">
+      <label for="algo">Isbn</label>
+    </div>
+  
+    <div class="form-floating mb-3">
+      <input formControlName="matriculaEst" type="text" class="form-control" id="nombre" placeholder="houl">
+      <label for="nombre">Matricula Estudiante</label>
+    </div>
+
+    <!-- <label for="fecha">Fecha:</label>
+  <input type="date" id="fecha" name="fecha" [(ngModel)]="selectedDate"> -->
+   
+ 
+    <div align="center">
+  
+      <button [disabled]="formPrest.invalid" (click)="save()"  type="button" class="btn btn-outline-success">guardar</button>
+    </div>
+  
+  </form>
+

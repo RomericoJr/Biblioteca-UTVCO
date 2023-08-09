@@ -13,6 +13,8 @@ export class CrudFirebaseService {
     private firestore: Firestore
     ) { }
 
+    
+
   guardarWord( word: any){
     const wordRef = collection(this.firestore, 'words');
     return addDoc(wordRef, word);
