@@ -1,1 +1,19 @@
-<p>register works!</p>
+<!--Register-->
+
+<form [formGroup]="formLogin">
+  <div class="form-floating mb-3">
+    <input formControlName="email" type="text" class="form-control" id="email" placeholder="Hola">
+    <label for="email">Email</label>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input formControlName="password" type="text" class="form-control" id="password" placeholder="houl">
+    <label for="password">Password</label>
+  </div>
+
+
+  <div align="center">
+
+    <button [disabled]="formLogin.invalid" (click)="register()"  type="button" class="btn btn-outline-success">Registrar</button>
+  </div>
+</form>

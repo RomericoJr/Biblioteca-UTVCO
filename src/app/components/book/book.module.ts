@@ -23,6 +23,7 @@ const routes: Routes = [
     component: ReadComponent
   },
   {
+
     path: 'list',
     component: BookListComponent
   },
@@ -35,6 +36,7 @@ const routes: Routes = [
     component: PresListComponent
   },
   {
+
     path: '**',
     redirectTo: 'read',
   }

@@ -14,8 +14,8 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment.development';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BookListComponent } from './components/book/book-list/book-list.component';
-import { HeaderComponent } from './shared/header/header.component';
+
+import { provideAuth,getAuth } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
@@ -34,6 +34,7 @@ import { HeaderComponent } from './shared/header/header.component';
     AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),
 
   ],
   providers: [],
