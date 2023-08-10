@@ -9,6 +9,11 @@
         <label class="form-label">Password</label>
         <input type="password" class="form-control" formControlName="password">
     </div>
+    <div class="mb-3">
+        <p>
+            ¿Haz olvidado tú contraseña? <a [routerLink]="['/forgot-password']"> Recuperar contraseña</a>
+        </p>
+    </div>
     <input type="submit" value="Enviar">
 </form>
 <!--<button class="btn btn-info" (click)="onClick()">Login With Google</button>-->

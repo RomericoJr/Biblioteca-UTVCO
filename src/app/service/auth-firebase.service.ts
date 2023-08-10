@@ -10,7 +10,8 @@ export class AuthFirebaseService {
 
   constructor(
     //private authser: AngularFireAuth,
-      private auth: Auth
+      private auth: Auth,
+      public afAuth: AngularFireAuth
   ) { }
 
 
@@ -37,5 +38,14 @@ export class AuthFirebaseService {
 
   logout(){
     return signOut(this.auth);
+  }
+
+  async resetPassword(email:string):Promise <void>{
+    try{
+      return this.afAuth.sendPasswordResetEmail(email);
+    }
+    catch(error){
+      console.log(error);
+    }
   }
 }
