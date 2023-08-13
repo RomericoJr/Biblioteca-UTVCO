@@ -1,1 +1,17 @@
-<p>login works!</p>
+<div class="login background">
+    
+    <form class="custom-form">
+        <h1><img src="assets/Img/logout.png"></h1>
+        <br />
+        <label for="email" class="form-label">Correo Electrónico</label>
+        <input type="email" class="form-control" placeholder="usuario@gmail.com" id="email" name="email" formControlName="email" />
+        <label for="password" class="form-label">Confirmar contraseña</label>
+        <div class="password-container">
+            <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" placeholder="Contraseña" id="password" name="password" formControlName="password" />
+            <span class="show-password" (click)="VerPassW()">{{ showPassword ? 'Ocultar' : 'Ver' }} Contraseña</span>
+       
+          </div>
+        <br />
+        <button>Iniciar Sesión</button>
+    </form>
+  </div>

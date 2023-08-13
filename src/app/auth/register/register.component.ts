@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthFirebaseService } from 'src/app/service/auth-firebase.service';
 
 @Component({
   selector: 'app-register',
@@ -8,25 +7,29 @@ import { AuthFirebaseService } from 'src/app/service/auth-firebase.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  constructor(
-    private fb : FormBuilder,
-    private auth: AuthFirebaseService
+  registerForm!: FormGroup;
 
-  ){}
+  constructor(private formBuilder: FormBuilder) { }
 
-  formLogin: FormGroup = this.fb.group({
-    email: ['',Validators.required ],
-    password: ['', Validators.required],
+  ngOnInit() {
+    this.registerForm = this.formBuilder.group({
+      email: ['', Validators.required],
+      name:['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', Validators.required]
+    });
+  }
 
-})
+  onSubmit() {
+    if (this.registerForm?.valid) {
+      console.log("Datos del formulario:");
+      console.log("Correo", this.registerForm.get('email')?.value);
+      console.log("Nombre", this.registerForm.get('name')?.value);
+      console.log("Contraseña:", this.registerForm.get('password')?.value);
+      console.log("Confirmar contraseña:", this.registerForm.get('confirmPassword')?.value);
 
-
-register(){
-  // console.log(this.login.value);
-  this.auth.registro(this.formLogin.value.email, this.formLogin.value.password).then((data)=>{
-
-  }).catch((error)=>{
-    error;
-  });
-}
+    } else {
+      console.log("Por favor, complete todos los campos correctamente.");
+    }
+  }
 }

@@ -8,6 +8,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent {
 
+  showPassword: boolean = false;
+
+  constructor() { }
+
+  VerPassW() {
+    this.showPassword = !this.showPassword;
+  }
+
+
 
 }
 
