@@ -1,6 +1,16 @@
 <app-nav-bar></app-nav-bar>
 
+
   <<div class="container">
+
+  <!-- <input
+    type="text"
+    class="forms-control"
+    placeholder="Buscar libro"
+    [(ngModel)]="filterBook"
+    name="filterBook"
+  /> -->
+
 
  <div class="row row-cols-7">
   <div class="col">
@@ -26,6 +36,7 @@
   </div>
 </div>
 
+ <!-- <div class="container" *ngFor="let book of books | filtBook:filterBook"> -->
  <div class="container" *ngFor="let book of books">
     <div class="row row-cols-7">
       <div class="col">
@@ -49,10 +60,7 @@
       <div class="col">
         <br>
         <button type="button" class="btn btn-danger" (click)="deleteBook(book.id)">Eliminar</button>
-
-        <button type="button" class="btn btn-warning">Editar</button>
-      </div>
-    </div>
-  </div>
+        <!-- <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="updateBook(book)">Editar</button> -->
+        <button type="button" class="btn btn-warning" (click)="editarBook(book)">Editar</button>
 
 </div>

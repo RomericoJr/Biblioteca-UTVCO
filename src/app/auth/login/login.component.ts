@@ -17,7 +17,6 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthFirebaseService } from 'src/app/service/auth-firebase.service';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

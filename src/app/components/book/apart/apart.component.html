@@ -1,0 +1,28 @@
+  
+
+  <h1>Apartar libro</h1>
+
+
+  <form [formGroup]="formApart">
+  
+  
+    
+    <div class="form-floating mb-3">
+      <input formControlName="titulo" type="text" class="form-control" id="nombre" placeholder="houl">
+      <label for="nombre">Titulo</label>
+    </div>
+   
+    <div class="form-floating mb-3">
+      <input formControlName="matricula" type="text" class="form-control" id="nombre" placeholder="houl">
+      <label for="nombre">Matricula</label>
+    </div>
+
+    
+  
+    <div align="center">
+  
+      <button [disabled]="formApart.invalid" (click)="save()"  type="button" class="btn btn-outline-success">guardar</button>
+    </div>
+  
+  </form>
+

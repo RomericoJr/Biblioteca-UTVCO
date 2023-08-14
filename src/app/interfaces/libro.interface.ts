@@ -34,5 +34,8 @@ export default interface regEstadias {
     observ: string;
 }
 
-
+export default interface Apartado {
+    titulo: string;
+    matricula: string;
+}
 

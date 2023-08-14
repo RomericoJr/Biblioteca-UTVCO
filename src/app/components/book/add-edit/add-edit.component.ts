@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BookFirebaseService } from 'src/app/service/book-firebase.service';
+import { SweetAlertService } from 'src/app/service/sweet-alert.service';
 
 @Component({
   selector: 'app-add-edit',
@@ -9,25 +11,37 @@ import { BookFirebaseService } from 'src/app/service/book-firebase.service';
 })
 export class AddEditComponent {
 
-// formulario: FormGroup;
 
 constructor(
   private fb : FormBuilder,
-  private bookService: BookFirebaseService
-){
-  // this.books = [{
-  //   isbn: 'Primero',
-  // titulo: 'El sutil arte',
-  // autores: 'Mark Manson',
-  // categoria: 'Desarrollo',
-  // subcategoria: 'Personal',
-  // editorial: 'Harper Collins',
-  // edicion: 'Segunda',
-  // }];
-}
+  private bookService: BookFirebaseService,
+  private route: Router,
+  private activatedRoute: ActivatedRoute,
+  private sweet : SweetAlertService,
+){}
 
-title = 'bibliotecaUtvco';
+  titleText = 'Agregar Palabras';
+  titleBtn = 'Agregar';
+  id!: string;
 
+  ngOnInit(){
+    this.activatedRoute.params.subscribe((data :any) => {   
+      this.id = data.id
+      console.log(this.id);
+      
+      if(data.id){
+        this.titleText = 'Actualizar Palabras';
+        this.titleBtn = 'Actualizar';
+        this.bookService.getBookById(this.id).subscribe((data) => {
+          console.log('existo y soy ', data);
+          this.formBook.patchValue(data[0])
+  
+       });
+    }
+      });
+    }
+
+    
   formBook: FormGroup = this.fb.group({
     isbn: ['', Validators.required],
     titulo: ['', Validators.required],
@@ -39,23 +53,39 @@ title = 'bibliotecaUtvco';
   })
 
 
-ngOnInit(): void {
-  this.bookService.getBook().subscribe(books => {
-    console.log(books);
-  })
-}
+  option(){
 
+    if(this.id){
+      this.updateBook();
+    } else {
+      this.save();
+    }
+  }
 
-save() {
-  this.bookService.guardarBook(
+  updateBook(){
+    this.bookService.updateBook(
+      {
+        id : this.id,
+        ...this.formBook.value
+
+      }
+      );
+    console.log('Actualizando');
+    console.log(this.formBook.value);
+    this.sweet.success('Actualizado con exito');
+    this.route.navigateByUrl('/book/list');
+  }
+
+  save() {
+    this.bookService.guardarBook(
     {
       id: new Date().getTime().toString(),
       ...this.formBook.value
     } as any);
     console.log('Guardado', this.formBook.value);
+    this.sweet.success('Guardado con exito');
 
-}
-
-  
+      this.route.navigateByUrl('/book/list');
+  }
 
 }
