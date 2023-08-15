@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import Libro from 'src/app/interfaces/libro.interface';
 import { BookFirebaseService } from 'src/app/service/book-firebase.service';
 
@@ -15,9 +16,10 @@ export class ReadComponent {
 
   constructor(
     private fb : FormBuilder,
-    private bookService: BookFirebaseService
+    private bookService: BookFirebaseService,
+    private router: Router
   ){}
-  
+
   title = 'bibliotecaUtvco';
 
   formBook: FormGroup = this.fb.group({
@@ -37,16 +39,23 @@ export class ReadComponent {
     });
 }
 
-delete() {
-  this.bookService.deleteBook(
-    {
-      id: new Date().getTime().toString(),
-      ...this.formBook.value
-    } as any);
-    console.log('eliminado', this.formBook.value);
+// delete() {
+//   this.bookService.deleteBook(
+//     {
+//       id: new Date().getTime().toString(),
+//       ...this.formBook.value
+//     } as any);
+//     console.log('eliminado', this.formBook.value);
 
+// }
+
+deleteBook(id: any) {
+  console.log(id, 'eliminado');
+  this.bookService.deleteBook(id);
 }
 
-
+editBook(book: Libro) {
+  this.router.navigate(['/book/edit', book.id]);
+}
 
 }

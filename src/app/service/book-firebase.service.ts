@@ -16,7 +16,7 @@ export class BookFirebaseService {
       const bookRef = collection(this.firestore, 'books');
       return addDoc(bookRef, book);
     }
-    
+
   getBook (filter= ''){
       const bookRef = collection(this.firestore, 'books');
       let q = query(bookRef);
@@ -43,16 +43,18 @@ export class BookFirebaseService {
     return collectionData(q) as unknown as Observable<any[]>
   }
 
+
   async updateBook(book: any) {
     const bookRef = collection(this.firestore, 'books');
-    let q = query(bookRef, where('id', '==', book.id));
-    const bookDoc = await getDocs(q);
+    const q = query(bookRef, where('id', '==', book.id));
+    const querySnapshot = await getDocs(q);
 
-    bookDoc.forEach(async(book) => {
-      const bookRef = doc(this.firestore, 'books', book.id);
-      await this.updateBook(bookRef );
+    querySnapshot.forEach(async (docSnapshot) => {
+      const bookDocRef = doc(this.firestore, 'books', docSnapshot.id);
+      await updateDoc(bookDocRef, book); // Assuming you have a function like this to update the document
     });
   }
+
 
   guardarPrest(prest: any){
     const prestRef = collection(this.firestore, 'prestamos');

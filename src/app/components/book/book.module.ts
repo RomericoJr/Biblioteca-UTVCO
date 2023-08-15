@@ -10,6 +10,7 @@ import { BookPrestComponent } from './book-prest/book-prest.component';
 import { PresListComponent } from './pres-list/pres-list.component';
 import { ApartComponent } from './apart/apart.component';
 import { ApartListComponent } from './apart-list/apart-list.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 const routes: Routes = [
   {
@@ -67,7 +68,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     HeaderModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   exports: [
     AddEditComponent,

@@ -25,23 +25,23 @@ constructor(
   id!: string;
 
   ngOnInit(){
-    this.activatedRoute.params.subscribe((data :any) => {   
+    this.activatedRoute.params.subscribe((data :any) => {
       this.id = data.id
       console.log(this.id);
-      
+
       if(data.id){
         this.titleText = 'Actualizar Palabras';
         this.titleBtn = 'Actualizar';
         this.bookService.getBookById(this.id).subscribe((data) => {
           console.log('existo y soy ', data);
           this.formBook.patchValue(data[0])
-  
+
        });
     }
       });
     }
 
-    
+
   formBook: FormGroup = this.fb.group({
     isbn: ['', Validators.required],
     titulo: ['', Validators.required],
@@ -64,14 +64,10 @@ constructor(
 
   updateBook(){
     this.bookService.updateBook(
-      {
-        id : this.id,
-        ...this.formBook.value
+      {id: this.id,
+        ...this.formBook.value});
 
-      }
-      );
-    console.log('Actualizando');
-    console.log(this.formBook.value);
+    console.log('cacha',this.formBook.value);
     this.sweet.success('Actualizado con exito');
     this.route.navigateByUrl('/book/list');
   }

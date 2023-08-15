@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
     this.auth.login(this.formLogin.value)
       .then(response => {
         console.log(response);
-        this.router.navigate(['/profile-user'])
+        this.router.navigate(['/home'])
       })
       .catch(error => console.log(error));
   }

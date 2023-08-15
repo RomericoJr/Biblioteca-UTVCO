@@ -1,1 +1,33 @@
-<h2>It works</h2>
+<app-header></app-header>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">autores</th>
+      <th scope="col">categoria</th>
+      <th scope="col">edicion</th>
+      <th scope="col">editorial</th>
+      <th scope="col">id</th>
+      <th scope="col">isbn</th>
+      <th scope="col">subcategoria</th>
+      <th scope="col">titulo</th>
+      <th scope="col">Acción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of books">
+      <th>{{book.autores}}</th>
+      <th>{{book.categoria}}</th>
+      <th>{{book.edicion}}</th>
+      <th>{{book.editorial}}</th>
+      <th>{{book.id}}</th>
+      <th>{{book.isbn}}</th>
+      <th>{{book.subcategoria}}</th>
+      <th>{{book.titulo}}</th>
+      <th>
+        <button class="btn btn-danger" (click)="deleteBook(book.id)">Eliminar</button>
+        <button class="btn btn-warning" (click)="editBook(book)">Editar</button>
+      </th>
+    </tr>
+  </tbody>
+</table>
