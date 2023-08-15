@@ -6,11 +6,9 @@ const routes: Routes = [
   { path: 'book', loadChildren: () => import('./components/book/book.module').then(m => m.BookModule)},
   { path: 'estadias', loadChildren: () => import('./components/estadias/estadias.module').then(m => m.EstadiasModule)},
   { path: 'header', loadChildren: () => import('./components/header/header.module').then(m => m.HeaderModule)},
-
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
 
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

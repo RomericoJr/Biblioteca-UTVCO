@@ -6,6 +6,7 @@ import { ProfileUserComponent } from './profile-user/profile-user.component';
 import { RegisterComponent } from './register/register.component';
 import { Routes,RouterModule, } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard'
 
 const routes: Routes = [
   {
@@ -22,15 +23,15 @@ const routes: Routes = [
   },
   {
     path: 'profile-user',
-  component: ProfileUserComponent
+    component: ProfileUserComponent, 
+    ...canActivate(() => 
+    redirectUnauthorizedTo(['/register'])) 
   },
   {
     path: '**',
     redirectTo: 'login',
   }
 ]
-
-
 
 @NgModule({
   declarations: [

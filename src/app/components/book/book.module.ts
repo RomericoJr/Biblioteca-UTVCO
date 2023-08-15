@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { AddEditComponent } from './add-edit/add-edit.component';
 import { ReadComponent } from './read/read.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BookListComponent } from './book-list/book-list.component';
 import { HeaderModule } from '../header/header.module';
 import { BookPrestComponent } from './book-prest/book-prest.component';
 import { PresListComponent } from './pres-list/pres-list.component';
+import { ApartComponent } from './apart/apart.component';
+import { ApartListComponent } from './apart-list/apart-list.component';
 
 const routes: Routes = [
   {
@@ -36,6 +38,14 @@ const routes: Routes = [
     component: PresListComponent
   },
   {
+    path: 'apart',
+    component: ApartComponent
+  },
+  {
+    path: 'apart-list',
+    component: ApartListComponent
+  },
+  {
 
     path: '**',
     redirectTo: 'read',
@@ -48,13 +58,16 @@ const routes: Routes = [
     AddEditComponent,
     ReadComponent,
     BookPrestComponent,
-    PresListComponent
+    PresListComponent,
+    ApartComponent,
+    ApartListComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
-    HeaderModule
+    HeaderModule,
+    FormsModule
   ],
   exports: [
     AddEditComponent,

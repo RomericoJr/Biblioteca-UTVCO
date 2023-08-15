@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import Libro from 'src/app/interfaces/libro.interface';
 import { BookFirebaseService } from 'src/app/service/book-firebase.service';
 
@@ -11,7 +13,11 @@ import { BookFirebaseService } from 'src/app/service/book-firebase.service';
 export class BookListComponent {
 
   books: Libro [] = [];
-  
+  router = inject(Router);
+
+  // itemEditar: any = {isbn:''};
+  // filterBook: any = '';
+
   constructor(
     private fb : FormBuilder,
     private bookService: BookFirebaseService
@@ -37,32 +43,19 @@ export class BookListComponent {
     });
 }
 
-// deleteBook(id: any) {
-//   console.log('Libro borrado', id);
+async deleteBook(id: any) {
+  this.bookService.deleteBook(id);
+  console.log('Eliminado libro con ID:', id);
+}
 
-//   this.bookService.deleteBook(id);
-
+//Prueba de editar
+// preUpdate(book: Libro){
+// console.log('BOOK', book);
 // }
 
-async deleteBook(id: any) {
-  this.bookService.deleteBook(
-    {
-      id: new Date().getTime().toString(),
-      ...this.formBook.value
-    } as any);
-    console.log('eliminado', this.formBook.value);
-}
-
-delete() {
-  this.bookService.deleteBook(
-    {
-      id: new Date().getTime().toString(),
-      ...this.formBook.value
-    } as any);
-    console.log('eliminado', this.formBook.value);
-
-}
-
+  editarBook (book: Libro){
+  this.router.navigate(['/book/edit' , book.id]);
+  }
 
 }
 

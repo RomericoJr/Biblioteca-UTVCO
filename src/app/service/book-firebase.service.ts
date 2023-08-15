@@ -21,14 +21,14 @@ export class BookFirebaseService {
       const bookRef = collection(this.firestore, 'books');
       let q = query(bookRef);
       if(filter){
-        q = query(bookRef, where('isbn', '==', filter))
+        q = query(bookRef, where('id', '==', filter))
       }
        return collectionData(q) as unknown as Observable<any[]>;
     }
 
     async deleteBook(id: any): Promise<void> {
     const bookRef = collection(this.firestore, 'books');
-    let q = query(bookRef, where('isbn', '==', id));
+    let q = query(bookRef, where('id', '==', id));
     const bookDoc = await getDocs(q);
 
     bookDoc.forEach(async(book) => {
@@ -43,14 +43,14 @@ export class BookFirebaseService {
     return collectionData(q) as unknown as Observable<any[]>
   }
 
-  async updateBook(id: any): Promise<void> {
+  async updateBook(book: any) {
     const bookRef = collection(this.firestore, 'books');
-    let q = query(bookRef, where('isbn', '==', id));
+    let q = query(bookRef, where('id', '==', book.id));
     const bookDoc = await getDocs(q);
 
     bookDoc.forEach(async(book) => {
       const bookRef = doc(this.firestore, 'books', book.id);
-      await this.updateBook(bookRef);
+      await this.updateBook(bookRef );
     });
   }
 
@@ -58,5 +58,34 @@ export class BookFirebaseService {
     const prestRef = collection(this.firestore, 'prestamos');
     return addDoc(prestRef, prest);
   }
+
+  guardarApart(apart: any){
+    const apartRef = collection(this.firestore, 'apartado');
+    return addDoc(apartRef, apart);
+  }
+
+  getApart (filter= ''){
+    const apartRef = collection(this.firestore, 'apartado');
+    let q = query(apartRef);
+    if(filter){
+      q = query(apartRef, where('isbn', '==', filter))
+    }
+     return collectionData(q) as unknown as Observable<any[]>;
+  }
+
+  async deleteApart(id: any): Promise<void> {
+    const apartRef = collection(this.firestore, 'apartado');
+    let q = query(apartRef, where('id', '==', id));
+    const apartDoc = await getDocs(q);
+
+    apartDoc.forEach(async(apart) => {
+      const apartRef = doc(this.firestore, 'apartado', apart.id);
+      deleteDoc(apartRef);
+    });
+  }
+
+
+
+
 
 }
