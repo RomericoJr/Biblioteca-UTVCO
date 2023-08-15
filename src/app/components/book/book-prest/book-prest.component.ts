@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { BookFirebaseService } from 'src/app/service/book-firebase.service';
+import { SweetAlertService } from 'src/app/service/sweet-alert.service';
 
 @Component({
   selector: 'app-book-prest',
@@ -11,7 +13,9 @@ export class BookPrestComponent {
 
   constructor(
     private fb : FormBuilder,
-    private bookService: BookFirebaseService
+    private bookService: BookFirebaseService,
+    private sweetS: SweetAlertService,
+  private router: Router,
   ){}
 
   title = 'bibliotecaUtvco';

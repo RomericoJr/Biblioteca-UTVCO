@@ -81,7 +81,7 @@ constructor(
     console.log('Guardado', this.formBook.value);
     this.sweet.success('Guardado con exito');
 
-      this.route.navigateByUrl('/book/list');
+      this.route.navigateByUrl('/book/read');
   }
 
 }

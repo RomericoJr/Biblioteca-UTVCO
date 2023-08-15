@@ -61,6 +61,26 @@ export class BookFirebaseService {
     return addDoc(prestRef, prest);
   }
 
+  getPrest (filter= ''){
+    const prestRef = collection(this.firestore, 'prestamos');
+    let q = query(prestRef);
+    if(filter){
+      q = query(prestRef, where('id', '==', filter))
+    }
+     return collectionData(q) as unknown as Observable<any[]>;
+  }
+
+  async deletePrest(id: any): Promise<void> {
+    const prestRef = collection(this.firestore, 'prestamos');
+    let q = query(prestRef, where('id', '==', id));
+    const apartDoc = await getDocs(q);
+
+    apartDoc.forEach(async(apart) => {
+      const prestRef = doc(this.firestore, 'prestamos', apart.id);
+      deleteDoc(prestRef);
+    });
+  }
+
   guardarApart(apart: any){
     const apartRef = collection(this.firestore, 'apartado');
     return addDoc(apartRef, apart);
@@ -85,6 +105,9 @@ export class BookFirebaseService {
       deleteDoc(apartRef);
     });
   }
+
+  
+  
 
 
 
