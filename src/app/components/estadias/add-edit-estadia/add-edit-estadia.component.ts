@@ -33,7 +33,7 @@ ngOnInit(){
       this.titleBtn = 'Actualizar';
       this.estadiasService.getEstBookById(this.id).subscribe((data) => {
         console.log('existo y soy', data);
-        this.formEstBook.patchValue(data[0])
+        this.formEst.patchValue(data[0])
         
       });
     }
@@ -42,7 +42,7 @@ ngOnInit(){
 
 }
 
-formEstBook: FormGroup = this.fb.group({
+formEst: FormGroup = this.fb.group({
   isbn: ['', Validators.required],
     titulo: ['', Validators.required],
     autores: ['', Validators.required],
@@ -53,6 +53,8 @@ formEstBook: FormGroup = this.fb.group({
 })
 
 option(){
+  console.log('datos registers',this.formEst.value);
+  
   if(this.id){
     this.updateEstBook();
   } else {
@@ -62,24 +64,24 @@ option(){
 
 updateEstBook(){
   this.estadiasService.updateEstBook({
-    id: this.id, ...this.formEstBook.value
+    id: this.id, ...this.formEst.value
 
   });
-  console.log('cacha', this.formEstBook.value);
+  console.log('cacha', this.formEst.value);
   this.sweet.success('Actualizado con exito');
-  this.route.navigateByUrl('/book/list');
+  //this.route.navigateByUrl('/book/list');
   
 }
 
 save(){
   this.estadiasService.addEstadiasBook({
     id: new Date().getTime().toString(),
-    ...this.formEstBook.value
+    ...this.formEst.value
   } as any);
-  console.log('Guardado', this.formEstBook.value);
+  console.log('Guardado', this.formEst.value);
   this.sweet.success('Guardado con exito');
 
-  this.route.navigateByUrl('/bool/list');
+  // this.route.navigateByUrl('/book/list');
   
 }
 }

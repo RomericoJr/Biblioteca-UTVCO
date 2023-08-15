@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { AddEditEstadiaComponent } from './add-edit-estadia/add-edit-estadia.component';
 import { ReadEstadiaComponent } from './read-estadia/read-estadia.component';
 import { RouterModule, Routes } from '@angular/router';
+import { BookListComponent } from '../book/book-list/book-list.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EstadiaListComponent } from './estadia-list/estadia-list.component';
 
 const routes: Routes = [
   {
@@ -16,6 +19,10 @@ const routes: Routes = [
   {
     path: 'readEstadia',
     component: ReadEstadiaComponent
+  },
+  {
+    path: 'list',
+    component: BookListComponent
   }
 ]
 
@@ -23,15 +30,17 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AddEditEstadiaComponent,
-    ReadEstadiaComponent
+    ReadEstadiaComponent,
+    EstadiaListComponent
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ReactiveFormsModule
   ],exports: [
     AddEditEstadiaComponent,
     ReadEstadiaComponent,
-    RouterModule
+    RouterModule,
   ]
 })
 export class EstadiasModule { }

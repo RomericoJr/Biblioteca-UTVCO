@@ -46,11 +46,11 @@ export class EstadiasFirebaseService {
   async updateEstBook(estadiasBook: any){
     const estBookRef = collection(this.firestore, 'estadiasBook');
     const q = query(estBookRef, where('id', '==', estadiasBook.id));
-    const querySnapshot = await getDocs(q);
+    const estBookDoc = await getDocs(q);
 
-    querySnapshot.forEach(async(docSnapshot)=>{
-      const estBookRef = doc(this.firestore, 'estadiasBook', docSnapshot.id);
-      await updateDoc(estBookRef, estadiasBook);
+    estBookDoc.forEach(async(estadiasBook)=>{
+      const estBookRef = doc(this.firestore, 'estadiasBook', estadiasBook.id);
+      await this.updateEstBook(estBookRef);
     })
   }
 }
