@@ -13,7 +13,6 @@ import { environment } from 'src/environments/environment.development';
 import { ReactiveFormsModule } from '@angular/forms';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { BookListComponent } from './components/book/book-list/book-list.component';
-import { HeaderComponent } from './shared/header/header.component';
 import { FiltBookPipe } from './components/filt-book.pipe';
 
 
@@ -21,7 +20,6 @@ import { FiltBookPipe } from './components/filt-book.pipe';
   declarations: [
     AppComponent,
     BookListComponent,
-    HeaderComponent,
     FiltBookPipe,
 
   ],
