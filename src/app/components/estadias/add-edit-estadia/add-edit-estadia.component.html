@@ -1,2 +1,53 @@
-<app-header></app-header>
+
 <p>add-edit-estadia works!</p>
+
+
+<h1>Agregar libro de donacion de estadias</h1>
+
+
+  <form 
+  [formGroup]="formEst"
+  >
+  
+  
+    <div class="form-floating mb-3">
+      <input formControlName="isbn" type="text" class="form-control" id="algo" placeholder="Hola">
+      <label for="algo">Isbn</label>
+    </div>
+  
+    <div class="form-floating mb-3">
+      <input formControlName="titulo" type="text" class="form-control" id="nombre" placeholder="houl">
+      <label for="nombre">Iitulo</label>
+    </div>
+   
+    <div class="form-floating mb-3">
+      <input formControlName="autores" type="text" class="form-control" id="nombre" placeholder="houl">
+      <label for="nombre">Autores</label>
+    </div>
+  
+    <div class="form-floating mb-3">
+      <input formControlName="categoria" type="text" class="form-control" id="nombre" placeholder="houl">
+      <label for="nombre">Categoria</label>
+    </div>
+  
+    <div class="form-floating mb-3">
+      <input formControlName="subcategoria" type="text" class="form-control" id="nombre" placeholder="houl">
+      <label for="nombre">Subcategoria</label>
+    </div>
+  
+    <div class="form-floating mb-3">
+      <input formControlName="editorial" type="text" class="form-control" id="nombre" placeholder="houl">
+      <label for="nombre">Editorial</label>
+    </div>
+  
+    <div class="form-floating mb-3">
+      <input formControlName="edicion" type="text" class="form-control" id="nombre" placeholder="houl">
+      <label for="nombre">Edición</label>
+    </div>
+  
+    <div align="center">
+  
+      <button [disabled]="formEst.invalid" (click)="option()"  type="button" class="btn btn-outline-success">{{titleBtn}}</button>
+    </div>
+  
+  </form>
