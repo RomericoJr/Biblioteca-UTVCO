@@ -25,6 +25,30 @@
   </div>
 </div>
 
- 
+<div class="container" *ngFor="let estadiasBook of estadiasBooks">
+  <div class="row row-cols-7">
+    <div class="col">
+      {{ estadiasBook.titulo }}
+    </div>
+    <div class="col">
+      {{ estadiasBook.autores }}
+    </div>
+    <div class="col">
+      {{ estadiasBook.categoria }}
+    </div>
+    <div class="col">
+      {{ estadiasBook.subcategoria }}
+    </div>
+    <div class="col">
+      {{ estadiasBook.editorial }}
+    </div>
+    <div class="col">
+      {{ estadiasBook.edicion }}
+    </div>
+    <div class="col">
+      <br>
+      <button type="button" class="btn btn-danger" (click)="deleteEstadiasBook(estadiasBook.id)">Eliminar</button>
+      <button type="button" class="btn btn-warning" (click)="editEstBook(estadiasBook)">Editar</button>
+</div>
        
 </div>

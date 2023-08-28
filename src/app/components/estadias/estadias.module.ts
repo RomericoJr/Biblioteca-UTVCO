@@ -26,7 +26,7 @@ const routes: Routes = [
   },
   {
     path: 'list',
-    component: BookListComponent
+    component: EstadiaListComponent
   }
 ]
 
@@ -40,7 +40,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    SharedModule
+    SharedModule,
     ReactiveFormsModule
 
   ],exports: [
