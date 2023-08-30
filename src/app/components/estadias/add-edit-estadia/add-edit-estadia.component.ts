@@ -69,7 +69,7 @@ updateEstBook(){
   });
   console.log('cacha', this.formEst.value);
   this.sweet.success('Actualizado con exito');
-  //this.route.navigateByUrl('/book/list');
+  this.route.navigateByUrl('/estadias/list');
   
 }
 
@@ -81,7 +81,7 @@ save(){
   console.log('Guardado', this.formEst.value);
   this.sweet.success('Guardado con exito');
 
-  // this.route.navigateByUrl('/book/list');
+  this.route.navigateByUrl('/estadias/list');
   
 }
 }
