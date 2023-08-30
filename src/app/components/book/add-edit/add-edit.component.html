@@ -1,7 +1,8 @@
 <app-header></app-header>
 
-  <h1>Agregar libro</h1>
+<div class="container">
 
+  <h1>Agregar libro</h1>
 
   <form [formGroup]="formBook">
 
@@ -26,6 +27,15 @@
       <label for="nombre">Categoria</label>
     </div>
 
+    <!-- <fieldset >
+      <div class="mb-3">
+        <label for="disabledSelect" class="form-label">Categoria</label>
+        <select id="disabledSelect" class="form-select">
+          <option>select 1</option>
+        </select>
+      </div>
+    </fieldset> -->
+
     <div class="form-floating mb-3">
       <input formControlName="subcategoria" type="text" class="form-control" id="nombre" placeholder="houl">
       <label for="nombre">Subcategoria</label>
@@ -47,3 +57,5 @@
     </div>
 
   </form>
+
+</div>

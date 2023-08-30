@@ -69,7 +69,7 @@ constructor(
 
     console.log('cacha',this.formBook.value);
     this.sweet.success('Actualizado con exito');
-    this.route.navigateByUrl('/book/list');
+    this.route.navigateByUrl('/book/read');
   }
 
   save() {

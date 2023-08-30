@@ -106,11 +106,5 @@ export class BookFirebaseService {
     });
   }
 
-  
-  
-
-
-
-
 
 }

@@ -11,7 +11,8 @@ import { PresListComponent } from './pres-list/pres-list.component';
 import { ApartComponent } from './apart/apart.component';
 import { ApartListComponent } from './apart-list/apart-list.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-
+import { CategoryComponent } from './category/category.component';
+import { CategoryListComponent } from './category-list/category-list.component';
 const routes: Routes = [
   {
     path: 'add',
@@ -47,7 +48,18 @@ const routes: Routes = [
     component: ApartListComponent
   },
   {
-
+    path: 'category',
+    component: CategoryComponent
+  },
+  {
+    path: 'category-list',
+    component: CategoryListComponent
+  },
+  {
+    path: 'editCatego/:id',
+    component: CategoryComponent
+  },
+  {
     path: '**',
     redirectTo: 'read',
   }
@@ -61,7 +73,9 @@ const routes: Routes = [
     BookPrestComponent,
     PresListComponent,
     ApartComponent,
-    ApartListComponent
+    ApartListComponent,
+    CategoryComponent,
+    CategoryListComponent,
   ],
   imports: [
     CommonModule,
