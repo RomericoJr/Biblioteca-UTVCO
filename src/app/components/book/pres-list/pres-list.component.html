@@ -1,3 +1,38 @@
 <app-header></app-header>
 
-<p>pres-list works!</p>
+<div class="container">
+
+
+ <div class="row row-cols-7">
+  <div class="col">
+  ISBN
+  </div>
+  <div class="col">
+    Matricula Estudiante
+  </div>
+  <div class="col">
+    Acciones
+  </div>
+
+</div>
+
+ <div class="container" *ngFor="let presta of prests">
+    <div class="row row-cols-7">
+      <div class="col">
+        {{ presta.isbn }}
+      </div>
+      <div class="col">
+        {{ presta.matriculaEst }}
+      </div>
+
+      <div class="col">
+        <br>
+        <button type="button" class="btn btn-danger" (click)="deletePrest(prests)">Eliminar</button>
+
+
+        <button type="button" class="btn btn-warning">Editar</button>
+      </div>
+    </div>
+  </div>
+
+</div>

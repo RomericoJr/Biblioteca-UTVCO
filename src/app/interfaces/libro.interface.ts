@@ -39,3 +39,6 @@ export default interface Apartado {
     matricula: string;
 }
 
+export default interface Category {
+    category: string;
+}

@@ -3,24 +3,24 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">autores</th>
-      <th scope="col">categoria</th>
-      <th scope="col">edicion</th>
-      <th scope="col">editorial</th>
-      <th scope="col">id</th>
-      <th scope="col">isbn</th>
-      <th scope="col">subcategoria</th>
-      <th scope="col">titulo</th>
+      <th scope="col">Id</th>
+      <th scope="col">Autores</th>
+      <th scope="col">Categoria</th>
+      <th scope="col">Edicion</th>
+      <th scope="col">Editorial</th>
+      <th scope="col">Isbn</th>
+      <th scope="col">Subcategoria</th>
+      <th scope="col">Titulo</th>
       <th scope="col">Acción</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let book of books">
+      <th>{{book.id}}</th>
       <th>{{book.autores}}</th>
       <th>{{book.categoria}}</th>
       <th>{{book.edicion}}</th>
       <th>{{book.editorial}}</th>
-      <th>{{book.id}}</th>
       <th>{{book.isbn}}</th>
       <th>{{book.subcategoria}}</th>
       <th>{{book.titulo}}</th>
