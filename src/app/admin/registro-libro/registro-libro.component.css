@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Raleway, sans-serif;
+}
+
+/* Estilos para el contenedor principal */
+.login-background {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 120vh;
+  width: 100%;
+  background: #EAEAEA;
+  /* Color de fondo del contenedor */
+  position: relative;
+}
+
+/* Estilos para el formulario */
+.custom-form {
+  width: 100%;
+  /* Ajustar el ancho al 100% del contenedor */
+  max-width: 750px;
+  /* Limitar el ancho máximo */
+  background-color: #fff;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  /* Ajustar el padding para que se vea más equilibrado */
+  animation: fadeIn 0.5s ease-in-out;
+
+  /* Ajustar la altura de la card (formulario) */
+  height: auto;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilos para los campos del formulario */
+.custom-form input {
+  margin-bottom: 10px;
+}
+
+.custom-form h2 {
+  margin-bottom: 20px;
+}
+
+/* Ajustar el contenido del formulario para evitar que se solape con la navbar */
+.custom-form {
+  margin-top: 80px; /* Ajustar este valor según el tamaño de la navbar */
+}
+
+/* Estilos para el contenido del formulario en pantallas pequeñas */
+@media (max-width: 767px) {
+  .custom-form {
+    margin-top: 60px; /* Ajustar este valor según el tamaño de la navbar */
+  }
+}
+
+/* Estilos personalizados para la barra de navegación */
+.navbar-custom {
+  background-color: #B95835 !important;
+}
