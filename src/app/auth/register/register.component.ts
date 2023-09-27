@@ -39,5 +39,10 @@ onSubmit() {
   //}).catch((error)=>{
     //error;
   //});
+  showPassword: boolean = false;
+
+  VerPassW() {
+    this.showPassword = !this.showPassword;
+  }
 }
 

@@ -20,6 +20,8 @@ import { RegistroLibroComponent } from './admin/registro-libro/registro-libro.co
 import { EditarLibroComponent } from './admin/editar-libro/editar-libro.component';
 import { InicioAdmComponent } from './admin/inicio-adm/inicio-adm.component';
 import { LibrosPrestadosComponent } from './admin/libros-prestados/libros-prestados.component';
+import { LoginAdminComponent } from './admin/login-admin/login-admin.component';
+import { RegistroAdminComponent } from './admin/registro-admin/registro-admin.component';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { LibrosPrestadosComponent } from './admin/libros-prestados/libros-presta
     EditarLibroComponent,
     InicioAdmComponent,
     LibrosPrestadosComponent,
+    LoginAdminComponent,
+    RegistroAdminComponent,
 
   ],
   imports: [
