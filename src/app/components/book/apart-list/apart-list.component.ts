@@ -31,4 +31,8 @@ async deleteApart(id: any) {
   console.log('Eliminado libro con ID:', id);
 }
 
+apartar(aparto:any){
+
+}
+
 }

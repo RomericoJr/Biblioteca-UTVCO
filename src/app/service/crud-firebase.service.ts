@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
- import { Firestore, collectionData } from '@angular/fire/firestore';
+import { Firestore, collectionData } from '@angular/fire/firestore';
 import { collection, addDoc, query, where, getDocs, doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { Observable } from 'rxjs';
 
@@ -13,7 +13,7 @@ export class CrudFirebaseService {
     private firestore: Firestore
     ) { }
 
-    
+
 
   guardarWord( word: any){
     const wordRef = collection(this.firestore, 'words');

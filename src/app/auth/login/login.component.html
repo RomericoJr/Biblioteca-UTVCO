@@ -1,19 +1,25 @@
-<p>login works!</p>
-<h2>Login de usuario</h2>
-<form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
-    <div class="mb-3">
-        <label class="form-label">Email</label>
-        <input type="text" class="form-control" formControlName="email">
+<!-- login.component.html -->
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="text-center">Iniciar sesión</h4>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="mb-3">
+              <label for="username" class="form-label">Nombre de usuario</label>
+              <input type="text" class="form-control" id="username" placeholder="Ingresa tu nombre de usuario">
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
+          </form>
+        </div>
+      </div>
     </div>
-    <div class="mb-3">
-        <label class="form-label">Password</label>
-        <input type="password" class="form-control" formControlName="password">
-    </div>
-    <div class="mb-3">
-        <p>
-            ¿Haz olvidado tú contraseña? <a [routerLink]="['/forgot-password']"> Recuperar contraseña</a>
-        </p>
-    </div>
-    <input type="submit" value="Enviar">
-</form>
-<!--<button class="btn btn-info" (click)="onClick()">Login With Google</button>-->
+  </div>
+</div>

@@ -1,4 +1,4 @@
-<app-nav-bar></app-nav-bar>
+<app-header></app-header>
 
 <div class="container">
 
@@ -27,9 +27,9 @@
 
       <div class="col">
         <br>
-        <button type="button" class="btn btn-danger" (click)="deleteApart(aparto.id)">Eliminar</button>
+        <!-- <button type="button" class="btn btn-danger" (click)="deleteApart(aparto.id)">Eliminar</button> -->
 
-        <button type="button" class="btn btn-warning">Editar</button>
+        <button type="button" (click)="apartar(aparto)" class="btn btn-warning">Apartar</button>
       </div>
     </div>
   </div>

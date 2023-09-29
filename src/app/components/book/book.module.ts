@@ -46,11 +46,11 @@ const routes: Routes = [
     path: 'apart-list',
     component: ApartListComponent
   },
-  {
+  // {
 
-    path: '**',
-    redirectTo: 'read',
-  }
+  //   path: '**',
+  //   redirectTo: 'read',
+  // }
 ]
 
 
