@@ -1,4 +1,4 @@
-* Estilos personalizados para la barra de navegación */
+/* Estilos personalizados para la barra de navegación */
 .navbar-custom {
     background-color: #B95835 !important;
   }
@@ -80,3 +80,6 @@
   margin-top: 20px;
   font-size: 14px;
 }
+
+
+

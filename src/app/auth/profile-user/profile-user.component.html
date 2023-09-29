@@ -1,3 +1,41 @@
-<p>profile-user works!</p>
-<h1>Página principal</h1>
-<button (click)="onClick()" class="btn btn-outline-danger mt-5">Logout</button>
+
+<!--<button (click)="onClick()" class="btn btn-outline-danger mt-5">Logout</button>-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="profile-user.component.css">
+</head>
+<body>
+    <div class="perfil">
+        <h1>Perfil de Usuario</h1>
+        <form>
+            <div class="foto-perfil">
+                <img src="assets/imagenes/perfil.jpeg" alt="Foto de perfil" id="foto">
+                <input type="file" accept="image/*" id="foto-input">
+                <label for="foto-input">Cambiar Foto</label>
+                
+            </div>
+            
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br>
+
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" required><br>
+
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" name="correo" required><br>
+
+            <label for="matricula">Matrícula:</label>
+            <input type="text" id="matricula" name="matricula" required><br>
+
+            <label for="grupo">Grupo:</label>
+            <input type="text" id="grupo" name="grupo" required><br>
+
+            <input type="submit" value="Guardar">
+        </form>
+    </div>
+</body>
+</html>

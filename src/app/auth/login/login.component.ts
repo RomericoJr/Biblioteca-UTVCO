@@ -24,6 +24,12 @@ import { AuthFirebaseService } from 'src/app/service/auth-firebase.service';
 })
 export class LoginComponent implements OnInit {
 
+  showPassword: boolean = false;
+
+  VerPassW() {
+    this.showPassword = !this.showPassword;
+  }
+
   formLogin: FormGroup;
 
   constructor(
