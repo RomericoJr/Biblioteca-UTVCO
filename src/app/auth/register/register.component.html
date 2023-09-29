@@ -29,12 +29,12 @@
         <input type="password" class="form-control" formControlName="password" id="password" placeholder="Password">
     </div>
     <input type="submit" value="Regristrar">
-</form> 
+</form>
 
 REGISTRO USUARIO -->
 <div class="login background">
   <img src="assets/imagenes/fondolog.png" alt="Fondo de inicio de sesión" class="background-image">
-  <form class="custom-form">
+  <form class="custom-form" [formGroup]="formLogin">
       <h1><img src="assets/imagenes/logout.png"></h1>
       <h2>Registrar</h2>
       <label for="email" class="form-label">Correo Electrónico</label>
