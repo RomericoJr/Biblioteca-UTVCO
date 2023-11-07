@@ -21,20 +21,30 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="fa fa-home"></i> Inicio
+       
+       
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
+            libros
           </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/listalibros']" href="#">
-            <i class="fa fa-book"></i>Libros
-          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" [routerLink]="['/listalibros']" href="#">Lista de libros</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/registroLibro']" href="#">Reguistro de libros</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/libros-prestados']" href="#">Libros prestados</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/']" href="#">Libros apartados</a></li>
+
+
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
         </li>
         
+        
+        
         <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/registroLibro']" href="#">
-              <i class="fa fa-book"></i> Registro de libros
+            <a class="nav-link" [routerLink]="['/']" href="#">
+              <i class="fa fa-book"></i> Registro de Estadias
             </a>
           </li>
         <li class="nav-item">

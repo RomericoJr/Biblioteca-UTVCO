@@ -49,13 +49,15 @@
   }
 
  /* Estilos para centrar la imagen */
-.background-container {
+ .background-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background-color: #f8f8f8;
+  background-size: cover; /* Añadir esta línea */
 }
+
 
 .background-container img {
   max-width: 100%;
@@ -69,7 +71,9 @@
   background-color: #262626;
   color: #fff;
   padding: 50px 0;
+  margin-top: 20px; /* Agrega margen superior para separar del contenido anterior */
 }
+
 
 .footer-text {
   font-size: 18px;
@@ -79,4 +83,14 @@
 .footer-author {
   margin-top: 20px;
   font-size: 14px;
+}
+
+/* Estilos para botones en el menú de navegación */
+.navbar-nav li a {
+  padding: 0.5rem 1rem; /* Ajusta el espaciado de los enlaces en la navegación */
+}
+
+/* Estilos específicos para dispositivos móviles */
+@media (max-width: 768px) {
+  /* Agregar estilos específicos para pantallas pequeñas aquí */
 }
