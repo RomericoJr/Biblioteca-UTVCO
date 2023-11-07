@@ -33,6 +33,7 @@
 
 REGISTRO USUARIO -->
 <div class="login background">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <img src="assets/imagenes/fondolog.png" alt="Fondo de inicio de sesión" class="background-image">
   <form class="custom-form" [formGroup]="formLogin">
       <h1><img src="assets/imagenes/logout.png"></h1>
@@ -54,8 +55,8 @@ REGISTRO USUARIO -->
           <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" placeholder="Contraseña" id="password" name="password" formControlName="password" />
           <span class="show-password" (click)="VerPassW()">{{ showPassword ? 'Ocultar' : 'Ver' }} Contraseña</span>
       </div>
-      <a href="#" class="link">Ya tienes una cuenta?</a>
+      <!--<a href="#" class="link">Ya tienes una cuenta?</a>-->
 
-      <button>Iniciar Sesión</button>
+      <button>Registrar</button>
   </form>
 </div>

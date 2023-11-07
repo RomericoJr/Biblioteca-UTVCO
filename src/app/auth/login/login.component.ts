@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
     this.auth.login(this.formLogin.value)
       .then(response => {
         console.log(response);
-        this.router.navigate(['/home'])
+        this.router.navigate(['/inicio-adm'])
       })
       .catch(error => console.log(error));
   }
