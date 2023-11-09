@@ -14,14 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { BookListComponent } from './components/book/book-list/book-list.component';
 import { FiltBookPipe } from './components/filt-book.pipe';
-//Nuevas importaciones
-import { ListaLibrosComponent } from './admin/lista-libros/lista-libros.component';
-import { RegistroLibroComponent } from './admin/registro-libro/registro-libro.component';
-import { EditarLibroComponent } from './admin/editar-libro/editar-libro.component';
-import { InicioAdmComponent } from './admin/inicio-adm/inicio-adm.component';
-import { LibrosPrestadosComponent } from './admin/libros-prestados/libros-prestados.component';
-import { LoginAdminComponent } from './admin/login-admin/login-admin.component';
-import { RegistroAdminComponent } from './admin/registro-admin/registro-admin.component';
+
 
 
 @NgModule({
@@ -29,13 +22,6 @@ import { RegistroAdminComponent } from './admin/registro-admin/registro-admin.co
     AppComponent,
     BookListComponent,
     FiltBookPipe,
-    ListaLibrosComponent,
-    RegistroLibroComponent,
-    EditarLibroComponent,
-    InicioAdmComponent,
-    LibrosPrestadosComponent,
-    LoginAdminComponent,
-    RegistroAdminComponent,
 
   ],
   imports: [
@@ -45,14 +31,14 @@ import { RegistroAdminComponent } from './admin/registro-admin/registro-admin.co
     BookModule,
     EstadiasModule,
     HeaderModule,
-   
+
     ReactiveFormsModule,
-    
+
     AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
-    
+
 
   ],
   providers: [],
