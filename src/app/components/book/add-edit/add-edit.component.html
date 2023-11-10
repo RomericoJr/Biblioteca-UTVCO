@@ -1,61 +1,64 @@
 <app-header></app-header>
 
-<div class="container">
+<div class="container mt-5">
+  <div class="card shadow-lg p-4">
+    <h1 class="text-center mb-4">Agregar Libro</h1>
 
-  <h1>Agregar libro</h1>
+    <form [formGroup]="formBook">
 
-  <form [formGroup]="formBook">
-
-
-    <div class="form-floating mb-3">
-      <input formControlName="isbn" type="text" class="form-control" id="algo" placeholder="Hola">
-      <label for="algo">Isbn</label>
-    </div>
-
-    <div class="form-floating mb-3">
-      <input formControlName="titulo" type="text" class="form-control" id="nombre" placeholder="houl">
-      <label for="nombre">Iitulo</label>
-    </div>
-
-    <div class="form-floating mb-3">
-      <input formControlName="autores" type="text" class="form-control" id="nombre" placeholder="houl">
-      <label for="nombre">Autores</label>
-    </div>
-
-    <div class="form-floating mb-3">
-      <input formControlName="categoria" type="text" class="form-control" id="nombre" placeholder="houl">
-      <label for="nombre">Categoria</label>
-    </div>
-
-    <!-- <fieldset >
       <div class="mb-3">
-        <label for="disabledSelect" class="form-label">Categoria</label>
-        <select id="disabledSelect" class="form-select">
-          <option>select 1</option>
-        </select>
+        <div class="form-floating">
+          <input formControlName="isbn" type="text" class="form-control" id="isbn" placeholder=" ">
+          <label for="isbn">ISBN</label>
+        </div>
       </div>
-    </fieldset> -->
 
-    <div class="form-floating mb-3">
-      <input formControlName="subcategoria" type="text" class="form-control" id="nombre" placeholder="houl">
-      <label for="nombre">Subcategoria</label>
-    </div>
+      <div class="mb-3">
+        <div class="form-floating">
+          <input formControlName="titulo" type="text" class="form-control" id="titulo" placeholder=" ">
+          <label for="titulo">Título</label>
+        </div>
+      </div>
 
-    <div class="form-floating mb-3">
-      <input formControlName="editorial" type="text" class="form-control" id="nombre" placeholder="houl">
-      <label for="nombre">Editorial</label>
-    </div>
+      <div class="mb-3">
+        <div class="form-floating">
+          <input formControlName="autores" type="text" class="form-control" id="autores" placeholder=" ">
+          <label for="autores">Autores</label>
+        </div>
+      </div>
 
-    <div class="form-floating mb-3">
-      <input formControlName="edicion" type="text" class="form-control" id="nombre" placeholder="houl">
-      <label for="nombre">Edición</label>
-    </div>
+      <div class="mb-3">
+        <div class="form-floating">
+          <input formControlName="categoria" type="text" class="form-control" id="categoria" placeholder=" ">
+          <label for="categoria">Categoría</label>
+        </div>
+      </div>
 
-    <div align="center">
+      <div class="mb-3">
+        <div class="form-floating">
+          <input formControlName="subcategoria" type="text" class="form-control" id="subcategoria" placeholder=" ">
+          <label for="subcategoria">Subcategoría</label>
+        </div>
+      </div>
 
-      <button [disabled]="formBook.invalid" (click)="option()"  type="button" class="btn btn-outline-success">{{titleBtn}}</button>
-    </div>
+      <div class="mb-3">
+        <div class="form-floating">
+          <input formControlName="editorial" type="text" class="form-control" id="editorial" placeholder=" ">
+          <label for="editorial">Editorial</label>
+        </div>
+      </div>
 
-  </form>
+      <div class="mb-3">
+        <div class="form-floating">
+          <input formControlName="edicion" type="text" class="form-control" id="edicion" placeholder=" ">
+          <label for="edicion">Edición</label>
+        </div>
+      </div>
 
+      <div class="d-grid gap-2">
+        <button [disabled]="formBook.invalid" (click)="option()" type="button" class="btn btn-success" style="background-color: #7A3E48;">Guardar</button>
+      </div>
+
+    </form>
+  </div>
 </div>

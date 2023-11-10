@@ -11,10 +11,10 @@ body {
 
 .perfil {
     text-align: center;
-    background-color: #ffffff;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    width: 50%;
 }
 
 h1 {
@@ -31,11 +31,12 @@ label {
 }
 
 input {
-    width: 100%;
+    width: calc(100% - 22px);
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
 .foto-perfil {
@@ -50,13 +51,14 @@ input {
     object-fit: cover;
     margin-bottom: 10px;
 }
-
-#foto-input {
-    display: none;
+/* Cambios para centrar el botón */
+.cambiar-foto {
+    display: flex; /* Contenedor flexible */
+    flex-direction: column; /* Elementos apilados verticalmente */
+    align-items: center; /* Centrado horizontalmente */
 }
 
 label[for="foto-input"] {
-
     background-color: #B95835;
     color: #fff;
     padding: 10px 15px;
@@ -68,4 +70,49 @@ label[for="foto-input"] {
 
 label[for="foto-input"]:hover {
     background-color: #B95835;
+}
+
+#foto-input {
+    display: none;
+}
+
+
+
+/* Estilo para el botón "Cambiar Foto" */
+input[type="submit"], label[for="foto-input"] {
+    background-color: #7A3E48;
+    color: #fff;
+    padding: 8px 12px; /* Ajusta el padding según tus preferencias */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 10px; /* Ajusta el margen derecho según tus preferencias */
+}
+
+input[type="submit"]:hover, label[for="foto-input"]:hover {
+    background-color: #593132;
+}
+
+
+
+/* Estilo para el botón "Guardar" */
+input[type="submit"] {
+    background-color: #7A3E48;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #593132;
+}
+
+@media (max-width: 768px) {
+    .perfil {
+        width: 80%;
+    }
 }

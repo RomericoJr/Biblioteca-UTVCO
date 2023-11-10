@@ -1,26 +1,25 @@
 <app-header></app-header>
 
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Lista de Categorías</h2>
 
-  <<div class="container">
-
- <div class="row row-cols-7">
-  <div class="col">
-  Categorias
-  </div>
-  <div class="col">
-  Acciones
-  </div>
+  <table class="table">
+    <thead>
+      <tr class="text-white">
+        <th scope="col" class="text-center">Categorías</th>
+        <th scope="col" class="text-center">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let catego of categorias">
+        <tr>
+          <td class="text-center">{{ catego.category }}</td>
+          <td class="text-center">
+            <button type="button" class="btn btn-danger" (click)="deleteCategory(catego.id)">Eliminar</button>
+            <button type="button" class="btn btn-warning" (click)="editCatego(catego)">Editar</button>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
 </div>
-
- <!-- <div class="container" *ngFor="let book of books | filtBook:filterBook"> -->
- <div class="container" *ngFor="let catego of categorias">
-    <div class="row row-cols-7">
-      <div class="col">
-        {{ catego.category }}
-      </div>
-      <div class="col">
-        <br>
-        <button type="button" class="btn btn-danger" (click)="deleteCategory(catego.id)" >Eliminar</button>
-        <!-- <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="updateBook(book)">Editar</button> -->
-        <button type="button" class="btn btn-warning" (click)="editCatego(catego)">Editar</button>
-    </div>

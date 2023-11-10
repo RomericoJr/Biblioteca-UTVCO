@@ -1,37 +1,27 @@
 <app-header></app-header>
 
-<div class="container">
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Lista de Libros Apartados</h2>
 
-
- <div class="row row-cols-7">
-  <div class="col">
-  Titulo
-  </div>
-  <div class="col">
-    Matricula
-  </div>
-  <div class="col">
-    Acciones
-  </div>
-
-</div>
-
- <div class="container" *ngFor="let aparto of aparts">
-    <div class="row row-cols-7">
-      <div class="col">
-        {{ aparto.titulo }}
-      </div>
-      <div class="col">
-        {{ aparto.matricula }}
-      </div>
-
-      <div class="col">
-        <br>
-        <button type="button" class="btn btn-danger" (click)="deleteApart(aparto.id)">Eliminar</button>
-
-        <button type="button" class="btn btn-warning">Editar</button>
-      </div>
-    </div>
-  </div>
-
+  <table class="table">
+    <thead>
+      <tr class="text-white">
+        <th scope="col" class="text-center">Título</th>
+        <th scope="col" class="text-center">Matrícula</th>
+        <th scope="col" class="text-center">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let aparto of aparts">
+        <tr>
+          <td class="text-center">{{ aparto.titulo }}</td>
+          <td class="text-center">{{ aparto.matricula }}</td>
+          <td class="text-center">
+            <button type="button" class="btn btn-danger" (click)="deleteApart(aparto.id)">Eliminar</button>
+            <button type="button" class="btn btn-warning">Editar</button>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
 </div>

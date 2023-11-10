@@ -1,66 +1,74 @@
-
-
-
-  <div class="container">
-
-  <!-- <input
-    type="text"
-    class="forms-control"
-    placeholder="Buscar libro"
-    [(ngModel)]="filterBook"
-    name="filterBook"
-  /> -->
-
-
- <div class="row row-cols-7">
-  <div class="col">
-  Isbn
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
+  <a class="navbar-brand" href="#">
+    <img src="./assets/imagenes/logoblanco.png" width="70" height="50" class="d-inline-block align-top">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto"> <!-- Agregado ml-auto -->
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/inicio-adm']" href="#">
+          <i class="fa fa-home"></i> Inicio
+        </a>
+      </li>
+    </ul>
   </div>
-  <div class="col">
-    Titulo
-  </div>
-  <div class="col">
-    Autores
-  </div>
-  <div class="col">
-    Categoria
-  </div>
-  <div class="col">
-    Subcategoria
-  </div>
-  <div class="col">
-    Editorial
-  </div>
-  <div class="col">
-    Acciones
-  </div>
-</div>
+</nav>
 
- <!-- <div class="container" *ngFor="let book of books | filtBook:filterBook"> -->
- <div class="container" *ngFor="let book of books">
-    <div class="row row-cols-7">
-      <div class="col">
-        {{ book.titulo }}
-      </div>
-      <div class="col">
-        {{ book.autores }}
-      </div>
-      <div class="col">
-        {{ book.categoria }}
-      </div>
-      <div class="col">
-        {{ book.subcategoria }}
-      </div>
-      <div class="col">
-        {{ book.editorial }}
-      </div>
-      <div class="col">
-        {{ book.edicion }}
-      </div>
-      <div class="col">
-        <br>
-        <button type="button" class="btn btn-danger" (click)="deleteBook(book.id)">Eliminar</button>
-        <!-- <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="updateBook(book)">Editar</button> -->
-        <button type="button" class="btn btn-warning" (click)="editarBook(book)">Editar</button>
 
-</div>
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Lista de Libros</h2>
+
+  <!-- Search bar (if needed) -->
+  <!--
+  <input
+      type="text"
+      class="form-control"
+      placeholder="Buscar libro"
+      [(ngModel)]="filterBook"
+      name="filterBook"
+  />
+  -->
+
+  <!-- Table header -->
+
+  
+  <div class="container ">
+  
+    <div class="table-responsive">
+      <table class="table ">
+        <thead>
+          <tr>
+            <th scope="col">ISBN</th>
+            <th scope="col">Titulo</th>
+            <th scope="col">Autores</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Subcategoria</th>
+            <th scope="col">Editorial</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let book of books">
+            <tr>
+              <td>{{ book.isbn }}</td>
+              <td>{{ book.titulo }}</td>
+              <td>{{ book.autores }}</td>
+              <td>{{ book.categoria }}</td>
+              <td>{{ book.subcategoria }}</td>
+              <td>{{ book.editorial }}</td>
+              <td>
+                <button type="button" class="btn btn-danger" (click)="deleteBook(book.id)">Eliminar</button>
+                <button type="button" class="btn btn-warning" (click)="editarBook(book)">Editar</button>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  
+  

@@ -1,29 +1,31 @@
 <app-header></app-header>
 
-  <h1>Realizar un prestamo</h1>
+<div class="container mt-5">
+  <div class="card shadow-lg p-4">
+    <h1 class="text-center mb-4">Realizar un Préstamo</h1>
 
+    <form [formGroup]="formPrest">
 
-  <form [formGroup]="formPrest">
-  
-  
-    <div class="form-floating mb-3">
-      <input formControlName="isbn" type="text" class="form-control" id="algo" placeholder="Hola">
-      <label for="algo">Isbn</label>
-    </div>
-  
-    <div class="form-floating mb-3">
-      <input formControlName="matriculaEst" type="text" class="form-control" id="nombre" placeholder="houl">
-      <label for="nombre">Matricula Estudiante</label>
-    </div>
+      <div class="mb-3">
+        <div class="form-floating">
+          <input formControlName="isbn" type="text" class="form-control" id="isbn" placeholder=" ">
+          <label for="isbn">ISBN</label>
+        </div>
+      </div>
 
-    <!-- <label for="fecha">Fecha:</label>
-  <input type="date" id="fecha" name="fecha" [(ngModel)]="selectedDate"> -->
-   
- 
-    <div align="center">
-  
-      <button [disabled]="formPrest.invalid" (click)="save()"  type="button" class="btn btn-outline-success">guardar</button>
-    </div>
-  
-  </form>
+      <div class="mb-3">
+        <div class="form-floating">
+          <input formControlName="matriculaEst" type="text" class="form-control" id="matriculaEst" placeholder=" ">
+          <label for="matriculaEst">Matrícula del Estudiante</label>
+        </div>
+      </div>
 
+      <!-- Agregar otros campos según sea necesario -->
+
+      <div class="d-grid gap-2">
+        <button [disabled]="formPrest.invalid" (click)="save()" type="button" class="btn btn-success" style="background-color: #7A3E48;">Guardar</button>
+      </div>
+
+    </form>
+  </div>
+</div>
