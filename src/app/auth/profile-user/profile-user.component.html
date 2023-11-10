@@ -14,25 +14,44 @@
         <form>
             <div class="foto-perfil">
                 <img src="assets/imagenes/perfil.jpeg" alt="Foto de perfil" id="foto">
-                <input type="file" accept="image/*" id="foto-input">
-                <label for="foto-input">Cambiar Foto</label>
-                
+                <div class="cambiar-foto">
+                    <label for="foto-input">Cambiar Foto</label>
+                    <input type="file" accept="image/*" id="foto-input">
+                </div>
             </div>
             
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required><br>
+            <div class="mb-3">
+                <div class="form-floating">
+                  <input formControlName="subcategoria" type="text" class="form-control" id="subcategoria" placeholder=" ">
+                  <label for="subcategoria">Nombre</label>
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="form-floating">
+                  <input formControlName="subcategoria" type="text" class="form-control" id="subcategoria" placeholder=" ">
+                  <label for="subcategoria">Apellido</label>
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="form-floating">
+                  <input formControlName="subcategoria" type="text" class="form-control" id="subcategoria" placeholder=" ">
+                  <label for="subcategoria">Correo Electrónico:</label>
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="form-floating">
+                  <input formControlName="subcategoria" type="text" class="form-control" id="subcategoria" placeholder=" ">
+                  <label for="subcategoria">Matrícula:</label>
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="form-floating">
+                  <input formControlName="subcategoria" type="text" class="form-control" id="subcategoria" placeholder=" ">
+                  <label for="subcategoria">Grupo:</label>
+                </div>
+              </div>
 
-            <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" required><br>
 
-            <label for="correo">Correo Electrónico:</label>
-            <input type="email" id="correo" name="correo" required><br>
-
-            <label for="matricula">Matrícula:</label>
-            <input type="text" id="matricula" name="matricula" required><br>
-
-            <label for="grupo">Grupo:</label>
-            <input type="text" id="grupo" name="grupo" required><br>
 
             <input type="submit" value="Guardar">
         </form>

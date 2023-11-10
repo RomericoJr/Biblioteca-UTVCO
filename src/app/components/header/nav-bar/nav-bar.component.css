@@ -1,28 +1,4 @@
 /* Estilos personalizados para la barra de navegación */
 .navbar-custom {
-    background-color: #B95835 !important;
-  }
-
-  .btn-rounded {
-    width: 30px; /* Reducir el ancho del botón */
-    height: 30px; /* Agregar una altura fija al botón */
-    margin: 5px; /* Agregar un margen entre los botones */
-    display: inline-flex; /* Cambiar a display inline-flex para centrar el contenido */
-    justify-content: center; /* Centrar horizontalmente el contenido del botón */
-    align-items: center; /* Centrar verticalmente el contenido del botón */
-    text-align: center; /* Alinear el contenido del botón al centro */
-    line-height: 1; /* Eliminar el espacio vertical adicional */
-  }
-  
-  .material-symbols-outlined {
-    font-size: 20px; /* Tamaño del icono */
-    line-height: 1; /* Eliminar el espacio vertical adicional */
-  }
-  
-  
-  
-  
-  .btn-rounded {
-    /* ... (otros estilos) ... */
-    border-radius: 15px; /* Agregar bordes redondeados */
-  }
+  background-color: #E18942 !important;
+}

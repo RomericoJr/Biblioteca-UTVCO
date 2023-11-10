@@ -1,33 +1,37 @@
 <app-header></app-header>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Autores</th>
-      <th scope="col">Categoria</th>
-      <th scope="col">Edicion</th>
-      <th scope="col">Editorial</th>
-      <th scope="col">Isbn</th>
-      <th scope="col">Subcategoria</th>
-      <th scope="col">Titulo</th>
-      <th scope="col">Acción</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let book of books">
-      <th>{{book.id}}</th>
-      <th>{{book.autores}}</th>
-      <th>{{book.categoria}}</th>
-      <th>{{book.edicion}}</th>
-      <th>{{book.editorial}}</th>
-      <th>{{book.isbn}}</th>
-      <th>{{book.subcategoria}}</th>
-      <th>{{book.titulo}}</th>
-      <th>
-        <button class="btn btn-danger" (click)="deleteBook(book.id)">Eliminar</button>
-        <button class="btn btn-warning" (click)="editBook(book)">Editar</button>
-      </th>
-    </tr>
-  </tbody>
-</table>
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Lista de Libros Admi</h2>
+
+  <table class="table">
+    <thead>
+      <tr class="text-white">
+        <th scope="col" class="text-center">ID</th>
+        <th scope="col" class="text-center">Autores</th>
+        <th scope="col" class="text-center">Categoría</th>
+        <th scope="col" class="text-center">Edición</th>
+        <th scope="col" class="text-center">Editorial</th>
+        <th scope="col" class="text-center">ISBN</th>
+        <th scope="col" class="text-center">Subcategoría</th>
+        <th scope="col" class="text-center">Título</th>
+        <th scope="col" class="text-center">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books">
+        <td class="text-center">{{book.id}}</td>
+        <td class="text-center">{{book.autores}}</td>
+        <td class="text-center">{{book.categoria}}</td>
+        <td class="text-center">{{book.edicion}}</td>
+        <td class="text-center">{{book.editorial}}</td>
+        <td class="text-center">{{book.isbn}}</td>
+        <td class="text-center">{{book.subcategoria}}</td>
+        <td class="text-center">{{book.titulo}}</td>
+        <td class="text-center">
+          <button class="btn btn-danger" (click)="deleteBook(book.id)">Eliminar</button>
+          <button class="btn btn-warning" (click)="editBook(book)">Editar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

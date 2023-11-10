@@ -1,63 +1,13 @@
-* Estilos personalizados para la barra de navegación */
-.navbar-custom {
-    background-color: #B95835 !important;
-  }
-  
-  
-  /* Cambiar color del encabezado de la tabla */
-  .table thead th {
-    background-color: #D9D9D9;
-    color: black; /* Cambiar color del texto a negro */
-  }
-  
-  /* Estilos personalizados para la tabla */
-  .table-container {
-    margin-top: 20px;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  /* Agregar estilos para el contenedor de los botones */
-  .button-container {
-    display: flex;
-    gap: 3px;
-  }
-  
-  .btn-rounded {
-    width: 30px; /* Reducir el ancho del botón */
-    height: 30px; /* Agregar una altura fija al botón */
-    margin: 5px; /* Agregar un margen entre los botones */
-    display: inline-flex; /* Cambiar a display inline-flex para centrar el contenido */
-    justify-content: center; /* Centrar horizontalmente el contenido del botón */
-    align-items: center; /* Centrar verticalmente el contenido del botón */
-    text-align: center; /* Alinear el contenido del botón al centro */
-    line-height: 1; /* Eliminar el espacio vertical adicional */
-  }
-  
-  .material-symbols-outlined {
-    font-size: 20px; /* Tamaño del icono */
-    line-height: 1; /* Eliminar el espacio vertical adicional */
-  }
-  
-  
-  
-  
-  .btn-rounded {
-    /* ... (otros estilos) ... */
-    border-radius: 15px; /* Agregar bordes redondeados */
-  }
 
- /* Estilos para centrar la imagen */
- .background-container {
+
+/* Estilos para centrar la imagen de fondo */
+.background-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 90.2vh;
   background-color: #f8f8f8;
-  background-size: cover; /* Añadir esta línea */
 }
-
 
 .background-container img {
   max-width: 100%;
@@ -71,26 +21,31 @@
   background-color: #262626;
   color: #fff;
   padding: 50px 0;
-  margin-top: 20px; /* Agrega margen superior para separar del contenido anterior */
 }
-
 
 .footer-text {
   font-size: 18px;
   line-height: 1.8;
 }
 
+
+
 .footer-author {
   margin-top: 20px;
   font-size: 14px;
 }
 
-/* Estilos para botones en el menú de navegación */
-.navbar-nav li a {
-  padding: 0.5rem 1rem; /* Ajusta el espaciado de los enlaces en la navegación */
-}
+/* Agregar reglas de estilo para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+  .navbar-custom {
+    font-size: 14px; /* Ajustar tamaño de fuente para la barra de navegación */
+  }
 
-/* Estilos específicos para dispositivos móviles */
-@media (max-width: 768px) {
-  /* Agregar estilos específicos para pantallas pequeñas aquí */
+  .background-container {
+    height: 60vh; /* Ajustar la altura de la imagen de fondo */
+  }
+
+  .footer-text {
+    font-size: 14px; /* Ajustar tamaño de fuente para el texto del footer */
+  }
 }

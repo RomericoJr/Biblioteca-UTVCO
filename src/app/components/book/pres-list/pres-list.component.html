@@ -1,38 +1,27 @@
 <app-header></app-header>
 
-<div class="container">
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Lista de Préstamos</h2>
 
-
- <div class="row row-cols-7">
-  <div class="col">
-  ISBN
-  </div>
-  <div class="col">
-    Matricula Estudiante
-  </div>
-  <div class="col">
-    Acciones
-  </div>
-
-</div>
-
- <div class="container" *ngFor="let presta of prests">
-    <div class="row row-cols-7">
-      <div class="col">
-        {{ presta.isbn }}
-      </div>
-      <div class="col">
-        {{ presta.matriculaEst }}
-      </div>
-
-      <div class="col">
-        <br>
-        <button type="button" class="btn btn-danger" (click)="deletePrest(prests)">Eliminar</button>
-
-
-        <button type="button" class="btn btn-warning">Editar</button>
-      </div>
-    </div>
-  </div>
-
+  <table class="table">
+    <thead>
+      <tr class="text-white">
+        <th scope="col" class="text-center">ISBN</th>
+        <th scope="col" class="text-center">Matrícula Estudiante</th>
+        <th scope="col" class="text-center">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let presta of prests">
+        <tr>
+          <td class="text-center">{{ presta.isbn }}</td>
+          <td class="text-center">{{ presta.matriculaEst }}</td>
+          <td class="text-center">
+            <button type="button" class="btn btn-danger" (click)="deletePrest(prests)">Eliminar</button>
+            <button type="button" class="btn btn-warning">Editar</button>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
 </div>
