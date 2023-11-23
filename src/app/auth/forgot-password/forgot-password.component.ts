@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthFirebaseService } from 'src/app/service/auth-firebase.service';
+import { AuthFirebaseService } from 'src/app/service/firebase/auth-firebase.service';
 import {FormControl} from '@angular/forms'
 import { Router } from '@angular/router';
 
@@ -21,7 +21,7 @@ export class ForgotPasswordComponent {
     await this.authSvc.resetPassword(email);
     window.alert('El correo de recuperación se ha enviado, checa tu inbox!');
     this.router.navigate(['/login']);
-  
+
   } catch(error){
     console.log(error);
     }

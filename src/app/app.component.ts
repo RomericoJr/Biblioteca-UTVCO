@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CrudFirebaseService } from './service/crud-firebase.service';
+import { CrudFirebaseService } from './service/firebase/crud-firebase.service';
 
 @Component({
   selector: 'app-root',

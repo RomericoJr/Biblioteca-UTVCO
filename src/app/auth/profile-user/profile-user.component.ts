@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthFirebaseService } from 'src/app/service/auth-firebase.service';
+import { AuthFirebaseService } from 'src/app/service/firebase/auth-firebase.service';
 
 @Component({
   selector: 'app-profile-user',

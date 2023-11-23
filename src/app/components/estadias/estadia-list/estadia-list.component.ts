@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import Libro from 'src/app/interfaces/libro.interface';
-import { EstadiasFirebaseService } from 'src/app/service/estadias-firebase.service';
+import Libro from 'src/app/interface/libro.interface';
+import { EstadiasFirebaseService } from 'src/app/service/firebase/estadias-firebase.service';
 
 @Component({
   selector: 'app-estadia-list',

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EstadiasFirebaseService } from 'src/app/service/estadias-firebase.service';
-import { SweetAlertService } from 'src/app/service/sweet-alert.service';
+import { EstadiasFirebaseService } from 'src/app/service/firebase/estadias-firebase.service';
+import { SweetAlertService } from 'src/app/service/firebase/sweet-alert.service';
 
 @Component({
   selector: 'app-add-edit-estadia',
@@ -34,10 +34,10 @@ ngOnInit(){
       this.estadiasService.getEstBookById(this.id).subscribe((data) => {
         console.log('existo y soy', data);
         this.formEst.patchValue(data[0])
-        
+
       });
     }
-    
+
   });
 
 }
@@ -54,7 +54,7 @@ formEst: FormGroup = this.fb.group({
 
 option(){
   console.log('datos registers',this.formEst.value);
-  
+
   if(this.id){
     this.updateEstBook();
   } else {
@@ -70,7 +70,7 @@ updateEstBook(){
   console.log('cacha', this.formEst.value);
   this.sweet.success('Actualizado con exito');
   this.route.navigateByUrl('/estadias/list');
-  
+
 }
 
 save(){
@@ -82,6 +82,6 @@ save(){
   this.sweet.success('Guardado con exito');
 
   this.route.navigateByUrl('/estadias/list');
-  
+
 }
 }

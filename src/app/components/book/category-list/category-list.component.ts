@@ -1,9 +1,9 @@
 import { Component, inject } from '@angular/core';
-import Category from '../../../interfaces/libro.interface';
+import Category from '../../../interface/libro.interface';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CrudFirebaseService } from 'src/app/service/crud-firebase.service';
-import { SweetAlertService } from 'src/app/service/sweet-alert.service';
+import { CrudFirebaseService } from 'src/app/service/firebase/crud-firebase.service';
+import { SweetAlertService } from 'src/app/service/firebase/sweet-alert.service';
 
 @Component({
   selector: 'app-category-list',
