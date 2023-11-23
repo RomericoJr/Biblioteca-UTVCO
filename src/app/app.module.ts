@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { BookModule } from './components/book/book.module';
 import { EstadiasModule } from './components/estadias/estadias.module';
-import { HeaderModule } from './components/header/header.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
@@ -14,7 +13,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { BookListComponent } from './components/book/book-list/book-list.component';
 import { FiltBookPipe } from './components/filt-book.pipe';
-
+import {HttpClientModule} from '@angular/common/http';
+import { InicioComponent } from './components/inicio/inicio.component';
 
 
 @NgModule({
@@ -22,6 +22,7 @@ import { FiltBookPipe } from './components/filt-book.pipe';
     AppComponent,
     BookListComponent,
     FiltBookPipe,
+    InicioComponent,
 
   ],
   imports: [
@@ -30,7 +31,7 @@ import { FiltBookPipe } from './components/filt-book.pipe';
     AuthModule,
     BookModule,
     EstadiasModule,
-    HeaderModule,
+    HttpClientModule,
 
     ReactiveFormsModule,
 

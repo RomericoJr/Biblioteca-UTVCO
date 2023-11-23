@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { BookFirebaseService } from 'src/app/service/book-firebase.service';
-import { SweetAlertService } from 'src/app/service/sweet-alert.service';
+import { BookFirebaseService } from 'src/app/service/firebase/book-firebase.service';
+import { SweetAlertService } from 'src/app/service/firebase/sweet-alert.service';
 
 @Component({
   selector: 'app-book-prest',
@@ -26,7 +26,7 @@ export class BookPrestComponent {
     // fechaPrest: ['', Validators.required],
     // fechaDev: ['', Validators.required],
   })
-    
+
   save() {
     this.bookService.guardarPrest(
       {
@@ -34,6 +34,6 @@ export class BookPrestComponent {
         ...this.formPrest.value
       } as any);
       console.log('Guardado', this.formPrest.value);
-  
+
   }
 }

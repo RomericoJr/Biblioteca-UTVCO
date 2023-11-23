@@ -5,7 +5,6 @@ import { ReadComponent } from './read/read.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BookListComponent } from './book-list/book-list.component';
-import { HeaderModule } from '../header/header.module';
 import { BookPrestComponent } from './book-prest/book-prest.component';
 import { PresListComponent } from './pres-list/pres-list.component';
 import { ApartComponent } from './apart/apart.component';
@@ -13,7 +12,12 @@ import { ApartListComponent } from './apart-list/apart-list.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CategoryComponent } from './category/category.component';
 import { CategoryListComponent } from './category-list/category-list.component';
+import { InicioComponent } from '../inicio/inicio.component';
 const routes: Routes = [
+  {
+    path: 'inicio',
+    component: InicioComponent
+  },
   {
     path: 'add',
     component: AddEditComponent
@@ -61,7 +65,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'read',
+    redirectTo: 'inicio',
   }
 ]
 
@@ -81,7 +85,6 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
-    HeaderModule,
     FormsModule,
     SharedModule
   ],

@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import Libro from 'src/app/interfaces/libro.interface';
-import { BookFirebaseService } from 'src/app/service/book-firebase.service';
-import { SweetAlertService } from 'src/app/service/sweet-alert.service';
+import Libro from 'src/app/interface/libro.interface';
+import { BookFirebaseService } from 'src/app/service/firebase/book-firebase.service';
+import { SweetAlertService } from 'src/app/service/firebase/sweet-alert.service';
 
 @Component({
   selector: 'app-book-list',
@@ -37,7 +37,7 @@ export class BookListComponent {
     edicion: ['', Validators.required],
   })
 
- 
+
   ngOnInit(): any {
     this.bookService.getBook().subscribe(books => {
       console.log(books);
