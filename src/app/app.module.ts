@@ -14,6 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { BookListComponent } from './components/book/book-list/book-list.component';
 import { FiltBookPipe } from './components/filt-book.pipe';
+import { BookVerLComponent } from './components/book/book-ver-l/book-ver-l.component';
+import { StudentProfileComponent } from './components/student/student-profile/student-profile.component';
 
 
 
@@ -22,6 +24,10 @@ import { FiltBookPipe } from './components/filt-book.pipe';
     AppComponent,
     BookListComponent,
     FiltBookPipe,
+    BookVerLComponent,
+    StudentProfileComponent,
+    
+    
 
   ],
   imports: [

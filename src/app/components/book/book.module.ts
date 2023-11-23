@@ -13,6 +13,9 @@ import { ApartListComponent } from './apart-list/apart-list.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CategoryComponent } from './category/category.component';
 import { CategoryListComponent } from './category-list/category-list.component';
+import { BookVerLComponent } from './book-ver-l/book-ver-l.component';
+import { BooksDonarComponent } from './books-donar/books-donar.component';
+import { AddBookGeneroComponent } from './add-book-genero/add-book-genero.component';
 const routes: Routes = [
   {
     path: 'add',
@@ -52,6 +55,18 @@ const routes: Routes = [
     component: CategoryComponent
   },
   {
+    path: 'ver-librosLista',
+    component: BookVerLComponent
+  },
+  {
+    path: 'list-donarlibros',
+    component: BooksDonarComponent
+  },
+  {
+    path: 'add-book-genero',
+    component: AddBookGeneroComponent
+  },
+  {
     path: 'category-list',
     component: CategoryListComponent
   },
@@ -59,6 +74,7 @@ const routes: Routes = [
     path: 'editCatego/:id',
     component: CategoryComponent
   },
+  
   {
     path: '**',
     redirectTo: 'read',
@@ -76,6 +92,8 @@ const routes: Routes = [
     ApartListComponent,
     CategoryComponent,
     CategoryListComponent,
+    BooksDonarComponent,
+    AddBookGeneroComponent,
   ],
   imports: [
     CommonModule,
