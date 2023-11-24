@@ -1,0 +1,26 @@
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Lista de Categorías</h2>
+
+  <table class="table">
+    <thead>
+      <tr class="text-white">
+        <th scope="col" class="text-center">Categorías</th>
+        <th scope="col" class="text-center">Sucategoria</th>
+        <th scope="col" class="text-center">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let catego of subCategory">
+        <tr>
+          <td class="text-center">{{ catego.category.category }}</td>
+          <td class="text-center">{{ catego.subcategory }}</td>
+          <td class="text-center">
+            <button type="button" class="btn btn-danger" (click)="deleteSubCategory(catego.id)">Eliminar</button>
+            <button type="button" class="btn btn-warning" (click)="editSubCategory(catego)">Editar</button>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
