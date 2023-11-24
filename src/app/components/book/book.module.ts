@@ -12,9 +12,15 @@ import { ApartListComponent } from './apart-list/apart-list.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CategoryComponent } from './category/category.component';
 import { CategoryListComponent } from './category-list/category-list.component';
+ //frondentjoni
+import { BookVerLComponent } from './book-ver-l/book-ver-l.component';
+import { BooksDonarComponent } from './books-donar/books-donar.component';
+import { AddBookGeneroComponent } from './add-book-genero/add-book-genero.component';
+
 import { InicioComponent } from '../inicio/inicio.component';
 import { SubCategoryComponent } from './sub-category/sub-category.component';
 import { SubCategoryListComponent } from './sub-category-list/sub-category-list.component';
+
 const routes: Routes = [
   {
     path: 'inicio',
@@ -58,6 +64,18 @@ const routes: Routes = [
     component: CategoryComponent
   },
   {
+    path: 'ver-librosLista',
+    component: BookVerLComponent
+  },
+  {
+    path: 'list-donarlibros',
+    component: BooksDonarComponent
+  },
+  {
+    path: 'add-book-genero',
+    component: AddBookGeneroComponent
+  },
+  {
     path: 'category-list',
     component: CategoryListComponent
   },
@@ -65,6 +83,7 @@ const routes: Routes = [
     path: 'editCatego/:id',
     component: CategoryComponent
   },
+  
   {
     path: 'subcategory',
     component: SubCategoryComponent
@@ -94,6 +113,10 @@ const routes: Routes = [
     ApartListComponent,
     CategoryComponent,
     CategoryListComponent,
+ //frondentjoni
+    BooksDonarComponent,
+    AddBookGeneroComponent,
+//master
     SubCategoryComponent,
     SubCategoryListComponent,
   ],

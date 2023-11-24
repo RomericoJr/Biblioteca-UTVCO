@@ -13,8 +13,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { BookListComponent } from './components/book/book-list/book-list.component';
 import { FiltBookPipe } from './components/filt-book.pipe';
+//frondentjoni
+import { BookVerLComponent } from './components/book/book-ver-l/book-ver-l.component';
+import { StudentProfileComponent } from './components/student/student-profile/student-profile.component';
+
+
 import {HttpClientModule} from '@angular/common/http';
 import { InicioComponent } from './components/inicio/inicio.component';
+
 
 
 @NgModule({
@@ -22,7 +28,14 @@ import { InicioComponent } from './components/inicio/inicio.component';
     AppComponent,
     BookListComponent,
     FiltBookPipe,
+//frondentjoni
+    BookVerLComponent,
+    StudentProfileComponent,
+    
+    
+
     InicioComponent,
+
 
   ],
   imports: [
