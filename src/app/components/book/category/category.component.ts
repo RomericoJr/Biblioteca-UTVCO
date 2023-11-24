@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BookFirebaseService } from 'src/app/service/book-firebase.service';
-import { CrudFirebaseService } from 'src/app/service/crud-firebase.service';
-import { SweetAlertService } from 'src/app/service/sweet-alert.service';
+import { SweetAlertService } from 'src/app/service/firebase/sweet-alert.service';
+import { CategoryService } from 'src/app/service/laravel/category.service';
 
 @Component({
   selector: 'app-category',
@@ -14,37 +13,37 @@ export class CategoryComponent {
 
   constructor(
     private fb : FormBuilder,
-    private crudService: CrudFirebaseService,
     private route: Router,
     private activatedRoute: ActivatedRoute,
     private sweet : SweetAlertService,
+    private _categoryS: CategoryService
   ){}
 
-  titleText = 'Agregar Palabras';
+  titleText = 'Agregar categoria';
   titleBtn = 'Agregar';
-  id!: string;
+  id!: number;
 
   formCategory: FormGroup = this.fb.group({
-    category: ['', Validators.required],
+    category: ['', [Validators.required, Validators.minLength(3)]],
   })
 
   ngOnInit(){
-    this.activatedRoute.params.subscribe((data :any) => {
-      this.id = data.id
-      console.log(this.id);
-
-      if(data.id){
-        this.titleText = 'Actualizar Palabras';
-        this.titleBtn = 'Actualizar';
-        this.crudService.getCategoById(this.id).subscribe((data) => {
-          console.log('existo y soy ', data);
-          this.formCategory.patchValue(data[0])
-
-       });
+    this.activatedRoute.params.subscribe({
+      next: (data:any) => {
+        console.log(data);
+        this.id = data.id;
+        if(this.id){
+          this.titleText = 'Editar Categoria';
+          this.titleBtn = 'Editar';
+          this.getCategoryById(this.id);
+        }
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
     }
-      });
-    }
-  
+
   option(){
 
     if(this.id){
@@ -56,24 +55,42 @@ export class CategoryComponent {
 
 
   save() {
-    this.crudService.guardarCategory(
-    {
-      id: new Date().getTime().toString(),
-      ...this.formCategory.value
-    } as any);
-    console.log('Guardado', this.formCategory.value);
-    this.sweet.success('Guardado con exito');
-
-      this.route.navigateByUrl('/book/category-list');
+    this._categoryS.postCategory(this.formCategory.value).subscribe({
+      next: (data) => {
+        this.sweet.success('Categoria agregada correctamente');
+        this.route.navigate(['/BibliotecaUTVCO/category-list']);
+      },
+      error: (err) => {
+        this.sweet.error('Error al agregar la categoria');
+        console.log(err);
+      }
+    })
   }
 
-  updateBook(){
-    this.crudService.updateCategory(
-      {id: this.id,
-        ...this.formCategory.value});
 
-    console.log('cacha',this.formCategory.value);
-    this.sweet.success('Actualizado con exito');
-    this.route.navigateByUrl('/book/category-list');
+  updateBook(){
+    this._categoryS.putCategory(this.formCategory.value, this.id).subscribe({
+      next: (data) => {
+        this.sweet.success('Categoria actualizada correctamente');
+        this.route.navigate(['/BibliotecaUTVCO/category-list']);
+      },
+      error: (err) => {
+        this.sweet.error('Error al actualizar la categoria');
+        console.log(err);
+      }
+    })
+  }
+
+  getCategoryById(id: number){
+    this._categoryS.getCategoryById(id).subscribe({
+      next: (data) => {
+        this.formCategory.setValue({
+          category: data.category,
+        })
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
   }
 }

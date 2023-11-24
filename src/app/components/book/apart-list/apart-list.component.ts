@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { BookFirebaseService } from 'src/app/service/book-firebase.service';
-import Apartado from '../../../interfaces/libro.interface';
+import { BookFirebaseService } from 'src/app/service/firebase/book-firebase.service';
+import Apartado from '../../../interface/libro.interface';
 
 @Component({
   selector: 'app-apart-list',

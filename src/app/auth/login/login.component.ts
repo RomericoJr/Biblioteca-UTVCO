@@ -13,9 +13,12 @@
 
 
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthFirebaseService } from 'src/app/service/auth-firebase.service';
+import { AuthFirebaseService } from 'src/app/service/firebase/auth-firebase.service';
+import { SweetAlertService } from 'src/app/service/firebase/sweet-alert.service';
+import { AuthService } from 'src/app/service/laravel/auth.service';
+import { ToolsService } from 'src/app/service/tools.service';
 
 @Component({
   selector: 'app-login',
@@ -30,28 +33,51 @@ export class LoginComponent implements OnInit {
     this.showPassword = !this.showPassword;
   }
 
-  formLogin: FormGroup;
+  formLogin: FormGroup = this.fb.group({
+    email: [''],
+    password: ['']
+  });
 
   constructor(
     private auth: AuthFirebaseService,
-    private router: Router
+    private router: Router,
+    private swetS: SweetAlertService,
+    private fb: FormBuilder,
+    private _authS: AuthService,
+    private _toolS: ToolsService
   ) {
-    this.formLogin = new FormGroup({
-      email: new FormControl(),
-      password: new FormControl()
-    })
+
   }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
-    this.auth.login(this.formLogin.value)
-      .then(response => {
-        console.log(response);
-        this.router.navigate(['/inicio-adm'])
-      })
-      .catch(error => console.log(error));
+    this._authS.login(this.formLogin.value).subscribe({
+      next: (data: any) => {
+      this._toolS.setToken(data.token.original.access_token);
+      this._toolS.setIdUser(data.user.id);
+      this._toolS.setRol(data.user.id_rol);
+      this.swetS.success('Bienvenido');
+      this.router.navigate(['/BibliotecaUTVCO'])
+    },
+    error: (error:any) => {
+      this.swetS.error('Contraseña o Usuario incorrecto');
+    }
+  })
+
+
+
+    // this.auth.login(this.formLogin.value)
+    //   .then(response => {
+    //     console.log(response);
+    //     this.swetS.success('Bienvenido');
+    //     this.router.navigate(['/home'])
+    //   })
+    //   .catch(error => {
+    //     console.log(error)
+    //     this.swetS.error('Contraseña o Usuario incorrecto');
+    //   });
   }
 
   //onClick() {

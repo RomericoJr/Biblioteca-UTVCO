@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { BookModule } from './components/book/book.module';
 import { EstadiasModule } from './components/estadias/estadias.module';
-import { HeaderModule } from './components/header/header.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
@@ -14,8 +13,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { BookListComponent } from './components/book/book-list/book-list.component';
 import { FiltBookPipe } from './components/filt-book.pipe';
+//frondentjoni
 import { BookVerLComponent } from './components/book/book-ver-l/book-ver-l.component';
 import { StudentProfileComponent } from './components/student/student-profile/student-profile.component';
+
+
+import {HttpClientModule} from '@angular/common/http';
+import { InicioComponent } from './components/inicio/inicio.component';
 
 
 
@@ -24,10 +28,14 @@ import { StudentProfileComponent } from './components/student/student-profile/st
     AppComponent,
     BookListComponent,
     FiltBookPipe,
+//frondentjoni
     BookVerLComponent,
     StudentProfileComponent,
     
     
+
+    InicioComponent,
+
 
   ],
   imports: [
@@ -36,7 +44,7 @@ import { StudentProfileComponent } from './components/student/student-profile/st
     AuthModule,
     BookModule,
     EstadiasModule,
-    HeaderModule,
+    HttpClientModule,
 
     ReactiveFormsModule,
 

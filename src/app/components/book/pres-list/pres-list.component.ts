@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
-import Prestamo from '../../../interfaces/libro.interface';
+import Prestamo from '../../../interface/libro.interface';
 import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
-import { BookFirebaseService } from 'src/app/service/book-firebase.service';
+import { BookFirebaseService } from 'src/app/service/firebase/book-firebase.service';
 
 @Component({
   selector: 'app-pres-list',
@@ -11,7 +11,7 @@ import { BookFirebaseService } from 'src/app/service/book-firebase.service';
 })
 export class PresListComponent {
 
-  
+
   prests: Prestamo [] = [];
   router = inject(Router);
 
@@ -19,7 +19,7 @@ export class PresListComponent {
   constructor(
     private fb : FormBuilder,
     private bookService: BookFirebaseService,
-    
+
   ){}
 
   // this.sweetS.success('Prenda guardada');

@@ -1,26 +1,6 @@
-<!--<p>login works!!</p>
-<h2>Login de usuario</h2>
-<form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
-    <div class="mb-3">
-        <label class="form-label">Email</label>
-        <input type="text" class="form-control" formControlName="email">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Password</label>
-        <input type="password" class="form-control" formControlName="password">
-    </div>
-    <div class="mb-3">
-        <p>
-            ¿Haz olvidado tú contraseña? <a [routerLink]="['/forgot-password']"> Recuperar contraseña</a>
-        </p>
-    </div>
-    <input type="submit" value="Enviar">
-</form>
-<button class="btn btn-info" (click)="onClick()">Login With Google</button>
-
-LOGIN DEL USUARIO REALIZADO POR LOS FRONT-->
 <div class="login background">
     <img src="assets/imagenes/fondolog.png" alt="Fondo de inicio de sesión" class="background-image">
+
     <form class="custom-form" [formGroup]="formLogin" (ngSubmit)="onSubmit()">
         <h1><img src="assets/imagenes/logout.png"></h1>
         <label for="email" class="form-label">Correo Electrónico</label>
@@ -31,10 +11,11 @@ LOGIN DEL USUARIO REALIZADO POR LOS FRONT-->
             <span class="show-password" (click)="VerPassW()">{{ showPassword ? 'Ocultar' : 'Ver' }} Contraseña</span>
         </div>
         <div class="mb-3">
-          <p>
+          <!-- <p>
             <a [routerLink]="['/register']"> Registrarse</a>
-          </p>
+          </p> -->
         </div>
         <button>Iniciar Sesión</button>
     </form>
+
 </div>

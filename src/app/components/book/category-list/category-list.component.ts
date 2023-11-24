@@ -1,9 +1,10 @@
 import { Component, inject } from '@angular/core';
-import Category from '../../../interfaces/libro.interface';
+import Category from '../../../interface/libro.interface';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CrudFirebaseService } from 'src/app/service/crud-firebase.service';
-import { SweetAlertService } from 'src/app/service/sweet-alert.service';
+import { CrudFirebaseService } from 'src/app/service/firebase/crud-firebase.service';
+import { SweetAlertService } from 'src/app/service/firebase/sweet-alert.service';
+import { CategoryService } from 'src/app/service/laravel/category.service';
 
 @Component({
   selector: 'app-category-list',
@@ -15,32 +16,52 @@ export class CategoryListComponent {
   categorias: Category [] = [];
 
   constructor(
-    private fb : FormBuilder,
-    private crudService: CrudFirebaseService,
     private sweet : SweetAlertService,
-    private router: Router
+    private router: Router,
+    private _categoryS: CategoryService
   ){}
 
-  formCategory: FormGroup = this.fb.group({
-    category: ['', Validators.required],
-  })
 
   ngOnInit(): any {
-    this.crudService.getCategory().subscribe(catego => {
-      console.log(catego);
-      this.categorias = catego;
+    this.getCategory();
+}
+
+  getCategory(){
+    this._categoryS.getCategory().subscribe({
+      next: (data) => {
+        this.categorias = data.category;
+      },
+      error: (err) => {
+        console.log(err);
+      }
     });
+  }
+
+
+deleteCategory(id: any) {
+
+  this.sweet.confirm('¿Desea eliminar la categoria?','Aceptar').then((result) => {
+    if(result.isConfirmed){
+      this._categoryS.deleteCategory(id).subscribe({
+        next: (data) => {
+          this.sweet.success('Eliminado con exito');
+          this.getCategory();
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      })
+    } else {
+
+    }
+  });
 }
 
-async deleteCategory(id: any) {
-  this.crudService.deleteCate(id);
-  console.log('Categoria eliminada:', id);
-  this.sweet.success('Eliminado con exito');
+editCategory(data: any) {
+  this.sweet.confirm('¿Desea editar la categoria?','Aceptar').then((result) => {
+    if(result.isConfirmed){
+      this.router.navigate(['/BibliotecaUTVCO/editCatego/', data.id]);
+    }
+  });
 }
-
-editCatego(id: Category) {
-  this.router.navigate(['/book/editCatego', id.id]);
-}
-
-
 }

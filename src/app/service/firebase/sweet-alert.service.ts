@@ -26,14 +26,14 @@ export class SweetAlertService {
     })
   }
 
-  confirm(msn:string){
+  confirm(msn:string, btnOp:string){
     return Swal.fire({
       title: msn,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Eliminar!'
+      confirmButtonText: btnOp
     })
   }
 

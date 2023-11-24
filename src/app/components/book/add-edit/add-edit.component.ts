@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BookFirebaseService } from 'src/app/service/book-firebase.service';
-import { SweetAlertService } from 'src/app/service/sweet-alert.service';
+import { BookFirebaseService } from 'src/app/service/firebase/book-firebase.service';
+import { SweetAlertService } from 'src/app/service/firebase/sweet-alert.service';
 
 @Component({
   selector: 'app-add-edit',
