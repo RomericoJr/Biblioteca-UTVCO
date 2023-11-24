@@ -13,6 +13,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { CategoryComponent } from './category/category.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { InicioComponent } from '../inicio/inicio.component';
+import { SubCategoryComponent } from './sub-category/sub-category.component';
+import { SubCategoryListComponent } from './sub-category-list/sub-category-list.component';
 const routes: Routes = [
   {
     path: 'inicio',
@@ -64,6 +66,18 @@ const routes: Routes = [
     component: CategoryComponent
   },
   {
+    path: 'subcategory',
+    component: SubCategoryComponent
+  },
+  {
+    path: 'subcategory-list',
+    component: SubCategoryListComponent
+  },
+  {
+    path: 'editSubCategory/:id',
+    component: SubCategoryComponent
+  },
+  {
     path: '**',
     redirectTo: 'inicio',
   }
@@ -80,6 +94,8 @@ const routes: Routes = [
     ApartListComponent,
     CategoryComponent,
     CategoryListComponent,
+    SubCategoryComponent,
+    SubCategoryListComponent,
   ],
   imports: [
     CommonModule,
