@@ -1,87 +1,98 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom">
-  <a class="navbar-brand" routerLink="/BibliotecaUTVCO">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
+  <a class="navbar-brand"  routerLink="/BibliotecaUTVCO"  href="#">
     <img src="./assets/imagenes/logoblanco.png" width="70" height="50" class="d-inline-block align-top">
   </a>
-  <div class="container-fluid">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/BibliotecaUTVCO">
+          <i class="fa fa-home"></i> Home
+        </a>
+      </li>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/BibliotecaUTVCO">Home</a>
-        </li>
+       
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLibros" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-book"></i> Administrar Libros
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownLibros">
+          <a class="dropdown-item" routerLink="/BibliotecaUTVCO/add">AGREGAR</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/BibliotecaUTVCO/read">ADMINISTRAR</a>
+          
+        </div>
 
         <li class="nav-item dropdown">
-
-          <a *ngIf="id_rol === '1'" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Administrar Libros
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLibros" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-book"></i> Prestamos
           </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownLibros">
+            <a class="dropdown-item" routerLink="/BibliotecaUTVCO/prest">Prestamo</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" routerLink="/book/edit">ADMINISTRAR</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" routerLink="/BibliotecaUTVCO/prelist">Lista de prestamos</a>
+          </div>
 
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/add">AGREGAR</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/read">ADMINISTRAR</a></li>
-          </ul>
-
-
-
-          <li *ngIf="id_rol === '1'" class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Prestamos
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLibros" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-book"></i> Administrar Categorias
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/prest">Préstamo</a></li>
-              <!-- <li><a class="dropdown-item" routerLink="/book/edit">ADMINISTRAR</a></li> -->
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/prelist">Lista de prestamos</a></li>
-            </ul>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownLibros">
+              <a class="dropdown-item" routerLink="/BibliotecaUTVCO/category">Agregar categoria</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" routerLink="/book/edit">Administrar</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" routerLink="/BibliotecaUTVCO/category-list">Ver categoria</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" routerLink="/BibliotecaUTVCO/subcategory">Agregar subcategoria</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" routerLink="/BibliotecaUTVCO/subcategory-list">Ver subcategoria</a>
+              
+            </div>
 
-            <li class="nav-item dropdown">
-              <a *ngIf="id_rol === '1'" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Administrar Categorias para libro
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/category">Agregar categoria</a></li>
-                <!-- <li><a class="dropdown-item" routerLink="/book/edit">ADMINISTRAR</a></li> -->
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/category-list">Ver categorias</a></li>
-              </ul>
+         
 
-              <li class="nav-item dropdown">
-                <a *ngIf="id_rol === '1'" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Administrar Estudiantes
-                </a>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/BibliotecaUTVCO">
+          <i class="fa fa-book"></i> Administrar estudiantes
+        </a>
+      </li>
 
-
-
-            <li *ngIf="id_rol === '2'" class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Apartar libro
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/apart">Apartar libro</a></li>
-                <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/apart-list">Lista de apartados</a></li>
-                <!-- <li><a class="dropdown-item" routerLink="/book/edit">ADMINISTRAR</a></li> -->
-              </ul>
-
-
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLibros" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-book"></i> Apartar libro
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownLibros">
+          <a class="dropdown-item" routerLink="/BibliotecaUTVCO/apart">Apartar libro</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/BibliotecaUTVCO/apart-list">Lista de apartado</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/book/edit">Administrar</a>
+          
+        </div>
 
 
-      </ul>
+      <li class="nav-item">
+        <a class="nav-link">
+          <i class="fa fa-user"></i> Perfil
+        </a>
+      </li>
 
-
-
-
-      <form class="d-flex">
-        <button type="button" (click)="logout()" class="btn btn-lg btn-primary" >Logout</button>
-            </form>
-            <!-- <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-            <button class="btn btn-outline-light" type="submit">Buscar</button> -->
-
-      <!-- Botón de navegación para pantallas pequeñas -->
-      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon">:</span>
-      </button> -->
-
-    </div>
+      <li class="nav-item">
+        <a class="nav-link"  (click)="salir()">
+          <i class="fa fa-sign-out"></i> Salir
+        </a>
+      </li>
+      
+    </ul>
   </div>
 </nav>

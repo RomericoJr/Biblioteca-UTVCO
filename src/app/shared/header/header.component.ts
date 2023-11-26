@@ -20,7 +20,7 @@ export class HeaderComponent {
   id_rol= this._toolS.getRol();
 
 
-  logout(){
+  salir(){
     this._sweetS.confirm('¿Estas seguro de cerrar sesión?', 'Aceptar').then((res: any) => {
       if (res.isConfirmed) {
         this._sweetS.success('Sesión cerrada');
