@@ -20,6 +20,12 @@ import { AddBookGeneroComponent } from './add-book-genero/add-book-genero.compon
 import { InicioComponent } from '../inicio/inicio.component';
 import { SubCategoryComponent } from './sub-category/sub-category.component';
 import { SubCategoryListComponent } from './sub-category-list/sub-category-list.component';
+import { StudentComponent } from '../student/student/student.component';
+import { StudentListComponent } from '../student/student-list/student-list.component';
+import { CarrerComponent } from '../student/carrer/carrer.component';
+import { CarrerListComponent } from '../student/carrer-list/carrer-list.component';
+import { GenereComponent } from '../student/genere/genere.component';
+import { GenereListComponent } from '../student/genere-list/genere-list.component';
 
 const routes: Routes = [
   {
@@ -83,7 +89,7 @@ const routes: Routes = [
     path: 'editCatego/:id',
     component: CategoryComponent
   },
-  
+
   {
     path: 'subcategory',
     component: SubCategoryComponent
@@ -95,6 +101,46 @@ const routes: Routes = [
   {
     path: 'editSubCategory/:id',
     component: SubCategoryComponent
+  },
+  {
+    path: 'student',
+    component: StudentComponent
+  },
+  {
+    path: 'editStudent/:id',
+    component: StudentComponent
+  },
+  {
+    path: 'student-list',
+    component: StudentListComponent
+  },
+  {
+    path: 'carrer',
+    component: CarrerComponent
+  },
+  {
+    path: 'editCarrer/:id',
+    component: CarrerComponent
+  },
+  {
+    path: 'carrer-list',
+    component: CarrerListComponent
+  },
+  {
+    path: 'genere',
+    component: GenereComponent
+  },
+  {
+    path: 'editGenere/:id',
+    component: GenereComponent
+  },
+  {
+    path: 'genere-list',
+    component: GenereListComponent
+  },
+  {
+    path: 'genere-list',
+    component: GenereComponent
   },
   {
     path: '**',

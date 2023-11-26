@@ -15,11 +15,12 @@ import { BookListComponent } from './components/book/book-list/book-list.compone
 import { FiltBookPipe } from './components/filt-book.pipe';
 //frondentjoni
 import { BookVerLComponent } from './components/book/book-ver-l/book-ver-l.component';
-import { StudentProfileComponent } from './components/student/student-profile/student-profile.component';
 
 
 import {HttpClientModule} from '@angular/common/http';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { StudentComponent } from './components/student/student/student.component';
+import { StudentModule } from './components/student/student.module';
 
 
 
@@ -30,13 +31,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
     FiltBookPipe,
 //frondentjoni
     BookVerLComponent,
-    StudentProfileComponent,
-    
-    
-
     InicioComponent,
-
-
   ],
   imports: [
     BrowserModule,
@@ -44,6 +39,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
     AuthModule,
     BookModule,
     EstadiasModule,
+    StudentModule,
     HttpClientModule,
 
     ReactiveFormsModule,

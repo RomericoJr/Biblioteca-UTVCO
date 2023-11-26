@@ -52,6 +52,31 @@
                 <a *ngIf="id_rol === '1'" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Administrar Estudiantes
                 </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/student">Agregar Estudiantes</a></li>
+                  <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/student-list">Ver estudiantes</a></li>
+                  <!-- <li><a class="dropdown-item" routerLink="/book/edit">ADMINISTRAR</a></li> -->
+                </ul>
+
+                <li class="nav-item dropdown">
+                  <a *ngIf="id_rol === '1'" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Administrar Carreras
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/carrer">Agregar Carreras</a></li>
+                    <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/carrer-list">Ver Carreras</a></li>
+                    <!-- <li><a class="dropdown-item" routerLink="/book/edit">ADMINISTRAR</a></li> -->
+                  </ul>
+
+                  <li class="nav-item dropdown">
+                    <a *ngIf="id_rol === '1'" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Administrar Genero
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/genere">Agregar Genero</a></li>
+                      <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/genere-list">Ver Genero</a></li>
+                      <!-- <li><a class="dropdown-item" routerLink="/book/edit">ADMINISTRAR</a></li> -->
+                    </ul>
 
 
 
