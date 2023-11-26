@@ -1,53 +1,53 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GenereService {
+export class CarrerService {
   API_URL=  'http://localhost:8000/api/Back%%Biblioteca_UTVCO/';
 
   constructor(
     private http: HttpClient
   ) { }
 
-  getGenere(){
+  getCarrer(){
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
         'Authorization': `Bearer ${token}`
     });
-    return this.http.get(`${this.API_URL}genere`, {headers});
+    return this.http.get(`${this.API_URL}carrer`, {headers});
   }
 
-  getGenereById(id: number){
+  getCarrerById(id: number){
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
         'Authorization': `Bearer ${token}`
     });
-    return this.http.get(`${this.API_URL}genere/${id}`,  {headers});
+    return this.http.get(`${this.API_URL}carrer/${id}`,  {headers});
   }
 
-  postGenere(genere:any){
+  postCarrer(carrer:any){
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
         'Authorization': `Bearer ${token}`
     });
-    return this.http.post(`${this.API_URL}addGenere`, genere, {headers});
+    return this.http.post(`${this.API_URL}addCarrer`, carrer, {headers});
   }
 
-  updateGenere(genere:any, id: number){
+  updateCarrer(carrer:any, id: number){
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
         'Authorization': `Bearer ${token}`
     });
-    return this.http.put(`${this.API_URL}editGenere/${id}`, genere, {headers});
+    return this.http.put(`${this.API_URL}updateCarrer/${id}`, carrer, {headers});
   }
 
-  deleteGenere(id: any) {
+  deleteCarrer(id: any) {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
         'Authorization': `Bearer ${token}`
     });
-    return this.http.delete(`${this.API_URL}delGenere/${id}`, {headers});
+    return this.http.delete(`${this.API_URL}deleteCarrer/${id}`, {headers});
   }
 }
