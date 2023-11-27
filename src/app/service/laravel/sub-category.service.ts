@@ -33,7 +33,7 @@ export class SubCategoryService {
     const headers = new HttpHeaders({
         'Authorization': `Bearer ${token}`
     });
-    return this.http.get<any>(`${this.API_URL}subcategoriaByCategoria/${id}`, {headers: headers});
+    return this.http.get<any>(`${this.API_URL}searchSucategoyByCategory/${id}`, {headers: headers});
   }
 
   postSubCategory(subcategory: any):any{
