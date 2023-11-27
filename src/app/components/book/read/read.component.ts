@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import Libro from 'src/app/interface/libro.interface';
 import { BookFirebaseService } from 'src/app/service/firebase/book-firebase.service';
 import { SweetAlertService } from 'src/app/service/firebase/sweet-alert.service';
+import { BookService } from 'src/app/service/laravel/book.service';
 
 @Component({
   selector: 'app-read',
@@ -13,52 +14,57 @@ import { SweetAlertService } from 'src/app/service/firebase/sweet-alert.service'
 
 export class ReadComponent {
 
-  books: Libro [] = [];
+  books: any [] = [];
 
   constructor(
     private fb : FormBuilder,
-    private bookService: BookFirebaseService,
     private router: Router,
     private sweet : SweetAlertService,
+    private _bookS: BookService
   ){}
 
-  title = 'bibliotecaUtvco';
-
-  formBook: FormGroup = this.fb.group({
-    isbn: ['', Validators.required],
-    titulo: ['', Validators.required],
-    autores: ['', Validators.required],
-    categoria: ['', Validators.required],
-    subcategoria: ['', Validators.required],
-    editorial: ['', Validators.required],
-    edicion: ['', Validators.required],
-  })
-
   ngOnInit(): any {
-    this.bookService.getBook().subscribe(books => {
-      console.log(books);
-      this.books = books;
+    this.getBookS();
+}
+
+getBookS(){
+  this._bookS.getBook().subscribe({
+    next: (data) => {
+      this.books = data;
+    },
+    error: (err) => {
+      console.log(err);
+    }
+  });
+}
+
+
+
+deleteBook(id: any) {
+
+    this.sweet.confirm('¿Desea eliminar el libro?','Aceptar').then((result) => {
+      if(result.isConfirmed){
+        this._bookS.deleteBook(id).subscribe({
+          next: (data) => {
+            this.sweet.success('Eliminado con exito');
+            this.getBookS();
+          },
+          error: (err) => {
+            console.log(err);
+          }
+        })
+      } else {
+
+      }
     });
 }
 
-// delete() {
-//   this.bookService.deleteBook(
-//     {
-//       id: new Date().getTime().toString(),
-//       ...this.formBook.value
-//     } as any);
-//     console.log('eliminado', this.formBook.value);
-
-// }
-
-deleteBook(id: any) {
-  console.log(id, 'eliminado');
-  this.bookService.deleteBook(id);
-  this.sweet.success('Eliminado con exito');
-}
-
 editBook(book: Libro) {
-  this.router.navigate(['/book/edit', book.id]);
+  this.sweet.confirm('¿Desea editar el libro?','Aceptar').then((result) => {
+    if(result.isConfirmed){
+      this.router.navigate(['/BibliotecaUTVCO/edit/', book.id]);
+    }
+  });
 }
 
 }

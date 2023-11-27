@@ -15,7 +15,6 @@ import { CategoryListComponent } from './category-list/category-list.component';
  //frondentjoni
 import { BookVerLComponent } from './book-ver-l/book-ver-l.component';
 import { BooksDonarComponent } from './books-donar/books-donar.component';
-import { AddBookGeneroComponent } from './add-book-genero/add-book-genero.component';
 
 import { InicioComponent } from '../inicio/inicio.component';
 import { SubCategoryComponent } from './sub-category/sub-category.component';
@@ -76,10 +75,6 @@ const routes: Routes = [
   {
     path: 'list-donarlibros',
     component: BooksDonarComponent
-  },
-  {
-    path: 'add-book-genero',
-    component: AddBookGeneroComponent
   },
   {
     path: 'category-list',
@@ -161,7 +156,6 @@ const routes: Routes = [
     CategoryListComponent,
  //frondentjoni
     BooksDonarComponent,
-    AddBookGeneroComponent,
 //master
     SubCategoryComponent,
     SubCategoryListComponent,
