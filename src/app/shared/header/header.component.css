@@ -1,7 +1,8 @@
 /* Estilos personalizados para la barra de navegación */
-.navbar-custom {
-    background-color: #b95835 !important;
+.custom-bg-color {
+    background-color: #b95835; 
   }
+  
 
   .btn-rounded {
     width: 30px; /* Reducir el ancho del botón */
@@ -18,10 +19,7 @@
     font-size: 20px; /* Tamaño del icono */
     line-height: 1; /* Eliminar el espacio vertical adicional */
   }
-  
-  
-  
-  
+
   .btn-rounded {
     /* ... (otros estilos) ... */
     border-radius: 15px; /* Agregar bordes redondeados */
