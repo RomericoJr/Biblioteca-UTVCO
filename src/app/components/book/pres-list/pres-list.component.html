@@ -1,26 +1,33 @@
-
-<div class="container mt-5">
+<div class="container-fluid mt-5">
   <h2 class="text-center mb-4">Lista de Préstamos</h2>
 
-  <table class="table">
-    <thead>
-      <tr class="text-white">
-        <th scope="col" class="text-center">ISBN</th>
-        <th scope="col" class="text-center">Matrícula Estudiante</th>
-        <th scope="col" class="text-center">Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <ng-container *ngFor="let presta of prests">
+  <div class="table-responsive">
+    <table class="table align-middle mb-0 bg-white" style="width: 100%;">
+      <thead class="bg-light">
         <tr>
-          <td class="text-center">{{ presta.isbn }}</td>
-          <td class="text-center">{{ presta.matriculaEst }}</td>
-          <td class="text-center">
-            <button type="button" class="btn btn-danger" (click)="deletePrest(prests)">Eliminar</button>
-            <button type="button" class="btn btn-warning">Editar</button>
-          </td>
+          <th scope="col" class="text-center border-bottom">ISBN</th>
+          <th scope="col" class="text-center border-bottom">Matrícula Estudiante</th>
+          <th scope="col" class="text-center border-bottom">Acciones</th>
         </tr>
-      </ng-container>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let presta of prests">
+          <tr>
+            <td class="text-center border-bottom" style="width: 33.33%;">{{ presta.isbn }}</td>
+            <td class="text-center border-bottom" style="width: 33.33%;">{{ presta.matriculaEst }}</td>
+            <td class="text-center border-bottom">
+              <button type="button" class="btn btn-danger btn-sm btn-rounded" style="margin-right: 5px;" (click)="deletePrest(prests)">
+                Eliminar
+              </button>              
+              <button type="button" class="btn btn-warning btn-sm btn-rounded" >
+                Editar
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
 </div>
+
+

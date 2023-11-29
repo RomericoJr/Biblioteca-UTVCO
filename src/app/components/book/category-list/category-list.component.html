@@ -1,24 +1,29 @@
-
-<div class="container mt-5">
+<div class="container-fluid mt-5">
   <h2 class="text-center mb-4">Lista de Categorías</h2>
 
-  <table class="table">
-    <thead>
-      <tr class="text-white">
-        <th scope="col" class="text-center">Categorías</th>
-        <th scope="col" class="text-center">Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <ng-container *ngFor="let catego of categorias">
+  <div class="table-responsive">
+    <table class="table align-middle mb-0 bg-white">
+      <thead class="bg-light">
         <tr>
-          <td class="text-center">{{ catego.category }}</td>
-          <td class="text-center">
-            <button type="button" class="btn btn-danger" (click)="deleteCategory(catego.id)">Eliminar</button>
-            <button type="button" class="btn btn-warning" (click)="editCategory(catego)">Editar</button>
-          </td>
+          <th scope="col" class="text-center border-bottom">Categorías</th>
+          <th scope="col" class="text-center border-bottom">Acciones</th>
         </tr>
-      </ng-container>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let catego of categorias">
+          <tr>
+            <td class="text-center border-bottom">{{ catego.category }}</td>
+            <td class="text-center border-bottom">
+              <button type="button" class="btn btn-danger btn-sm btn-rounded" style="margin-right: 5px;" (click)="deleteCategory(catego.id)">
+                Eliminar
+              </button>              
+              <button type="button" class="btn btn-warning btn-sm btn-rounded" (click)="editCategory(catego)">
+                Editar
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
 </div>
