@@ -6,27 +6,27 @@
   <table class="table">
     <thead>
       <tr class="text-white">
-        <th scope="col" class="text-center">ID</th>
-        <th scope="col" class="text-center">Autores</th>
-        <th scope="col" class="text-center">Categoría</th>
-        <th scope="col" class="text-center">Edición</th>
-        <th scope="col" class="text-center">Editorial</th>
         <th scope="col" class="text-center">ISBN</th>
-        <th scope="col" class="text-center">Subcategoría</th>
-        <th scope="col" class="text-center">Título</th>
+        <th scope="col" class="text-center">Titulo</th>
+        <th scope="col" class="text-center">Autor</th>
+        <th scope="col" class="text-center">Editorial</th>
+        <th scope="col" class="text-center">Edición</th>
+        <th scope="col" class="text-center">Ejemplares</th>
+        <th scope="col" class="text-center">Categoria</th>
+        <th scope="col" class="text-center">Subcategoria</th>
         <th scope="col" class="text-center">Acciones</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let book of books">
-        <td class="text-center">{{book.id}}</td>
-        <td class="text-center">{{book.autores}}</td>
-        <td class="text-center">{{book.categoria}}</td>
-        <td class="text-center">{{book.edicion}}</td>
-        <td class="text-center">{{book.editorial}}</td>
         <td class="text-center">{{book.isbn}}</td>
-        <td class="text-center">{{book.subcategoria}}</td>
-        <td class="text-center">{{book.titulo}}</td>
+        <td class="text-center">{{book.title}}</td>
+        <td class="text-center">{{book.author}}</td>
+        <td class="text-center">{{book.editorial}}</td>
+        <td class="text-center">{{book.edition}}</td>
+        <td class="text-center">{{book.stock}}</td>
+        <td class="text-center">{{book.category.category}}</td>
+        <td class="text-center">{{book.subcategory.subcategory}}</td>
         <td class="text-center">
           <button class="btn btn-danger" (click)="deleteBook(book.id)">Eliminar</button>
           <button class="btn btn-warning" (click)="editBook(book)">Editar</button>

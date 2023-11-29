@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../service/laravel/auth.service';
 import { SweetAlertService } from '../../service/firebase/sweet-alert.service';
 import { ToolsService } from 'src/app/service/tools.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,8 @@ export class HeaderComponent {
   constructor(
     private _authS: AuthService,
     private _sweetS: SweetAlertService,
-    private _toolS: ToolsService
+    private _toolS: ToolsService,
+    private router: Router
   ) {
   }
 
@@ -27,7 +29,7 @@ export class HeaderComponent {
         this._authS.logout().subscribe({
           next: (data: any) => {
             localStorage.clear();
-            window.location.href = '/login';
+            this.router.navigate(['/login']);
           },
           error: (error: any) => {
           }

@@ -1,0 +1,41 @@
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Lista de Estudiantes</h2>
+
+  <table class="table">
+    <thead>
+      <tr class="text-white">
+        <th scope="col" class="text-center">Nombre(s)</th>
+        <th scope="col" class="text-center">Apellido Paterno</th>
+        <th scope="col" class="text-center">Apellido Materno</th>
+        <th scope="col" class="text-center">Matricula</th>
+        <th scope="col" class="text-center">Telefono</th>
+        <th scope="col" class="text-center">Email</th>
+        <th scope="col" class="text-center">Genero</th>
+        <th scope="col" class="text-center">Carrera</th>
+        <th scope="col" class="text-center">Estado</th>
+        <th scope="col" class="text-center">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let student of estudiantes">
+        <tr>
+          <td class="text-center">{{ student.name }}</td>
+          <td class="text-center">{{ student.lastname_father }}</td>
+          <td class="text-center">{{ student.lastname_mother }}</td>
+          <td class="text-center">{{ student.matricula }}</td>
+          <td class="text-center">{{ student.phone }}</td>
+          <td class="text-center">{{ student.email }}</td>
+          <td class="text-center">{{ student.genere.genere }}</td>
+          <td class="text-center">{{ student.carrer.carrer_name }}</td>
+          <td *ngIf="student.status == 1">Activo</td>
+          <td *ngIf="student.status == 0">Inactivo</td>
+          <td class="text-center">
+            <button type="button" class="btn btn-danger" (click)="deleteStudent(student.id)">Eliminar</button>
+            <button type="button" class="btn btn-warning" (click)="updateStudent(student)">Editar</button>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

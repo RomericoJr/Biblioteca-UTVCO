@@ -1,0 +1,24 @@
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Lista de Carreras</h2>
+
+  <table class="table">
+    <thead>
+      <tr class="text-white">
+        <th scope="col" class="text-center">Carreras</th>
+        <th scope="col" class="text-center">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let carr of carreras">
+        <tr>
+          <td class="text-center">{{ carr.carrer_name }}</td>
+          <td class="text-center">
+            <button type="button" class="btn btn-danger" (click)="deleteCarrer(carr.id)">Eliminar</button>
+            <button type="button" class="btn btn-warning" (click)="editCarrer(carr)">Editar</button>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

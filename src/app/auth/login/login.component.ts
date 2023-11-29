@@ -13,7 +13,7 @@
 
 
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthFirebaseService } from 'src/app/service/firebase/auth-firebase.service';
 import { SweetAlertService } from 'src/app/service/firebase/sweet-alert.service';
@@ -34,8 +34,8 @@ export class LoginComponent implements OnInit {
   }
 
   formLogin: FormGroup = this.fb.group({
-    email: [''],
-    password: ['']
+    email: ['', [Validators.required, Validators.email]],
+    password: ['',[Validators.required, Validators.minLength(6)]]
   });
 
   constructor(

@@ -1,0 +1,24 @@
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Lista de Genero</h2>
+
+  <table class="table">
+    <thead>
+      <tr class="text-white">
+        <th scope="col" class="text-center">Generos</th>
+        <th scope="col" class="text-center">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let gene of genere">
+        <tr>
+          <td class="text-center">{{ gene.genere }}</td>
+          <td class="text-center">
+            <button type="button" class="btn btn-danger" (click)="deleteGenere(gene.id)">Eliminar</button>
+            <button type="button" class="btn btn-warning" (click)="editGenere(gene)">Editar</button>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

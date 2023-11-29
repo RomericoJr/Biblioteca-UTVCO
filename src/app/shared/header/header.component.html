@@ -43,7 +43,10 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/category">Agregar categoria</a></li>
+
                 <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/category-list">Ver categorias</a></li>
+                <li><hr class="dropdown-divider"></li>
+
                 <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/subcategory">Agregar Subcategoria</a></li>
                 <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/subcategory-list">Ver Subcategoria</a></li>
               </ul>
@@ -55,6 +58,7 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/student">Agregar Estudiantes</a></li>
+
                     <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/student-list">Ver estudiantes</a></li>
                   
                 </ul>
@@ -64,6 +68,12 @@
                   <a  class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-graduation-cap" > </i><i *ngIf="id_rol === '1'" ></i>Carreras
           
+
+
+            <!--    <li class="nav-item dropdown">
+                  <a *ngIf="id_rol === '1'" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Administrar Carreras -->
+
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/carrer">Agregar Carreras</a></li>
@@ -72,15 +82,21 @@
                   </ul>
 
                   <li class="nav-item dropdown">
+
                     <a  class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       <i class="fa fa-book" ></i>  <i *ngIf="id_rol === '1'" ></i> Administrar Género
     
+ <!--
+                    <a *ngIf="id_rol === '1'" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Administrar Genero -->
+
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/genere">Agregar Genero</a></li>
                       <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/genere-list">Ver Genero</a></li>
                       <!-- <li><a class="dropdown-item" routerLink="/book/edit">ADMINISTRAR</a></li> -->
                     </ul>
+
 
                     <li class="nav-item">
                       <a class="nav-link" routerLink="">
@@ -94,6 +110,23 @@
                       </a>
                     </li>
                             
+
+
+
+            <li *ngIf="id_rol === '2'" class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Apartar libro
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/apart">Apartar libro</a></li>
+                <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/apart-list">Lista de apartados</a></li>
+                <!-- <li><a class="dropdown-item" routerLink="/book/edit">ADMINISTRAR</a></li> -->
+              </ul>
+
+
+
+
+
       </ul>
       
     </div>

@@ -1,0 +1,81 @@
+
+<div class="container mt-5">
+  <div class="card shadow-lg p-4">
+    <h1 class="text-center mb-4">{{titleText}}</h1>
+
+    <form [formGroup]="formStudent">
+
+      <div class="mb-3">
+        <div class="form-floating">
+          <input formControlName="name" type="text" class="form-control" id="name" placeholder=" ">
+          <label for="name">Nombre(s) del Estudiante</label>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <div class="form-floating">
+          <input formControlName="lastname_father" type="text" class="form-control" id="lastname_father" placeholder=" ">
+          <label for="lastname_father">Apellido Paterno</label>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <div class="form-floating">
+          <input formControlName="lastname_mother" type="text" class="form-control" id="lastname_mother" placeholder=" ">
+          <label for="lastname_mother">Apellido Materno</label>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <div class="form-floating">
+          <input formControlName="matricula" type="text" class="form-control" id="matricula" placeholder=" ">
+          <label for="matricula">Matricula</label>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <div class="form-floating">
+          <input formControlName="phone" type="text" class="form-control" id="phone" placeholder=" ">
+          <label for="phone">Telefono</label>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <div class="form-floating">
+          <input formControlName="email" type="email" class="form-control" id="email" placeholder=" ">
+          <label for="email">Email</label>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <select formControlName="id_genere" class="form-select" aria-label="Default select example">
+          <label for="id_genere">Genero</label>
+          <option *ngFor="let c of genere" [value]="c.id" >{{c.genere}}</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <select formControlName="id_carrers" class="form-select" aria-label="Default select example">
+          <label for="id_carrers">Carrera</label>
+          <option *ngFor="let c of carrers" [value]="c.id" >{{c.carrer_name}}</option>
+        </select>
+      </div>
+
+      <div *ngIf="userEmail" class="mb-3">
+        <div class="form-floating">
+          <input formControlName="password" type="text" class="form-control" id="password" placeholder=" ">
+          <label for="password">password</label>
+        </div>
+      </div>
+
+
+      <!-- Agregar otros campos según sea necesario -->
+
+      <div class="d-grid gap-2">
+        <button  (click)="option()" type="button" class="btn btn-success" style="background-color: #7A3E48;">{{titleBtn}}</button>
+        <!--[disabled]="formStudent.invalid"  -->
+      </div>
+
+    </form>
+  </div>
+</div>

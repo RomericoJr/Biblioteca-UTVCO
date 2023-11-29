@@ -15,7 +15,7 @@
             <a [routerLink]="['/register']"> Registrarse</a>
           </p> -->
         </div>
-        <button>Iniciar Sesión</button>
+        <button [disabled]="formLogin.invalid">Iniciar Sesión</button>
     </form>
 
 </div>
