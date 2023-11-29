@@ -102,7 +102,7 @@ const routes: Routes = [
     component: StudentComponent
   },
   {
-    path: 'editStudent/:id',
+    path: 'editStudent/:email',
     component: StudentComponent
   },
   {
