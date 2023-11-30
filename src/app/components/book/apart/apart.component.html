@@ -1,29 +1,19 @@
+<br>
 
-<div class="container mt-5">
-  <div class="card shadow-lg p-4">
-    <h1 class="text-center mb-4">Apartar Libro</h1>
+<div class="container">
 
-    <form [formGroup]="formApart">
+  <div class="card" style="width: 18rem;" *ngFor="let book of books">
+    <div class="card-body">
+      <h5 class="card-title">{{book.title}}</h5>
+      <p class="card-text">
 
-      <div class="mb-3">
-        <div class="form-floating">
-          <input formControlName="titulo" type="text" class="form-control" id="titulo" placeholder=" ">
-          <label for="titulo">Título</label>
-        </div>
-      </div>
+        Author: {{book.author}}
 
-      <div class="mb-3">
-        <div class="form-floating">
-          <input formControlName="matricula" type="text" class="form-control" id="matricula" placeholder=" ">
-          <label for="matricula">Matrícula</label>
-        </div>
-      </div>
-
-
-      <div class="d-grid gap-2">
-        <button [disabled]="formApart.invalid" (click)="save()" type="button" class="btn btn-success" style="background-color: #7A3E48;">Guardar</button>
-      </div>
-
-    </form>
+      </p>
+      <p class="card-text">Editorial: {{book.editorial}}</p>
+      <p class="card-text">Edición: {{book.edition}}</p>
+      <p class="card-text">Ejemplares: {{book.stock}}</p>
+      <a class="btn btn-primary" (click)="setAsaide(book.id)">Apartar</a>
+    </div>
   </div>
 </div>

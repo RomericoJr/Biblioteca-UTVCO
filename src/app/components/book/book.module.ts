@@ -25,6 +25,7 @@ import { CarrerComponent } from '../student/carrer/carrer.component';
 import { CarrerListComponent } from '../student/carrer-list/carrer-list.component';
 import { GenereComponent } from '../student/genere/genere.component';
 import { GenereListComponent } from '../student/genere-list/genere-list.component';
+import { ProfileUserComponent } from 'src/app/auth/profile-user/profile-user.component';
 
 const routes: Routes = [
   {
@@ -138,9 +139,16 @@ const routes: Routes = [
     component: GenereComponent
   },
   {
+    path: 'profile-user',
+    component: ProfileUserComponent
+  },
+  {
     path: '**',
     redirectTo: 'inicio',
-  }
+  },
+
+
+
 ]
 
 

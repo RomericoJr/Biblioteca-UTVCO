@@ -1,28 +1,12 @@
 
-<!--<button (click)="onClick()" class="btn btn-outline-danger mt-5">Logout</button>-->
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil de Usuario</title>
-    <link rel="stylesheet" href="profile-user.component.css">
-</head>
+
 <body>
     <div class="perfil">
         <h1>Perfil de Usuario</h1>
         <form>
-            <div class="foto-perfil">
-                <img src="assets/imagenes/perfil.jpeg" alt="Foto de perfil" id="foto">
-                <div class="cambiar-foto">
-                    <label for="foto-input">Cambiar Foto</label>
-                    <input type="file" accept="image/*" id="foto-input">
-                </div>
-            </div>
-            
             <div class="mb-3">
                 <div class="form-floating">
-                  <input formControlName="subcategoria" type="text" class="form-control" id="subcategoria" placeholder=" ">
+                  <input invalid formControlName="subcategoria" type="text" class="form-control" id="subcategoria" placeholder=" ">
                   <label for="subcategoria">Nombre</label>
                 </div>
               </div>
@@ -57,4 +41,4 @@
         </form>
     </div>
 </body>
-</html>
+

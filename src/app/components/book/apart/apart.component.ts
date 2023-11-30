@@ -3,6 +3,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BookFirebaseService } from 'src/app/service/firebase/book-firebase.service';
 import { SweetAlertService } from 'src/app/service/firebase/sweet-alert.service';
+import { AuthService } from 'src/app/service/laravel/auth.service';
+import { BookService } from 'src/app/service/laravel/book.service';
+import { SetAsaideService } from '../../../service/laravel/set-asaide.service';
+
+export interface setAsade {
+  id_book :number;
+  id_student :number;
+  date_set_asaide :string;
+  status  :string;
+}
 
 @Component({
   selector: 'app-apart',
@@ -13,26 +23,77 @@ export class ApartComponent {
 
 constructor(
   private fb : FormBuilder,
-  private bookService: BookFirebaseService,
   private sweetS: SweetAlertService,
   private router: Router,
+  private _bookS: BookService,
+  private _authS: AuthService,
+  private _setAsaide: SetAsaideService
 ){}
 
-title = 'bibliotecaUtvco';
+books: any[] = [];
 
-formApart: FormGroup = this.fb.group({
-    titulo: ['', Validators.required],
-    matricula: ['', Validators.required],
-  })
+setAsaideList: setAsade[] = [];
+
+idStudent!:number;
+
+ngOnInit() {
+  this.getBookS();
+  this.getuserDetail();
+}
+
+setAsaide(id:number){
+  this.sweetS.confirm('¿Desea apartar este libro?', 'Apartar').then((result) => {
+    if (result.isConfirmed) {
+      this.sweetS.loading('Apartando libro...');
+
+      this.setAsaideList.push({
+        id_book: id,
+        id_student: this.idStudent,
+        date_set_asaide: new Date().toISOString().slice(0, 10),
+        status: '2'
+      });
+      this._setAsaide.postSetAsaide(this.setAsaideList[0]).subscribe({
+        next: (data: any) => {
+          this.sweetS.success('Libro apartado');
+          this.router.navigate(['/BibliotecaUTVCO/apart-list']);
+        },
+        error: (error: any) => {
+          this.sweetS.error('Error al apartar libro');
+          console.log(error);
+        }
+      })
+
+    }
+  }).catch((error) => {
+    console.log(error);
+  });
+}
+
+getBookS() {
+  this._bookS.getBook().subscribe({
+    next: (data: any) => {
+      this.books = data;
+    },
+    error: (error: any) => {
+      console.log(error);
+    }
+  });
+}
 
 
-  save() {
-    this.bookService.guardarApart(
-      {
-        id: new Date().getTime().toString(),
-        ...this.formApart.value
-      } as any);
-      console.log('Guardado', this.formApart.value);
-      this.sweetS.success('Libro apartado');
-  }
+
+
+getuserDetail(){
+  this._authS.userDetail().subscribe({
+    next: (data: any) => {
+      // console.log(data);
+      this.idStudent = data.id_students;
+    },
+    error: (error: any) => {
+      console.log(error);
+    }
+  });
+}
+
+
 }

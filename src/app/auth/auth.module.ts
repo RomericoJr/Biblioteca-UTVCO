@@ -21,12 +21,12 @@ const routes: Routes = [
     path: 'forgot-password',
   component: ForgotPasswordComponent
   },
-  {
-    path: 'profile-user',
-    component: ProfileUserComponent, 
-    ...canActivate(() => 
-    redirectUnauthorizedTo(['/register'])) 
-  },
+  // {
+  //   path: 'profile-user',
+  //   component: ProfileUserComponent,
+  //   ...canActivate(() =>
+  //   redirectUnauthorizedTo(['/register']))
+  // },
   {
     path: '**',
     redirectTo: 'login',
@@ -44,7 +44,7 @@ const routes: Routes = [
     CommonModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
-    
+
   ],
   exports: [
     ForgotPasswordComponent,

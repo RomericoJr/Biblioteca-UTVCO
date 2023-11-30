@@ -19,6 +19,7 @@ import { AuthFirebaseService } from 'src/app/service/firebase/auth-firebase.serv
 import { SweetAlertService } from 'src/app/service/firebase/sweet-alert.service';
 import { AuthService } from 'src/app/service/laravel/auth.service';
 import { ToolsService } from 'src/app/service/tools.service';
+import { passwordValid } from 'src/app/validation/login.validator';
 
 @Component({
   selector: 'app-login',
@@ -36,7 +37,9 @@ export class LoginComponent implements OnInit {
   formLogin: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['',[Validators.required, Validators.minLength(6)]]
-  });
+  },
+  {validators:[passwordValid]}
+  );
 
   constructor(
     private auth: AuthFirebaseService,
@@ -58,6 +61,9 @@ export class LoginComponent implements OnInit {
       this._toolS.setToken(data.token.original.access_token);
       this._toolS.setIdUser(data.user.id);
       this._toolS.setRol(data.user.id_rol);
+      if(data.user.id_rol == 2){
+        this._toolS.setIdStudent(data.user.id_students);
+      }
       this.swetS.success('Bienvenido');
       this.router.navigate(['/BibliotecaUTVCO'])
     },
@@ -65,28 +71,11 @@ export class LoginComponent implements OnInit {
       this.swetS.error('Contraseña o Usuario incorrecto');
     }
   })
-
-
-
-    // this.auth.login(this.formLogin.value)
-    //   .then(response => {
-    //     console.log(response);
-    //     this.swetS.success('Bienvenido');
-    //     this.router.navigate(['/home'])
-    //   })
-    //   .catch(error => {
-    //     console.log(error)
-    //     this.swetS.error('Contraseña o Usuario incorrecto');
-    //   });
   }
 
-  //onClick() {
-    //this.auth.loginWithGoogle()
-      //.then(response => {
-        //console.log(response);
-        //this.router.navigate(['/main']);
-      //})
-      //.catch(error => console.log(error))
-  //}
+
+  validarPassword(){
+    return !!this.formLogin?.errors?.['passwordError']
+  }
 
 }

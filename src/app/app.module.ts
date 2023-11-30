@@ -36,7 +36,6 @@ import { StudentModule } from './components/student/student.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AuthModule,
     BookModule,
     EstadiasModule,
     StudentModule,

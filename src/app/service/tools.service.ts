@@ -40,6 +40,14 @@ export class ToolsService {
     localStorage.setItem('id', id.toString());
   }
 
+  getIdStudent(){
+    return localStorage.getItem('id_student' || '[]');
+  }
+
+  setIdStudent(id:number){
+    localStorage.setItem('id_student', id.toString());
+  }
+
   setRol( rol:string = 'user'){
     localStorage.setItem('rol', rol);
   }

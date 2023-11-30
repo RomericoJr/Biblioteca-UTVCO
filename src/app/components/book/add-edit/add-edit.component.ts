@@ -6,6 +6,7 @@ import { SweetAlertService } from 'src/app/service/firebase/sweet-alert.service'
 import { BookService } from '../../../service/laravel/book.service';
 import { CategoryService } from 'src/app/service/laravel/category.service';
 import { SubCategoryService } from '../../../service/laravel/sub-category.service';
+import { isbnValid } from 'src/app/validation/book.validator';
 
 @Component({
   selector: 'app-add-edit',
@@ -68,7 +69,8 @@ constructor(
     stock: ['', Validators.required],
     id_category: ['', Validators.required],
     id_subcategory: ['', Validators.required],
-  })
+  },
+  {validators:[isbnValid]})
 
 
   option(){

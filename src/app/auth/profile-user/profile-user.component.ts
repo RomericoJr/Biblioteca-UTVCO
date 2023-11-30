@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthFirebaseService } from 'src/app/service/firebase/auth-firebase.service';
+import { AuthService } from '../../service/laravel/auth.service';
+import { ToolsService } from 'src/app/service/tools.service';
+import { SweetAlertService } from 'src/app/service/firebase/sweet-alert.service';
+import { StudentService } from 'src/app/service/laravel/student.service';
 
 @Component({
   selector: 'app-profile-user',
@@ -10,17 +13,52 @@ import { AuthFirebaseService } from 'src/app/service/firebase/auth-firebase.serv
 export class ProfileUserComponent {
 
   constructor(
-    private auth: AuthFirebaseService,
     private router: Router,
+    private _authS: AuthService,
+    private _toolS: ToolsService,
+    private _sweetAlert: SweetAlertService,
+    private _studentS: StudentService,
   ) {}
 
-  ngOnInit():void{}
+  userProfileAdmin:any;
+  userProfileStudent:any;
+  rol = this._toolS.getRol();
+  idUserStudent:any = this._toolS.getIdStudent();
+
+  ngOnInit(){
+    this.getUser();
+    this.getStudentById();
+  }
+
+  getUser(){
+    this._authS.userDetail().subscribe({
+      next: (res:any) => {
+        this.userProfileAdmin = res;
+        console.log(this.userProfileAdmin);
+      },
+      error: (err:any) => {
+        console.log(err);
+      }
+    });
+  }
+
+getStudentById(){
+
+  if(this.idUserStudent){
+
+    this._studentS.getStudentById(this.idUserStudent).subscribe({
+      next: (res:any) => {
+        this.userProfileStudent = res;
+        console.log(res);
+      },
+      error: (err:any) => {
+        console.log(err);
+      }
+    });
+  }
+}
 
   onClick() {
-    this.auth.logout()
-      .then(() => {
-        this.router.navigate(['/login']);
-      })
-      .catch(error => console.log(error));
+
   }
 }

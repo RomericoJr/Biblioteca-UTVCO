@@ -37,4 +37,14 @@ export class SweetAlertService {
     })
   }
 
+  loading(msn:string){
+    Swal.fire({
+      title: msn,
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading()
+      },
+    });
+  }
+
 }

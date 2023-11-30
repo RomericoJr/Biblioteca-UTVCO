@@ -10,7 +10,7 @@ const routes: Routes = [
   loadChildren: () => import('./components/book/book.module').then(m => m.BookModule)
   },
   { path: 'estadias', loadChildren: () => import('./components/estadias/estadias.module').then(m => m.EstadiasModule)},
-  { path: '', redirectTo: 'auth', pathMatch: 'full' },
+  { path: '**', redirectTo: 'auth', pathMatch: 'full' },
 
   ////
 

@@ -1,26 +1,55 @@
 
 <div class="container mt-5">
-  <h2 class="text-center mb-4">Lista de Libros Apartados</h2>
+  <h2 class="text-center mb-4">Libros Apartados Admin/Student</h2>
 
-  <table class="table">
+  <table class="table" *ngIf="role === '1'">
     <thead>
       <tr class="text-white">
         <th scope="col" class="text-center">Título</th>
-        <th scope="col" class="text-center">Matrícula</th>
+        <th scope="col" class="text-center">Matrícula del estudiante</th>
+        <th scope="col" class="text-center">Estado</th>
         <th scope="col" class="text-center">Acciones</th>
       </tr>
     </thead>
     <tbody>
-      <ng-container *ngFor="let aparto of aparts">
+      <ng-container *ngFor="let aparto of allAparts">
         <tr>
-          <td class="text-center">{{ aparto.titulo }}</td>
-          <td class="text-center">{{ aparto.matricula }}</td>
+          <td class="text-center">{{ aparto.book.title }}</td>
+          <td class="text-center">{{ aparto.student.matricula }}</td>
+          <td *ngIf="aparto.status === 2" class="text-center">Pendiente</td>
+          <td *ngIf="aparto.status === 1" class="text-center">Aceptado</td>
+          <td *ngIf="aparto.status === 0" class="text-center">Rechazado</td>
+
           <td class="text-center">
-            <button type="button" class="btn btn-danger" (click)="deleteApart(aparto.id)">Eliminar</button>
-            <button type="button" class="btn btn-warning">Editar</button>
+            <button type="button" class="btn btn-danger" (click)="deleteApart(aparto.id)">Aceptar</button>
+            <button type="button" class="btn btn-warning">Rechazar</button>
           </td>
         </tr>
       </ng-container>
     </tbody>
   </table>
+
+  <table class="table" *ngIf="role === '2'">
+    <thead>
+      <tr class="text-white">
+        <th scope="col" class="text-center">Título</th>
+        <th scope="col" class="text-center">Estado</th>
+        <th scope="col" class="text-center">Fecha de aparto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let aparto of apartsUser">
+        <tr>
+          <td class="text-center">{{ aparto.book_name }}</td>
+
+          <td *ngIf="aparto.status === 2" class="text-center">Pendiente</td>
+          <td *ngIf="aparto.status === 1" class="text-center">Aceptado</td>
+          <td *ngIf="aparto.status === 0" class="text-center">Rechazado</td>
+
+          <td class="text-center">{{ aparto.date_set_asaide }}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+
 </div>
