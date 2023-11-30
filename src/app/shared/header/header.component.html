@@ -3,7 +3,7 @@
     <a class="navbar-brand" routerLink="/BibliotecaUTVCO">
       <img src="./assets/imagenes/logoblanco.png" width="70" height="50" class="d-inline-block align-top">
     </a>
-    
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
@@ -14,8 +14,8 @@
 
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa fa-book" ></i> <i *ngIf="id_rol === '1'" ></i> Administrar libros
+          <a *ngIf="id_rol === '1'"  class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa fa-book" ></i> <i></i> Administrar libros
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/add">AGREGAR</a></li>
@@ -26,9 +26,9 @@
 
 
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="fa fa-book" ></i> <i *ngIf="id_rol === '1'" ></i> Prestamos
-        
+            <a *ngIf="id_rol === '1'"  class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa fa-book" ></i> <i ></i> Prestamos
+
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/prest">Préstamo</a></li>
@@ -38,8 +38,8 @@
 
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa fa-book" ></i> <i *ngIf="id_rol === '1'" ></i> Categorías
+              <a  *ngIf="id_rol === '1'" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-book" ></i> <i ></i> Categorías
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/category">Agregar categoria</a></li>
@@ -53,21 +53,21 @@
 
 
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="fa fa-users" ></i> <i *ngIf="id_rol === '1'" ></i> Estudiantes
+                <a  *ngIf="id_rol === '1'"  class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fa fa-users" ></i> <i></i> Estudiantes
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/student">Agregar Estudiantes</a></li>
 
                     <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/student-list">Ver estudiantes</a></li>
-                  
+
                 </ul>
 
 
                 <li class="nav-item dropdown">
-                  <a  class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa fa-graduation-cap" > </i><i *ngIf="id_rol === '1'" ></i>Carreras
-          
+                  <a  *ngIf="id_rol === '1'"  class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-graduation-cap" > </i><i></i>Carreras
+
 
 
             <!--    <li class="nav-item dropdown">
@@ -83,9 +83,9 @@
 
                   <li class="nav-item dropdown">
 
-                    <a  class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="fa fa-book" ></i>  <i *ngIf="id_rol === '1'" ></i> Administrar Género
-    
+                    <a  *ngIf="id_rol === '1'"   class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="fa fa-book" ></i>  <i></i> Administrar Género
+
  <!--
                     <a *ngIf="id_rol === '1'" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Administrar Genero -->
@@ -103,13 +103,13 @@
                         <i class="fa fa-user"></i> Perfil
                       </a>
                     </li>
-              
+
                     <li class="nav-item">
                       <a class="nav-link"  (click)="salir()">
                         <i class="fa fa-sign-out"></i> Salir
                       </a>
                     </li>
-                            
+
 
 
 
@@ -128,7 +128,7 @@
 
 
       </ul>
-      
+
     </div>
   </div>
 </nav>
