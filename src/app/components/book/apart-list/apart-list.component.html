@@ -20,7 +20,7 @@
           <td *ngIf="aparto.status === 1" class="text-center">Aceptado</td>
           <td *ngIf="aparto.status === 0" class="text-center">Rechazado</td>
 
-          <td class="text-center">
+          <td *ngIf="aparto.status === 2" class="text-center">
             <button type="button" class="btn btn-danger" (click)="deleteApart(aparto.id)">Aceptar</button>
             <button type="button" class="btn btn-warning">Rechazar</button>
           </td>

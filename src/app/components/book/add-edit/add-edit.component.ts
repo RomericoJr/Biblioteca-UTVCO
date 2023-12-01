@@ -66,7 +66,7 @@ constructor(
     author: ['', Validators.required],
     editorial: ['', Validators.required],
     edition: ['', Validators.required],
-    stock: ['', Validators.required],
+    stock: [ Validators.required],
     id_category: ['', Validators.required],
     id_subcategory: ['', Validators.required],
   },
