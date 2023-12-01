@@ -1,24 +1,31 @@
+<div class="container-fluid mt-5">
+  <h2 class="text-center mb-4">Lista de Géneros</h2>
 
-<div class="container mt-5">
-  <h2 class="text-center mb-4">Lista de Genero</h2>
-
-  <table class="table">
-    <thead>
-      <tr class="text-white">
-        <th scope="col" class="text-center">Generos</th>
-        <th scope="col" class="text-center">Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <ng-container *ngFor="let gene of genere">
+  <div class="table-responsive">
+    <table class="table align-middle mb-0 bg-white" style="width: 100%;">
+      <thead class="bg-light">
         <tr>
-          <td class="text-center">{{ gene.genere }}</td>
-          <td class="text-center">
-            <button type="button" class="btn btn-danger" (click)="deleteGenere(gene.id)">Eliminar</button>
-            <button type="button" class="btn btn-warning" (click)="editGenere(gene)">Editar</button>
-          </td>
+          <th scope="col" class="text-center border-bottom">Géneros</th>
+          <th scope="col" class="text-center border-bottom">Acciones</th>
         </tr>
-      </ng-container>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let gene of genere">
+          <tr>
+            <td class="text-center border-bottom" style="width: 50%;">{{ gene.genere }}</td>
+            <td class="text-center">
+              <button type="button" class="btn btn-danger btn-sm btn-rounded" style="margin-right: 5px;" (click)="deleteGenere(gene.id)">
+                Eliminar
+              </button>              
+              <button type="button" class="btn btn-warning btn-sm btn-rounded" (click)="editGenere(gene)">
+                Edit
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
 </div>
+
+

@@ -1,24 +1,32 @@
-
-<div class="container mt-5">
+<div class="container-fluid mt-5">
   <h2 class="text-center mb-4">Lista de Carreras</h2>
 
-  <table class="table">
-    <thead>
-      <tr class="text-white">
-        <th scope="col" class="text-center">Carreras</th>
-        <th scope="col" class="text-center">Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <ng-container *ngFor="let carr of carreras">
+  <div class="table-responsive">
+    <table class="table align-middle mb-0 bg-white" style="width: 100%;">
+      <thead class="bg-light">
         <tr>
-          <td class="text-center">{{ carr.carrer_name }}</td>
-          <td class="text-center">
-            <button type="button" class="btn btn-danger" (click)="deleteCarrer(carr.id)">Eliminar</button>
-            <button type="button" class="btn btn-warning" (click)="editCarrer(carr)">Editar</button>
-          </td>
+          <th scope="col" class="text-center border-bottom">Carreras</th>
+          <th scope="col" class="text-center border-bottom">Acciones</th>
         </tr>
-      </ng-container>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let carr of carreras">
+          <tr>
+            <td class="text-center border-bottom" style="width: 50%;">{{ carr.carrer_name }}</td>
+            <td class="text-center border-bottom">
+              <button type="button" class="btn btn-danger btn-sm btn-rounded" style="margin-right: 5px;" (click)="deleteCarrer(carr.id)">
+                Eliminar
+              </button>              
+              <button type="button" class="btn btn-warning btn-sm btn-rounded" (click)="editCarrer(carr)">
+                Editar
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
 </div>
+
+
+

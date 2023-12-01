@@ -1,9 +1,9 @@
+<div class="container mt-5 mb-5 d-flex justify-content-center align-items-center">
+  <div class="card shadow-lg p-5 p-md-5" style="margin-top: 150px; max-width: 1000px; margin-right: 100px; margin-left: 100px;">
 
-<div class="container mt-5">
-  <div class="card shadow-lg p-4">
-    <h1 class="text-center mb-4">{{titleText}}</h1>
+    <h1 class="text-center mb-4" style="font-family: 'Roboto', sans-serif; font-size: 2.5em; color: #333; letter-spacing: 1px;">{{titleText}}</h1>
 
-    <form [formGroup]="formSubCategory">
+    <form [formGroup]="formSubCategory" class="text-center">
 
       <div class="mb-3">
         <select formControlName="id_category" class="form-select" aria-label="Default select example">
@@ -13,18 +13,19 @@
 
       <div class="mb-3">
         <div class="form-floating">
-          <input formControlName="subcategory" type="text" class="form-control" id="category" placeholder=" ">
-          <label for="category">Escribe la subcategoría</label>
+          <input formControlName="subcategory" type="text" class="form-control" id="subcategory" placeholder=" ">
+          <label for="subcategory" class="d-block text-wrap">Escribe la subcategoría</label>
         </div>
       </div>
 
-      <!-- Agregar otros campos según sea necesario -->
-
+    
       <div class="d-grid gap-2">
         <button [disabled]="formSubCategory.invalid" (click)="option()" type="button" class="btn btn-success" style="background-color: #7A3E48;">{{titleBtn}}</button>
-        <!--  -->
+     
       </div>
 
     </form>
+
   </div>
 </div>
+
