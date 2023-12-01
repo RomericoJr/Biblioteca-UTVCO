@@ -10,6 +10,8 @@
           <input formControlName="category" type="text" class="form-control" id="category" placeholder=" ">
           <label for="category">Escribe el nombre de una nueva categoría</label>
         </div>
+        <small  *ngIf="validarCategoria()  ">nonono</small>
+
       </div>
 
       <!-- Agregar otros campos según sea necesario -->

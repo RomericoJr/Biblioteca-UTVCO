@@ -104,4 +104,10 @@ ngOnInit(){
       }
     })
   }
+
+
+  validarCategoria(){
+    return !!this.formSubCategory?.errors?.['categoryError']
+  }
+
 }

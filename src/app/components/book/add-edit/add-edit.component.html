@@ -45,6 +45,7 @@
           <input formControlName="stock" type="text" class="form-control" id="stock" placeholder=" ">
           <label for="stock">Ejemplares</label>
         </div>
+        <small *ngIf="validarStok()">nonono</small>
       </div>
 
       <div class="mb-3">
