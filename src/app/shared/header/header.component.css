@@ -24,3 +24,31 @@
     /* ... (otros estilos) ... */
     border-radius: 15px; /* Agregar bordes redondeados */
   }
+
+  .navbar {
+    position: absolute;
+    width: 100%;
+    z-index: 1000; 
+  }
+
+  @media (max-width: 767px) {
+    .navbar-collapse {
+      position: absolute;
+      width: 100%; 
+      top: 70px; 
+      background-color: #b95835; 
+      margin: 0; 
+      padding: 0; 
+    }
+  }
+
+  /* Para centrar el menú */
+  .navbar-nav {
+    width: 100%;
+    text-align: center; 
+  }
+
+  
+
+  
+  
