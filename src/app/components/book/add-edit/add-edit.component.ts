@@ -6,7 +6,7 @@ import { SweetAlertService } from 'src/app/service/firebase/sweet-alert.service'
 import { BookService } from '../../../service/laravel/book.service';
 import { CategoryService } from 'src/app/service/laravel/category.service';
 import { SubCategoryService } from '../../../service/laravel/sub-category.service';
-import { isbnValid } from 'src/app/validation/book.validator';
+import { isbnValid, stockValid } from 'src/app/validation/book.validator';
 
 @Component({
   selector: 'app-add-edit',
@@ -70,7 +70,7 @@ constructor(
     id_category: ['', Validators.required],
     id_subcategory: ['', Validators.required],
   },
-  {validators:[isbnValid]})
+  {validators:[isbnValid,stockValid]})
 
 
   option(){
@@ -127,6 +127,10 @@ constructor(
         this.sweet.error('Error al obtener datos');
       }
     })
+  }
+
+  validarStok(){
+    return !!this.formBook?.errors?.['stockError']
   }
 
 }

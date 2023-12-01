@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SweetAlertService } from 'src/app/service/firebase/sweet-alert.service';
 import { CategoryService } from 'src/app/service/laravel/category.service';
+import { categoryValid } from 'src/app/validation/categoria.validator';
 
 @Component({
   selector: 'app-category',
@@ -25,7 +26,8 @@ export class CategoryComponent {
 
   formCategory: FormGroup = this.fb.group({
     category: ['', [Validators.required, Validators.minLength(3)]],
-  })
+  },
+  {validators:[categoryValid]})
 
   ngOnInit(){
     this.activatedRoute.params.subscribe({
@@ -93,4 +95,9 @@ export class CategoryComponent {
       }
     })
   }
+
+  validarCategoria(){
+    return !!this.formCategory?.errors?.['subcategoryError']
+  }
+  
 }

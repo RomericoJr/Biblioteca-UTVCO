@@ -49,3 +49,31 @@
     font-size: 14px; /* Ajustar tamaño de fuente para el texto del footer */
   }
 }
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.sombra {
+  background-color: rgba(122, 62, 72, 0.7);
+  padding: 10px 20px; /* superior e inferior */
+  border-radius: 15px; /* esquinas  */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra  */
+  width: 400px; /* ancho  */
+  margin: auto; /* Centra horizontalmente la tarjeta */
+}
+
+.sombra:hover {
+  transform: scale(1.05); /* brinca tarjeta */
+}
+
+h1 {
+  margin: 0;
+  color: white;
+}
+
+
