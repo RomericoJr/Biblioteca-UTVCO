@@ -1,3 +1,20 @@
-<app-header></app-header>
+<br>
 
-<p>read-estadia works!</p>
+
+
+<div class="container">
+
+  <div class="card" style="width: 18rem;" *ngFor="let book of bookEstadias">
+    <div class="card-body">
+      <h5 class="card-title">{{book.title}}</h5>
+      <p class="card-text">
+
+        Author: {{book.author}}
+
+      </p>
+      <p class="card-text">Descripción: {{book.description}}</p>
+      <p class="card-text">Carrera: {{book.carrer.carrer_name}}</p>
+      <p class="card-text">Copias: {{book.copias}}</p>
+    </div>
+  </div>
+</div>

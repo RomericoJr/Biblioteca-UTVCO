@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Libro from 'src/app/interface/libro.interface';
 import { EstadiasFirebaseService } from 'src/app/service/firebase/estadias-firebase.service';
+import { SweetAlertService } from 'src/app/service/firebase/sweet-alert.service';
+import { DonacionService } from 'src/app/service/laravel/donacion.service';
 
 @Component({
   selector: 'app-estadia-list',
@@ -11,44 +13,66 @@ import { EstadiasFirebaseService } from 'src/app/service/firebase/estadias-fireb
 })
 export class EstadiaListComponent {
 
-  estadiasBooks: Libro [] = [];
-  router = inject(Router)
-
+donaciones:any[] = [];
 
   constructor(
     private fb: FormBuilder,
-    private estBookService:  EstadiasFirebaseService
-  ){}
+    private router: Router,
+    private _donacionS: DonacionService,
+    private sweet : SweetAlertService,
+    ){}
 
-  title = 'bibliotecaUtvco';
-
-  formBook: FormGroup = this.fb.group({
-    isbn: ['', Validators.required],
-    titulo: ['', Validators.required],
-    autores: ['', Validators.required],
-    categoria: ['', Validators.required],
-    subcategoria: ['', Validators.required],
-    editorial: ['', Validators.required],
-    edicion: ['', Validators.required],
-  })
 
   ngOnInit(): any {
-    this.estBookService.getEstadiasBook().subscribe(estadiasBooks =>{
-      console.log((estadiasBooks));
-      this.estadiasBooks=estadiasBooks;
-    })
+    this.getDonacion();
   }
 
 
-  async deleteEstadiasBook(id: any) {
-    this.estBookService.deleteEstadiasBook(id);
-    console.log('Libro eliminado', id);
+  getDonacion(){
+    this._donacionS.getDonacion().subscribe({
+      next: (data) => {
+        this.donaciones = data.data;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
   }
 
 
-  editEstBook(book: Libro){
-    this.router.navigate(['/estadias/editEstadia', book.id])
+  deleteDonacion(id: any) {
+
+    this.sweet.confirm('¿Desea eliminar la categoria?','Aceptar').then((result) => {
+      if(result.isConfirmed){
+        this._donacionS.deleteDonacion(id).subscribe({
+          next: (data) => {
+            this.sweet.success('Eliminado con exito');
+            this.getDonacion();
+          },
+          error: (err) => {
+            console.log(err);
+          }
+        })
+      } else {
+
+      }
+    });
+
+
+
   }
+
+
+  editDonacion(data: any){
+    this.sweet.confirm('¿Desea editar la categoria?','Aceptar').then((result) => {
+      if(result.isConfirmed){
+        this.router.navigate(['/estadias/editDonacion', data.id]);
+      } else {
+
+      }
+    });
+  }
+
 
 }
 

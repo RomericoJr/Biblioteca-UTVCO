@@ -12,15 +12,15 @@ import { EstadiaListComponent } from './estadia-list/estadia-list.component';
 
 const routes: Routes = [
   {
-    path: 'addEstadia',
+    path: 'agregar_Donacion',
     component: AddEditEstadiaComponent
   },
   {
-    path: 'editEstadia/:id',
+    path: 'editDonacion/:id',
     component: AddEditEstadiaComponent
   },
   {
-    path: 'readEstadia',
+    path: 'readDonacion',
     component: ReadEstadiaComponent
   },
   {

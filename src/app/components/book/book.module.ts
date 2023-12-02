@@ -21,6 +21,7 @@ import { CarrerListComponent } from '../student/carrer-list/carrer-list.componen
 import { GenereComponent } from '../student/genere/genere.component';
 import { GenereListComponent } from '../student/genere-list/genere-list.component';
 import { ProfileUserComponent } from 'src/app/auth/profile-user/profile-user.component';
+import { EstadiasModule } from '../estadias/estadias.module';
 
 const routes: Routes = [
   {
@@ -121,6 +122,7 @@ const routes: Routes = [
     redirectTo: 'inicio',
   },
 
+  // { path: 'estadias', loadChildren: () => import('../estadias/estadias.module').then(m => m.EstadiasModule)},
 
 
 ]

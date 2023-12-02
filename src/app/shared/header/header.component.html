@@ -106,16 +106,23 @@
                     <a  *ngIf="id_rol === '1'"   class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       <i class="fa fa-book" ></i>  <i></i> Administrar Género
 
- <!--
-                    <a *ngIf="id_rol === '1'" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Administrar Genero -->
-
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/genere">Agregar Genero</a></li>
                       <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/genere-list">Ver Genero</a></li>
                       <!-- <li><a class="dropdown-item" routerLink="/book/edit">ADMINISTRAR</a></li> -->
                     </ul>
+
+                    <li class="nav-item dropdown">
+
+                      <a  *ngIf="id_rol === '1'"   class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-book" ></i>  <i></i> Libros de donación
+
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" routerLink="/estadias/agregar_Donacion">Agregar Libro de donación</a></li>
+                        <li><a class="dropdown-item" routerLink="/estadias/list">Ver administración de libros</a></li>
+                      </ul>
 
 
                     <li class="nav-item">

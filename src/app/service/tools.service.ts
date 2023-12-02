@@ -56,5 +56,11 @@ export class ToolsService {
     return localStorage.getItem('rol' || '[]');
   }
 
+  setNameUser(name:string){
+    localStorage.setItem('name', name);
+  }
+  getNameUser(){
+    return localStorage.getItem('name' || '[]');
+  }
 
 }

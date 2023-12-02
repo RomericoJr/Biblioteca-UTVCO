@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EstadiasFirebaseService } from 'src/app/service/firebase/estadias-firebase.service';
 import { SweetAlertService } from 'src/app/service/firebase/sweet-alert.service';
+import { CarrerService } from 'src/app/service/laravel/carrer.service';
+import { DonacionService } from 'src/app/service/laravel/donacion.service';
 
 @Component({
   selector: 'app-add-edit-estadia',
@@ -14,46 +16,42 @@ export class AddEditEstadiaComponent {
 
 constructor(
   private fb: FormBuilder,
-  private estadiasService: EstadiasFirebaseService,
   private route: Router,
   private activatedRoute: ActivatedRoute,
   private sweet: SweetAlertService,
+  private _donacionS: DonacionService,
+  private _carrerS: CarrerService
 ){}
-  titleText='Agregar libro';
+  titleText='Agregar libro para donación';
   titleBtn = 'Agregar';
-  id!: string;
-
+  id!: number;
+  carrers:any[] = [];
 ngOnInit(){
-  this.activatedRoute.params.subscribe((data: any)=>{
-    this.id = data.id
-    console.log(this.id);
-
-    if(data.id){
-      this.titleText = 'Actualizar Libros';
-      this.titleBtn = 'Actualizar';
-      this.estadiasService.getEstBookById(this.id).subscribe((data) => {
-        console.log('existo y soy', data);
-        this.formEst.patchValue(data[0])
-
-      });
+  this.activatedRoute.params.subscribe({
+    next: (data:any) => {
+      this.id = parseInt(data.id);
+      if (data && data.id) {
+        this.titleText = 'Editar libro para donación';
+        this.titleBtn = 'Editar';
+        this.getDonacionById(this.id);
+      }
+    },
+    error: (err) => {
+      console.log(err);
     }
-
-  });
-
+  })
+  this.getCarrers();
 }
 
-formEst: FormGroup = this.fb.group({
-  isbn: ['', Validators.required],
-    titulo: ['', Validators.required],
-    autores: ['', Validators.required],
-    categoria: ['', Validators.required],
-    subcategoria: ['', Validators.required],
-    editorial: ['', Validators.required],
-    edicion: ['', Validators.required],
+formDonacion: FormGroup = this.fb.group({
+  title: ['', Validators.required],
+  author: ['', Validators.required],
+  description: ['', Validators.required],
+  copias: ['', Validators.required],
+  carrer_id: [,Validators.required],
 })
 
 option(){
-  console.log('datos registers',this.formEst.value);
 
   if(this.id){
     this.updateEstBook();
@@ -62,26 +60,64 @@ option(){
   }
 }
 
-updateEstBook(){
-  this.estadiasService.updateEstBook({
-    id: this.id, ...this.formEst.value
+getDonacionById(id: any){
+  this._donacionS.getDonacionById(id).subscribe({
+    next: (data) => {
+      this.formDonacion.setValue({
+        title: data.data.title,
+        author: data.data.author,
+        description: data.data.description,
+        copias: data.data.copias,
+      })
+    },
+    error: (err) => {
+      console.log(err);
+    }
+  })
 
-  });
-  console.log('cacha', this.formEst.value);
-  this.sweet.success('Actualizado con exito');
-  this.route.navigateByUrl('/estadias/list');
+}
+
+updateEstBook(){
+
+  const formDonacionValue = this.formDonacion.value;
+
+  const updateFormDonacion = {...formDonacionValue, _method: 'PUT'};
+
+  this._donacionS.putDonacion(this.id, updateFormDonacion).subscribe({
+    next: (data) => {
+      this.sweet.success('Donacion actualizada con exito');
+      this.route.navigate(['/estadias/list']);
+    },
+    error: (err) => {
+      console.log(err);
+    }
+  })
 
 }
 
 save(){
-  this.estadiasService.addEstadiasBook({
-    id: new Date().getTime().toString(),
-    ...this.formEst.value
-  } as any);
-  console.log('Guardado', this.formEst.value);
-  this.sweet.success('Guardado con exito');
+    console.log(this.formDonacion.value);
+  this._donacionS.postDonacion(this.formDonacion.value).subscribe({
+    next: (data) => {
+      this.sweet.success('Donacion agregada con exito');
+      this.route.navigate(['/estadias/list']);
+    },
+    error: (err) => {
+      console.log(err);
 
-  this.route.navigateByUrl('/estadias/list');
+  }
+  });
 
 }
+getCarrers(){
+  this._carrerS.getCarrer().subscribe({
+    next: (data: any) => {
+      this.carrers = data.carrer;
+    },
+    error: (err) => {
+      console.log(err);
+    }
+  })
+}
+
 }

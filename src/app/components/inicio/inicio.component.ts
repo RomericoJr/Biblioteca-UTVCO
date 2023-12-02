@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/service/laravel/auth.service';
+import { ToolsService } from 'src/app/service/tools.service';
 
 @Component({
   selector: 'app-inicio',
@@ -8,13 +9,13 @@ import { AuthService } from 'src/app/service/laravel/auth.service';
 })
 export class InicioComponent {
 
-  name: string = '';
+  name: any = this._toolS.getNameUser();
   constructor(
-    private _autsS: AuthService
+    private _autsS: AuthService,
+    private _toolS: ToolsService
   ) { }
 
   ngOnInit() {
-    this.getInfoProfile();
   }
 
   getInfoProfile(){

@@ -61,6 +61,7 @@ export class LoginComponent implements OnInit {
       this._toolS.setToken(data.token.original.access_token);
       this._toolS.setIdUser(data.user.id);
       this._toolS.setRol(data.user.id_rol);
+      this._toolS.setNameUser(data.user.name);
       if(data.user.id_rol == 2){
         this._toolS.setIdStudent(data.user.id_students);
       }

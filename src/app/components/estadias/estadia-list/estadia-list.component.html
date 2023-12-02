@@ -1,54 +1,35 @@
-<p>estadia-list works!</p>
+<div class="container-fluid mt-5">
+  <h2 class="text-center mb-4">Lista de libros para donación</h2>
 
-<div class="container">
-    <div class="row row-cols-7">
-  <div class="col">
-  Isbn
+  <div class="table-responsive">
+    <table class="table align-middle mb-0 bg-white">
+      <thead class="bg-light">
+        <tr>
+          <th scope="col" class="text-center border-bottom">Titulo</th>
+          <th scope="col" class="text-center border-bottom">Author</th>
+          <th scope="col" class="text-center border-bottom">Descripción</th>
+          <th scope="col" class="text-center border-bottom">Copias</th>
+          <th scope="col" class="text-center border-bottom">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let donation of donaciones">
+          <tr>
+            <td class="text-center border-bottom">{{ donation.title }}</td>
+            <td class="text-center border-bottom">{{ donation.author }}</td>
+            <td class="text-center border-bottom">{{ donation.description }}</td>
+            <td class="text-center border-bottom">{{ donation.copias }}</td>
+            <td class="text-center border-bottom">
+              <button type="button" class="btn btn-danger btn-sm btn-rounded" style="margin-right: 5px;" (click)="deleteDonacion(donation.id)">
+                Eliminar
+              </button>
+              <button type="button" class="btn btn-warning btn-sm btn-rounded" (click)="editDonacion(donation)">
+                Editar
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
   </div>
-  <div class="col">
-    Titulo
-  </div>
-  <div class="col">
-    Autores
-  </div>
-  <div class="col">
-    Categoria
-  </div>
-  <div class="col">
-    Subcategoria
-  </div>
-  <div class="col">
-    Editorial
-  </div>
-  <div class="col">
-    Acciones
-  </div>
-</div>
-
-<div class="container" *ngFor="let estadiasBook of estadiasBooks">
-  <div class="row row-cols-7">
-    <div class="col">
-      {{ estadiasBook.titulo }}
-    </div>
-    <div class="col">
-      {{ estadiasBook.autores }}
-    </div>
-    <div class="col">
-      {{ estadiasBook.categoria }}
-    </div>
-    <div class="col">
-      {{ estadiasBook.subcategoria }}
-    </div>
-    <div class="col">
-      {{ estadiasBook.editorial }}
-    </div>
-    <div class="col">
-      {{ estadiasBook.edicion }}
-    </div>
-    <div class="col">
-      <br>
-      <button type="button" class="btn btn-danger" (click)="deleteEstadiasBook(estadiasBook.id)">Eliminar</button>
-      <button type="button" class="btn btn-warning" (click)="editEstBook(estadiasBook)">Editar</button>
-</div>
-       
 </div>

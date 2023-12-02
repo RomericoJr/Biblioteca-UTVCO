@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
   { path: 'BibliotecaUTVCO',
   component: HomeComponent,
-  loadChildren: () => import('./components/book/book.module').then(m => m.BookModule)
+  loadChildren: () => import('./components/book/book.module').then(m => m.BookModule),
   },
   { path: 'estadias', loadChildren: () => import('./components/estadias/estadias.module').then(m => m.EstadiasModule)},
   { path: '**', redirectTo: 'auth', pathMatch: 'full' },
