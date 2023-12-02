@@ -1,5 +1,5 @@
 <div class="container mt-5 mb-5 d-flex justify-content-center align-items-center">
-  <div class="card shadow-lg p-5 p-md-5" style="margin-top: 150px; max-width: 1000px; margin-right: 100px; margin-left: 100px;">
+  <div class="card shadow-lg p-5" style="max-width: 600px; background-color: #f8f9fa; border: 1px solid #ced4da; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 10px; text-align: center; display: flex; flex-direction: column; align-items: center;">
 
     <h1 class="text-center mb-4" style="font-family: 'Roboto', sans-serif; font-size: 2.5em; color: #333; letter-spacing: 1px;">{{titleText}}</h1>
 
@@ -7,19 +7,18 @@
 
       <div class="mb-3">
         <div class="form-floating">
-          <input formControlName="carrer_name" type="text" class="form-control" id="carrer_name" placeholder=" ">
+          <input formControlName="carrer_name" type="text" class="form-control" id="carrer_name" placeholder=" " style="width: 300px;">
           <label for="carrer_name" class="d-block text-wrap">Escribe la carrera</label>
         </div>
       </div>
 
-
       <div class="d-grid gap-2">
-        <button [disabled]="formCarrer.invalid" (click)="option()" type="button" class="btn btn-success" style="background-color: #7A3E48;">{{titleBtn}}</button>
-       
+        <button [disabled]="formCarrer.invalid" (click)="option()" type="button" class="btn btn-success btn-block" style="background-color: #7A3E48; border-color: #7A3E48; transition: background-color 0.3s; font-weight: bold;">
+          {{titleBtn}}
+        </button>
       </div>
 
     </form>
 
   </div>
 </div>
-

@@ -35,7 +35,7 @@ export class CarrerListComponent {
 
 
   deleteCarrer(id: any) {
-
+    console.log(id)
     this.sweet.confirm('¿Desea eliminar la carrera?','Aceptar').then((result) => {
       if(result.isConfirmed){
         this._carrerS.deleteCarrer(id).subscribe({

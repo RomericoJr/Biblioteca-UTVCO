@@ -16,12 +16,21 @@
             <td class="text-center border-bottom">{{ catego.category.category }}</td>
             <td class="text-center border-bottom">{{ catego.subcategory }}</td>
             <td class="text-center">
-              <button type="button" class="btn btn-danger btn-sm btn-rounded" style="margin-right: 5px;" (click)="deleteSubCategory(catego.id)">
-                Eliminar
-              </button>              
-              <button type="button" class="btn btn-warning btn-sm btn-rounded" (click)="editSubCategory(catego)">
-                Edit
-              </button>
+              <button
+                type="button"
+                class="btn btn-link btn-rounded btn-sm fw-bold"
+                data-mdb-ripple-color="dark"
+                (click)="editSubCategory(catego)">
+          Edit
+        </button>
+        
+        <button
+        type="button"
+        class="btn btn-link btn-rounded btn-sm fw-bold text-danger"
+        data-mdb-ripple-color="dark"
+        (click)="deleteSubCategory(catego.id)">
+        Eliminar
+    </button>
             </td>
           </tr>
         </ng-container>

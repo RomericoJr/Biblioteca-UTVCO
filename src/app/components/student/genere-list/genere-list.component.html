@@ -1,25 +1,36 @@
-<div class="container-fluid mt-5">
+<div class="container-fluid mt-5 mi-componente">
   <h2 class="text-center mb-4">Lista de Géneros</h2>
 
-  <div class="table-responsive">
+  <div class="table-responsive ml-4 mr-4">
     <table class="table align-middle mb-0 bg-white" style="width: 100%;">
       <thead class="bg-light">
         <tr>
-          <th scope="col" class="text-center border-bottom">Géneros</th>
-          <th scope="col" class="text-center border-bottom">Acciones</th>
+          <th scope="col" class="text-center border-bottom" style="height: 40px;">Géneros</th>
+          <th scope="col" class="text-center border-bottom" style="height: 40px;">Acciones</th>
         </tr>
       </thead>
       <tbody>
         <ng-container *ngFor="let gene of genere">
           <tr>
             <td class="text-center border-bottom" style="width: 50%;">{{ gene.genere }}</td>
-            <td class="text-center">
-              <button type="button" class="btn btn-danger btn-sm btn-rounded" style="margin-right: 5px;" (click)="deleteGenere(gene.id)">
-                Eliminar
-              </button>              
-              <button type="button" class="btn btn-warning btn-sm btn-rounded" (click)="editGenere(gene)">
-                Edit
-              </button>
+            <td class="text-center border-bottom" style="height: 40px;">
+              <div class="d-flex justify-content-center align-items-center">
+                <button
+                  type="button"
+                  class="btn btn-link btn-rounded btn-sm fw-bold"
+                  data-mdb-ripple-color="dark"
+                  (click)="editGenere(gene)">
+                  Edit
+                </button>
+            
+                <button
+                  type="button"
+                  class="btn btn-link btn-rounded btn-sm fw-bold text-danger ml-2"
+                  data-mdb-ripple-color="dark"
+                  (click)="deleteGenere(gene.id)">
+                  Eliminar
+                </button>
+              </div>
             </td>
           </tr>
         </ng-container>
@@ -27,5 +38,3 @@
     </table>
   </div>
 </div>
-
-

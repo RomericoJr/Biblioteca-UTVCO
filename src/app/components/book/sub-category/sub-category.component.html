@@ -1,13 +1,14 @@
 <div class="container mt-5 mb-5 d-flex justify-content-center align-items-center">
-  <div class="card shadow-lg p-5 p-md-5" style="margin-top: 150px; max-width: 1000px; margin-right: 100px; margin-left: 100px;">
+  <div class="card shadow-lg p-5 p-md-5" style="max-width: 1000px; margin: 100px 20px;">
 
     <h1 class="text-center mb-4" style="font-family: 'Roboto', sans-serif; font-size: 2.5em; color: #333; letter-spacing: 1px;">{{titleText}}</h1>
 
     <form [formGroup]="formSubCategory" class="text-center">
 
       <div class="mb-3">
-        <select formControlName="id_category" class="form-select" aria-label="Default select example">
-          <option [value]="c.id" *ngFor="let c of category">{{c.category}}</option>
+        <select formControlName="id_category" class="form-select" id="id_category">
+          <option value="" disabled selected hidden>Seleccionar categoría</option>
+          <option *ngFor="let c of category" [value]="c.id">{{c.category}}</option>
         </select>
       </div>
 
@@ -18,14 +19,11 @@
         </div>
       </div>
 
-    
       <div class="d-grid gap-2">
         <button [disabled]="formSubCategory.invalid" (click)="option()" type="button" class="btn btn-success" style="background-color: #7A3E48;">{{titleBtn}}</button>
-     
       </div>
 
     </form>
 
   </div>
 </div>
-

@@ -14,12 +14,21 @@
           <tr>
             <td class="text-center border-bottom" style="width: 50%;">{{ carr.carrer_name }}</td>
             <td class="text-center border-bottom">
-              <button type="button" class="btn btn-danger btn-sm btn-rounded" style="margin-right: 5px;" (click)="deleteCarrer(carr.id)">
-                Eliminar
-              </button>              
-              <button type="button" class="btn btn-warning btn-sm btn-rounded" (click)="editCarrer(carr)">
-                Editar
-              </button>
+              <button
+                type="button"
+                class="btn btn-link btn-rounded btn-sm fw-bold"
+                data-mdb-ripple-color="dark"
+                (click)="editCarrer(carr)">
+          Edit
+        </button>
+
+        <button
+        type="button"
+        class="btn btn-link btn-rounded btn-sm fw-bold text-danger"
+        data-mdb-ripple-color="dark"
+        (click)="deleteCarrer(carr.id)">
+        Eliminar
+    </button>
             </td>
           </tr>
         </ng-container>
