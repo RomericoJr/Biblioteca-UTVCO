@@ -6,7 +6,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { SharedModule } from '../../shared/shared.module';
 
-import { BookListComponent } from '../book/book-list/book-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EstadiaListComponent } from './estadia-list/estadia-list.component';
 

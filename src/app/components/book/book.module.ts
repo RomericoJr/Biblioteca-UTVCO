@@ -4,17 +4,12 @@ import { AddEditComponent } from './add-edit/add-edit.component';
 import { ReadComponent } from './read/read.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BookListComponent } from './book-list/book-list.component';
-import { BookPrestComponent } from './book-prest/book-prest.component';
-import { PresListComponent } from './pres-list/pres-list.component';
 import { ApartComponent } from './apart/apart.component';
 import { ApartListComponent } from './apart-list/apart-list.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CategoryComponent } from './category/category.component';
 import { CategoryListComponent } from './category-list/category-list.component';
- //frondentjoni
-import { BookVerLComponent } from './book-ver-l/book-ver-l.component';
-import { BooksDonarComponent } from './books-donar/books-donar.component';
+
 
 import { InicioComponent } from '../inicio/inicio.component';
 import { SubCategoryComponent } from './sub-category/sub-category.component';
@@ -45,19 +40,6 @@ const routes: Routes = [
     component: ReadComponent
   },
   {
-
-    path: 'list',
-    component: BookListComponent
-  },
-  {
-    path: 'prest',
-    component: BookPrestComponent
-  },
-  {
-    path: 'prelist',
-    component: PresListComponent
-  },
-  {
     path: 'apart',
     component: ApartComponent
   },
@@ -68,14 +50,6 @@ const routes: Routes = [
   {
     path: 'category',
     component: CategoryComponent
-  },
-  {
-    path: 'ver-librosLista',
-    component: BookVerLComponent
-  },
-  {
-    path: 'list-donarlibros',
-    component: BooksDonarComponent
   },
   {
     path: 'category-list',
@@ -156,14 +130,10 @@ const routes: Routes = [
   declarations: [
     AddEditComponent,
     ReadComponent,
-    BookPrestComponent,
-    PresListComponent,
     ApartComponent,
     ApartListComponent,
     CategoryComponent,
     CategoryListComponent,
- //frondentjoni
-    BooksDonarComponent,
 //master
     SubCategoryComponent,
     SubCategoryListComponent,
