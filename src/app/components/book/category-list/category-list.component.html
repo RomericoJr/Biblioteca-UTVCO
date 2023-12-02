@@ -1,28 +1,39 @@
 <div class="container-fluid mt-5">
   <h2 class="text-center mb-4">Lista de Categorías</h2>
 
-  <div class="table-responsive">
+  <div class="table-responsive ml-4 mr-4">
     <table class="table align-middle mb-0 bg-white">
       <thead class="bg-light">
         <tr>
-          <th scope="col" class="text-center border-bottom">Categorías</th>
-          <th scope="col" class="text-center border-bottom">Acciones</th>
+          <th scope="col" class="text-center border-bottom" style="height: 40px;">Categorías</th>
+          <th scope="col" class="text-center border-bottom" style="height: 40px;">Acciones</th>
         </tr>
       </thead>
       <tbody>
-        <ng-container *ngFor="let catego of categorias">
-          <tr>
-            <td class="text-center border-bottom">{{ catego.category }}</td>
-            <td class="text-center border-bottom">
-              <button type="button" class="btn btn-danger btn-sm btn-rounded" style="margin-right: 5px;" (click)="deleteCategory(catego.id)">
-                Eliminar
-              </button>              
-              <button type="button" class="btn btn-warning btn-sm btn-rounded" (click)="editCategory(catego)">
-                Editar
-              </button>
-            </td>
-          </tr>
-        </ng-container>
+        <tr *ngFor="let catego of categorias">
+          <td class="text-center border-bottom" style="height: 40px;">{{ catego.category }}</td>
+          <td class="text-center border-bottom" style="height: 40px;">
+            <button
+                type="button"
+                class="btn btn-link btn-rounded btn-sm fw-bold"
+                data-mdb-ripple-color="dark"
+                (click)="editCategory(catego)">
+          Edit
+        </button>
+
+        <button
+        type="button"
+        class="btn btn-link btn-rounded btn-sm fw-bold text-danger"
+        data-mdb-ripple-color="dark"
+        (click)="deleteCategory(catego.id)">
+        Eliminar
+    </button>
+    
+
+
+        
+        </td>
+        </tr>
       </tbody>
     </table>
   </div>

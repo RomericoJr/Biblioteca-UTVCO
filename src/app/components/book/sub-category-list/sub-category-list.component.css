@@ -1,0 +1,19 @@
+/* tabla*/
+
+.table {
+    font-size: 14px; /*  fuente de la tabla */
+    max-width: 60%; /* Limita el ancho de la tabla al  */
+    margin: 0 auto; /* Centrar la tabla en el contenedor */
+  }
+  
+  .table th,
+  .table td {
+    padding: 6px; /* espacio dentro de las celdas */
+    height: 25px; /* altura de las celdas */
+  }
+  
+  .custom-margin {
+    margin-right: 8px; /*  */
+}
+
+

@@ -1,0 +1,19 @@
+/* Tu CSS existente aquí */
+
+.table {
+    font-size: 14px; /* Ajusta el tamaño de la fuente de la tabla */
+    max-width: 60%; /* Limita el ancho de la tabla al 60% del contenedor padre, ajusta según sea necesario */
+    margin: 0 auto; /* Centra la tabla en el contenedor */
+  }
+  
+  .table th,
+  .table td {
+    padding: 6px; /* Ajusta el espacio dentro de las celdas */
+    height: 25px; /* Ajusta la altura de las celdas */
+  }
+  
+  .custom-margin {
+    margin-right: 8px; /* Ajusta el valor según tus necesidades */
+}
+
+
