@@ -11,7 +11,7 @@ export interface setAsade {
   id_book :number;
   id_student :number;
   date_set_asaide :string;
-  status  :string;
+  id_status  :number;
 }
 
 @Component({
@@ -50,7 +50,7 @@ setAsaide(id:number){
         id_book: id,
         id_student: this.idStudent,
         date_set_asaide: new Date().toISOString().slice(0, 10),
-        status: '2'
+        id_status: 3
       });
       this._setAsaide.postSetAsaide(this.setAsaideList[0]).subscribe({
         next: (data: any) => {
