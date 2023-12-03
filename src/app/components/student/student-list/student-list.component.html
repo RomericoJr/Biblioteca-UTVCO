@@ -1,4 +1,3 @@
-
 <div class="container mt-5">
   <h2 class="text-center mb-4">Lista de Estudiantes</h2>
 
@@ -30,9 +29,24 @@
           <td class="text-center">{{ student.carrer.carrer_name }}</td>
           <td *ngIf="student.status == 1">Activo</td>
           <td *ngIf="student.status == 0">Inactivo</td>
-          <td class="text-center">
-            <button type="button" class="btn btn-danger" (click)="deleteStudent(student.id)">Eliminar</button>
-            <button type="button" class="btn btn-warning" (click)="updateStudent(student)">Editar</button>
+          <td class="text-center border-bottom" style="height: 40px;">
+            <div class="d-flex">
+              <button
+                type="button"
+                class="btn btn-link btn-rounded btn-sm fw-bold"
+                data-mdb-ripple-color="dark"
+                (click)="updateStudent(student)">
+                Edit
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-link btn-rounded btn-sm fw-bold text-danger"
+                data-mdb-ripple-color="dark"
+                (click)="deleteStudent(student.id)">
+                Eliminar
+              </button>
+            </div>
           </td>
         </tr>
       </ng-container>

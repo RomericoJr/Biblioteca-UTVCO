@@ -1,79 +1,79 @@
-
 <div class="container mt-5">
-  <div class="card shadow-lg p-4">
-    <h1 class="text-center mb-4">{{titleText}}</h1>
+  <div class="card p-5 px-8 mx-auto" style="max-width: 600px; background-color: #f8f9fa; border: 1px solid #ced4da; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 10px; text-align: center;">
 
-    <form [formGroup]="formStudent">
+    <h1 class="mb-4 text-dark" style="font-family: 'Roboto', sans-serif; font-size: 2.5em;">{{titleText}}</h1>
 
-      <div class="mb-3">
+    <form [formGroup]="formStudent" class="row g-3">
+
+      <div class="mb-3 col-12 col-md-6">
         <div class="form-floating">
           <input formControlName="name" type="text" class="form-control" id="name" placeholder=" ">
           <label for="name">Nombre(s) del Estudiante</label>
         </div>
       </div>
 
-      <div class="mb-3">
+      <div class="mb-3 col-12 col-md-6">
         <div class="form-floating">
           <input formControlName="lastname_father" type="text" class="form-control" id="lastname_father" placeholder=" ">
           <label for="lastname_father">Apellido Paterno</label>
         </div>
       </div>
 
-      <div class="mb-3">
+      <div class="mb-3 col-12 col-md-6">
         <div class="form-floating">
           <input formControlName="lastname_mother" type="text" class="form-control" id="lastname_mother" placeholder=" ">
           <label for="lastname_mother">Apellido Materno</label>
         </div>
       </div>
 
-      <div class="mb-3">
+      <div class="mb-3 col-12 col-md-6">
         <div class="form-floating">
           <input formControlName="matricula" type="text" class="form-control" id="matricula" placeholder=" ">
           <label for="matricula">Matricula</label>
         </div>
       </div>
 
-      <div class="mb-3">
+      <div class="mb-3 col-12 col-md-6">
         <div class="form-floating">
           <input formControlName="phone" type="text" class="form-control" id="phone" placeholder=" ">
           <label for="phone">Telefono</label>
         </div>
       </div>
 
-      <div class="mb-3">
+      <div class="mb-3 col-12 col-md-6">
         <div class="form-floating">
           <input formControlName="email" type="email" class="form-control" id="email" placeholder=" ">
           <label for="email">Email</label>
         </div>
       </div>
 
-      <div class="mb-3">
-        <select formControlName="id_genere" class="form-select" aria-label="Default select example">
-          <label for="id_genere">Genero</label>
+    
+      <div class="mb-3 col-12 col-md-6">
+        <select formControlName="id_genere" class="form-select" id="id_category" aria-label="Default select example">
+          <option value="" disabled selected hidden>Seleccionar genero</option>
           <option *ngFor="let c of genere" [value]="c.id" >{{c.genere}}</option>
         </select>
       </div>
 
-      <div class="mb-3">
-        <select formControlName="id_carrers" class="form-select" aria-label="Default select example">
-          <label for="id_carrers">Carrera</label>
+      <div class="mb-3 col-12 col-md-6">
+        <select formControlName="id_carrers" class="form-select" id="id_category" aria-label="Default select example">
+          <option value="" disabled selected hidden>Seleccionar carrera</option>
           <option *ngFor="let c of carrers" [value]="c.id" >{{c.carrer_name}}</option>
         </select>
       </div>
 
-      <div *ngIf="userEmail" class="mb-3">
+      <div *ngIf="userEmail" class="mb-3 col-12 col-md-6">
         <div class="form-floating">
           <input formControlName="password" type="text" class="form-control" id="password" placeholder=" ">
           <label for="password">password</label>
         </div>
       </div>
 
-
-      <!-- Agregar otros campos según sea necesario -->
-
-      <div class="d-grid gap-2">
-        <button  (click)="option()" type="button" class="btn btn-success" style="background-color: #7A3E48;">{{titleBtn}}</button>
-        <!--[disabled]="formStudent.invalid"  -->
+      <div class="mb-3 col-12">
+        <div class="d-grid gap-2">
+          <button  (click)="option()" type="button" class="btn btn-success" style="background-color: #7A3E48; box-shadow: 0 4px 8px rgba(159, 82, 94, 0.1);">{{titleBtn}}</button>
+          <!--[disabled]="formStudent.invalid"  -->
+        </div>
       </div>
 
     </form>

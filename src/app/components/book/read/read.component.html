@@ -28,8 +28,26 @@
         <td class="text-center">{{book.category.category}}</td>
         <td class="text-center">{{book.subcategory.subcategory}}</td>
         <td class="text-center">
-          <button class="btn btn-danger" (click)="deleteBook(book.id)">Eliminar</button>
-          <button class="btn btn-warning" (click)="editBook(book)">Editar</button>
+          
+          <!-- <button class="btn btn-danger" (click)="deleteBook(book.id)">Eliminar</button>
+          <button class="btn btn-warning" (click)="editBook(book)">Editar</button> -->
+
+          <button
+          type="button"
+          class="btn btn-link btn-rounded btn-sm fw-bold"
+          data-mdb-ripple-color="dark"
+          (click)="editBook(book)">
+    Edit
+  </button>
+
+  <button
+  type="button"
+  class="btn btn-link btn-rounded btn-sm fw-bold text-danger"
+  data-mdb-ripple-color="dark"
+  (click)="deleteBook(book.id)">
+  Eliminar
+</button>
+
         </td>
       </tr>
     </tbody>
