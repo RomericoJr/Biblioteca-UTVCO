@@ -1,5 +1,5 @@
 <div class="container mt-5 mb-5 d-flex justify-content-center align-items-center">
-  <div class="card shadow-lg p-5 p-md-5" style="margin-top: 150px; max-width: 1000px; margin-right: 100px; margin-left: 100px;">
+  <div class="card shadow-lg p-5 p-md-5" style="margin-top: 45px; max-width: 1000px; margin-right: 100px; margin-left: 100px;">
     <h1 class="text-center mb-4" style="font-family: 'Roboto', sans-serif; font-size: 2.5em; color: #333; letter-spacing: 1px;">{{titleText}}</h1>
 
     <form [formGroup]="formDonacion" class="text-center">
@@ -40,7 +40,7 @@
       </div>
 
       <div class="d-grid gap-2">
-        <button [disabled]="formDonacion.invalid" (click)="option()" type="button" class="btn btn-success" style="background-color: #7A3E48;">{{titleBtn}}</button>
+        <button [disabled]="formDonacion.invalid" (click)="option()" type="button" class="btn btn-success" style="background-color: #7A3E48; box-shadow: 0 4px 8px rgba(159, 82, 94, 0.1);">{{titleBtn}}</button>
       </div>
 
     </form>
