@@ -56,7 +56,7 @@ export class CarrerListComponent {
   editCarrer(data: any) {
     this.sweet.confirm('¿Desea editar la carrera?','Aceptar').then((result) => {
       if(result.isConfirmed){
-        this.router.navigate(['/BibliotecaUTVCO/editCarrer/', data.id]);
+        this.router.navigate(['/BibliotecaUTVCO-Administracion-UTVCO-funciones/editCarrer/', data.id]);
       }
     });
   }

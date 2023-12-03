@@ -55,7 +55,7 @@ export class CarrerComponent {
     this._carrerS.postCarrer(this.formCarrer.value).subscribe({
       next: (data) => {
         this.sweet.success('Carrera agregada correctamente');
-        this.route.navigate(['/BibliotecaUTVCO/carrer-list']);
+        this.route.navigate(['/BibliotecaUTVCO-Administracion-UTVCO-funciones/carrer-list']);
       },
       error: (err) => {
         console.log(err);
@@ -80,7 +80,7 @@ export class CarrerComponent {
     this._carrerS.updateCarrer(this.formCarrer.value, this.id).subscribe({
       next: (data) => {
         this.sweet.success('Carrera actualizada correctamente');
-        this.route.navigate(['/BibliotecaUTVCO/carrer-list']);
+        this.route.navigate(['/BibliotecaUTVCO-Administracion-UTVCO-funciones/carrer-list']);
       },
       error: (err) => {
         console.log(err);

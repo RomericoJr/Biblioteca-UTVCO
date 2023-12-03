@@ -55,10 +55,10 @@ setAsaide(id:number){
       this._setAsaide.postSetAsaide(this.setAsaideList[0]).subscribe({
         next: (data: any) => {
           this.sweetS.success('Libro apartado');
-          this.router.navigate(['/BibliotecaUTVCO/apart-list']);
+          this.router.navigate(['/BibliotecaUTVCO/function/apart-list']);
         },
         error: (error: any) => {
-          this.sweetS.error('Error al apartar libro');
+          this.sweetS.error('Ya haz apartado este libro');
           console.log(error);
         }
       })

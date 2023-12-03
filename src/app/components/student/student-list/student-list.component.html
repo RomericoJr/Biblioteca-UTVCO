@@ -1,6 +1,11 @@
 <div class="container mt-5">
   <h2 class="text-center mb-4">Lista de Estudiantes</h2>
 
+  <div class="md-form mt-3">
+    <input mdbInput type="text" id="searchInput" [(ngModel)]="searchTerm" class="form-control" (input)="filtrarDatos()">
+    <label for="searchInput">Buscar estudiantes por Matricula</label>
+  </div>
+
   <table class="table">
     <thead>
       <tr class="text-white">
@@ -16,8 +21,8 @@
         <th scope="col" class="text-center">Acciones</th>
       </tr>
     </thead>
-    <tbody>
-      <ng-container *ngFor="let student of estudiantes">
+    <tbody *ngIf="filterStudent.length > 0">
+      <ng-container *ngFor="let student of filterStudent">
         <tr>
           <td class="text-center">{{ student.name }}</td>
           <td class="text-center">{{ student.lastname_father }}</td>
@@ -51,5 +56,9 @@
         </tr>
       </ng-container>
     </tbody>
+    <tbody *ngIf="filterStudent.length == 0">
+      <tr>
+        <td colspan="10" class="text-center">No hay estudiantes registrados con esa matricula</td>
+      </tr>
   </table>
 </div>

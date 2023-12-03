@@ -23,6 +23,9 @@ export class StudentComponent {
     private _carrerS: CarrerService
   ){}
 
+  searchTerm: string = '';
+  filterStudent: any[] = [];
+
   titleText = 'Agregar Estudiante';
   titleBtn = 'Agregar';
   id!: number;
@@ -80,7 +83,7 @@ export class StudentComponent {
     this._studentS.addStudent(this.formStudent.value).subscribe({
       next: (data) => {
         this.sweet.success('Estudiante agregado correctamente');
-        this.route.navigate(['/BibliotecaUTVCO/student-list']);
+        this.route.navigate(['/BibliotecaUTVCO-Administracion-UTVCO-funciones/student-list']);
       },
       error: (err) => {
         console.log(err);
@@ -139,7 +142,7 @@ export class StudentComponent {
     this._studentS.updateStudent(this.userEmail, updatedFormStudent).subscribe({
       next: (data) => {
         this.sweet.success('Estudiante actualizado correctamente');
-        this.route.navigate(['/BibliotecaUTVCO/student-list']);
+        this.route.navigate(['/BibliotecaUTVCO-Administracion-UTVCO-funciones/student-list']);
       },
       error: (err) => {
         console.log(err);

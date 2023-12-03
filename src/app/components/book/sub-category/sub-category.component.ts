@@ -71,7 +71,7 @@ ngOnInit(){
     this._subategoryS.postSubCategory(this.formSubCategory.value).subscribe({
       next: (data:any) => {
         this.sweet.success('Categoria agregada correctamente');
-        this.route.navigate(['/BibliotecaUTVCO/subcategory-list']);
+        this.route.navigate(['/BibliotecaUTVCO-Administracion-UTVCO-funciones/subcategory-list']);
       },
       error: (err:any) => {
         console.log(err);
@@ -83,7 +83,7 @@ ngOnInit(){
     this._subategoryS.putSubCategoria(this.formSubCategory.value, this.id).subscribe({
       next: (data:any) => {
         this.sweet.success('Categoria actualizada correctamente');
-        this.route.navigate(['/BibliotecaUTVCO/subcategory-list']);
+        this.route.navigate(['/BibliotecaUTVCO-Administracion-UTVCO-funciones/subcategory-list']);
       },
       error: (err:any) => {
         console.log(err);

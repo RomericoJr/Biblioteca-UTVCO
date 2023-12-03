@@ -1,5 +1,11 @@
 <div class="container-fluid mt-5">
-  <h2 class="text-center mb-4">Lista de Categorías</h2>
+  <h2 class="text-center mb-4">Lista de subcategorías</h2>
+
+  <div class="md-form mt-3">
+    <input mdbInput type="text" id="searchInput" [(ngModel)]="searchTerm" class="form-control" (input)="filtrarDatos()">
+    <label for="searchInput">Buscar Por Categoria</label>
+  </div>
+
 
   <div class="table-responsive">
     <table class="table align-middle mb-0 bg-white">
@@ -10,8 +16,8 @@
           <th scope="col" class="text-center border-bottom">Acciones</th>
         </tr>
       </thead>
-      <tbody>
-        <ng-container *ngFor="let catego of subCategory">
+      <tbody *ngIf="filterSubcategory.length > 0">
+        <ng-container *ngFor="let catego of filterSubcategory">
           <tr>
             <td class="text-center border-bottom">{{ catego.category.category }}</td>
             <td class="text-center border-bottom">{{ catego.subcategory }}</td>
@@ -23,7 +29,7 @@
                 (click)="editSubCategory(catego)">
           Edit
         </button>
-        
+
         <button
         type="button"
         class="btn btn-link btn-rounded btn-sm fw-bold text-danger"
@@ -35,6 +41,11 @@
           </tr>
         </ng-container>
       </tbody>
+
+      <tbody *ngIf="filterSubcategory.length == 0">
+        <tr>
+          <td colspan="3" class="text-center border-bottom">No hay datos</td>
+        </tr>
     </table>
   </div>
 </div>

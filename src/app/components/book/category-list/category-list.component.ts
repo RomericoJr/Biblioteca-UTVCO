@@ -60,7 +60,7 @@ deleteCategory(id: any) {
 editCategory(data: any) {
   this.sweet.confirm('¿Desea editar la categoria?','Aceptar').then((result) => {
     if(result.isConfirmed){
-      this.router.navigate(['/BibliotecaUTVCO/editCatego/', data.id]);
+      this.router.navigate(['/BibliotecaUTVCO-Administracion-UTVCO-funciones/editCatego/', data.id]);
     }
   });
 }

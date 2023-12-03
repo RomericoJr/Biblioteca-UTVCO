@@ -56,7 +56,7 @@ export class GenereListComponent {
   editGenere(data: any) {
     this.sweet.confirm('¿Desea editar el genero?','Aceptar').then((result) => {
       if(result.isConfirmed){
-        this.router.navigate(['/BibliotecaUTVCO/editGenere/', data.id]);
+        this.router.navigate(['/BibliotecaUTVCO-Administracion-UTVCO-funciones/editGenere/', data.id]);
       }
     });
   }

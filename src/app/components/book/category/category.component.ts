@@ -60,7 +60,7 @@ export class CategoryComponent {
     this._categoryS.postCategory(this.formCategory.value).subscribe({
       next: (data) => {
         this.sweet.success('Categoria agregada correctamente');
-        this.route.navigate(['/BibliotecaUTVCO/category-list']);
+        this.route.navigate(['/BibliotecaUTVCO-Administracion-UTVCO-funciones/category-list']);
       },
       error: (err) => {
         this.sweet.error('Error al agregar la categoria');
@@ -74,7 +74,7 @@ export class CategoryComponent {
     this._categoryS.putCategory(this.formCategory.value, this.id).subscribe({
       next: (data) => {
         this.sweet.success('Categoria actualizada correctamente');
-        this.route.navigate(['/BibliotecaUTVCO/category-list']);
+        this.route.navigate(['/BibliotecaUTVCO-Administracion-UTVCO-funciones/category-list']);
       },
       error: (err) => {
         this.sweet.error('Error al actualizar la categoria');
@@ -99,5 +99,5 @@ export class CategoryComponent {
   validarCategoria(){
     return !!this.formCategory?.errors?.['subcategoryError']
   }
-  
+
 }

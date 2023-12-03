@@ -47,4 +47,37 @@ export class SweetAlertService {
     });
   }
 
+
+  fireToast(msn:string, icon:string){
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'center',
+      showConfirmButton: false,
+      timer: 1500,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+
+      Toast.fire({
+        icon: 'success',
+        title: msn
+      })
+  }
+
+  fireConfirm(msn:string, text:string, btnOp:string){
+    return Swal.fire({
+      title: msn,
+      text: text,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+
+      confirmButtonText: btnOp
+    })
+  }
+
 }

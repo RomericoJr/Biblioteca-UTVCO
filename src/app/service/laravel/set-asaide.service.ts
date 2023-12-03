@@ -37,4 +37,20 @@ export class SetAsaideService {
     return this.http.post(`${this.API_URL}addApartado`, setAsaide, {headers});
   }
 
+  updateStatus(id:number, status:any){
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+    });
+    return this.http.put(`${this.API_URL}updateStatus01/${id}`, status, {headers});
+  }
+
+  bookReturn(id:number){
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+    });
+    return this.http.get(`${this.API_URL}returnBook/${id}`, {headers});
+  }
+
 }

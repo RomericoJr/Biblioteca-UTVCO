@@ -86,7 +86,7 @@ updateEstBook(){
   this._donacionS.putDonacion(this.id, updateFormDonacion).subscribe({
     next: (data) => {
       this.sweet.success('Donacion actualizada con exito');
-      this.route.navigate(['/estadias/list']);
+      this.route.navigate(['/BibliotecaUTVCO-Administracion-UTVCO-funciones/list']);
     },
     error: (err) => {
       console.log(err);
@@ -100,7 +100,7 @@ save(){
   this._donacionS.postDonacion(this.formDonacion.value).subscribe({
     next: (data) => {
       this.sweet.success('Donacion agregada con exito');
-      this.route.navigate(['/estadias/list']);
+      this.route.navigate(['/BibliotecaUTVCO-Administracion-UTVCO-funciones/list']);
     },
     error: (err) => {
       console.log(err);

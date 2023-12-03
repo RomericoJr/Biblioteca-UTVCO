@@ -55,7 +55,7 @@ export class GenereComponent {
     this._genereS.postGenere(this.formGenere.value).subscribe({
       next: (data) => {
         this.sweet.success('Genero agregado correctamente');
-        this.route.navigate(['/BibliotecaUTVCO/genere-list']);
+        this.route.navigate(['/BibliotecaUTVCO-Administracion-UTVCO-funciones/genere-list']);
       },
       error: (err) => {
         console.log(err);
@@ -67,7 +67,7 @@ export class GenereComponent {
     this._genereS.updateGenere(this.formGenere.value, this.id ).subscribe({
       next: (data) => {
         this.sweet.success('Genero actualizado correctamente');
-        this.route.navigate(['/BibliotecaUTVCO/genere-list']);
+        this.route.navigate(['/BibliotecaUTVCO-Administracion-UTVCO-funciones/genere-list']);
       },
       error: (err) => {
         console.log(err);

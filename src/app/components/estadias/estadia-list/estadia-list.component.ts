@@ -66,7 +66,7 @@ donaciones:any[] = [];
   editDonacion(data: any){
     this.sweet.confirm('¿Desea editar la categoria?','Aceptar').then((result) => {
       if(result.isConfirmed){
-        this.router.navigate(['/estadias/editDonacion', data.id]);
+        this.router.navigate(['/BibliotecaUTVCO-Administracion-UTVCO-funciones/editDonacion/', data.id]);
       } else {
 
       }

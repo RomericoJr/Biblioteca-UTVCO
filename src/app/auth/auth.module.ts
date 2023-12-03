@@ -21,12 +21,6 @@ const routes: Routes = [
     path: 'forgot-password',
   component: ForgotPasswordComponent
   },
-  // {
-  //   path: 'profile-user',
-  //   component: ProfileUserComponent,
-  //   ...canActivate(() =>
-  //   redirectUnauthorizedTo(['/register']))
-  // },
   {
     path: '**',
     redirectTo: 'login',

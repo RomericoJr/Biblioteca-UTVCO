@@ -9,7 +9,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment.development';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { FiltBookPipe } from './components/filt-book.pipe';
 //frondentjoni
@@ -36,8 +36,8 @@ import { StudentModule } from './components/student/student.module';
     EstadiasModule,
     StudentModule,
     HttpClientModule,
-
     ReactiveFormsModule,
+    FormsModule,
 
     AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),

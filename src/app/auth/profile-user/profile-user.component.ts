@@ -19,10 +19,10 @@ export class ProfileUserComponent {
     private _sweetAlert: SweetAlertService,
     private _studentS: StudentService,
   ) {}
-
+  mostrarCambioContraseña = false; // Nueva propiedad
   userProfileAdmin:any;
   userProfileStudent:any;
-  rol = this._toolS.getRol();
+  rol:any = this._toolS.getRol();
   idUserStudent:any = this._toolS.getIdStudent();
 
   ngOnInit(){
@@ -33,8 +33,8 @@ export class ProfileUserComponent {
   getUser(){
     this._authS.userDetail().subscribe({
       next: (res:any) => {
-        this.userProfileAdmin = res;
-        console.log(this.userProfileAdmin);
+          this.userProfileAdmin = res;
+          // console.log(res);
       },
       error: (err:any) => {
         console.log(err);
@@ -48,8 +48,8 @@ getStudentById(){
 
     this._studentS.getStudentById(this.idUserStudent).subscribe({
       next: (res:any) => {
-        this.userProfileStudent = res;
-        console.log(res);
+        this.userProfileStudent = res.data;
+        console.log(this.userProfileStudent);
       },
       error: (err:any) => {
         console.log(err);
@@ -60,5 +60,9 @@ getStudentById(){
 
   onClick() {
 
+  }
+
+  toggleChangePassword() {
+    this.mostrarCambioContraseña = !this.mostrarCambioContraseña;
   }
 }

@@ -3,6 +3,12 @@
 <div class="container mt-5">
   <h2 class="text-center mb-4">Lista de Libros Admi</h2>
 
+  <div class="md-form mt-3">
+    <input mdbInput type="text" id="searchInput" [(ngModel)]="searchTerm" class="form-control" (input)="filtrarDatos()">
+    <label for="searchInput">Buscar Por titulo</label>
+  </div>
+
+
   <table class="table">
     <thead>
       <tr class="text-white">
@@ -17,8 +23,8 @@
         <th scope="col" class="text-center">Acciones</th>
       </tr>
     </thead>
-    <tbody>
-      <tr *ngFor="let book of books">
+    <tbody *ngIf="booksFilter.length > 0">
+      <tr  *ngFor="let book of booksFilter">
         <td class="text-center">{{book.isbn}}</td>
         <td class="text-center">{{book.title}}</td>
         <td class="text-center">{{book.author}}</td>
@@ -28,7 +34,7 @@
         <td class="text-center">{{book.category.category}}</td>
         <td class="text-center">{{book.subcategory.subcategory}}</td>
         <td class="text-center">
-          
+
           <!-- <button class="btn btn-danger" (click)="deleteBook(book.id)">Eliminar</button>
           <button class="btn btn-warning" (click)="editBook(book)">Editar</button> -->
 
@@ -51,5 +57,10 @@
         </td>
       </tr>
     </tbody>
+
+    <tbody *ngIf="booksFilter.length == 0">
+      <tr>
+        <td colspan="9" class="text-center">No hay datos</td>
+      </tr>
   </table>
 </div>

@@ -86,7 +86,7 @@ constructor(
     this._book.updateBook(this.id, this.formBook.value).subscribe({
       next: (data: any) => {
         this.sweet.success('Actualizado con exito');
-        this.route.navigateByUrl('/BibliotecaUTVCO/read');
+        this.route.navigateByUrl('/BibliotecaUTVCO-Administracion-UTVCO-funciones/read');
       },
       error: (error: any) => {
         this.sweet.error('Error al actualizar');
@@ -99,7 +99,7 @@ constructor(
     this._book.addBook(this.formBook.value).subscribe({
       next: (data: any) => {
         this.sweet.success('Agregado con exito');
-        this.route.navigateByUrl('/BibliotecaUTVCO/read');
+        this.route.navigateByUrl('/BibliotecaUTVCO-Administracion-UTVCO-funciones/read');
       },
       error: (error: any) => {
         this.sweet.error('Error al agregar');

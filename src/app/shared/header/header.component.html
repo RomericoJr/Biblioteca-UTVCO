@@ -4,7 +4,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light custom-bg-color navbar-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/BibliotecaUTVCO">
+    <a class="navbar-brand" routerLink="/{{urlRol}}/function/inicio">
       <img src="./assets/imagenes/logoblanco.png" width="70" height="50" class="d-inline-block align-top">
     </a>
 
@@ -42,6 +42,14 @@
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" routerLink="/{{url}}/read">ADMINISTRAR</a></li>
           </ul>
+
+          <li class="nav-item dropdown">
+            <a *ngIf="id_rol === '2'"  class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa fa-book" ></i> <i></i> Libros de estadia
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink="/BibliotecaUTVCO/readDonacion">Ver libros de estadia</a></li>
+            </ul>
 
 
           <li class="nav-item dropdown">

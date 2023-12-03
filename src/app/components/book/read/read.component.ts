@@ -13,8 +13,9 @@ import { BookService } from 'src/app/service/laravel/book.service';
 })
 
 export class ReadComponent {
-
+  searchTerm: string = '';
   books: any [] = [];
+  booksFilter:any[]=[];
 
   constructor(
     private fb : FormBuilder,
@@ -31,6 +32,7 @@ getBookS(){
   this._bookS.getBook().subscribe({
     next: (data) => {
       this.books = data;
+      this.booksFilter = data;
     },
     error: (err) => {
       console.log(err);
@@ -38,6 +40,20 @@ getBookS(){
   });
 }
 
+filterBooksByTitle(books: any[], title: number): any[] {
+  return books.filter((book) => book.title == title);
+}
+
+
+filtrarDatos() {
+  this.booksFilter = this.books;
+  console.log(this.searchTerm);
+  if (this.searchTerm != '') {
+    this.booksFilter = this.booksFilter.filter((book) => {
+      return book.title.toLowerCase().includes(this.searchTerm.toLowerCase());
+    });
+  }
+}
 
 
 deleteBook(id: any) {
@@ -62,7 +78,7 @@ deleteBook(id: any) {
 editBook(book: Libro) {
   this.sweet.confirm('¿Desea editar el libro?','Aceptar').then((result) => {
     if(result.isConfirmed){
-      this.router.navigate(['/BibliotecaUTVCO/edit/', book.id]);
+      this.router.navigate(['/BibliotecaUTVCO-Administracion-UTVCO-funciones/edit/', book.id]);
     }
   });
 }
