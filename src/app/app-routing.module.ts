@@ -12,12 +12,12 @@ const routes: Routes = [
     path: 'BibliotecaUTVCO-Administracion-UTVCO-funciones',
     component: HomeComponent,
     loadChildren: () => import('./components/admin.module').then(m => m.AdminModule),
-    canActivate: [AdminGuard, AuthGuard]
+    // canActivate: [AdminGuard, AuthGuard]
   },
   { path: 'BibliotecaUTVCO',
   component: HomeComponent,
   loadChildren: () => import('./components/book/book.module').then(m => m.BookModule),
-  canActivate:[StudentGuard,AuthGuard]
+  // canActivate:[StudentGuard,AuthGuard]
   },
   // { path: 'estadias',
   // component: HomeComponent,
