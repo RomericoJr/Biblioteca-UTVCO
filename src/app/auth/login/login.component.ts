@@ -1,17 +1,3 @@
-//import { Component } from '@angular/core';
-//import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-//@Component({
-  //selector: 'app-login',
-  //templateUrl: './login.component.html',
-  //styleUrls: ['./login.component.css']
-//})
-//export class LoginComponent {
-
-
-//}
-
-
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -65,8 +51,14 @@ export class LoginComponent implements OnInit {
       if(data.user.id_rol == 2){
         this._toolS.setIdStudent(data.user.id_students);
       }
+
+      const rol = this._toolS.getRol();
+      if(rol === '1'){
+        this.router.navigate(['/BibliotecaUTVCO-Administracion-UTVCO-funciones'])
+      }else if(rol === '2'){
+        this.router.navigate(['/BibliotecaUTVCO'])
+      }
       this.swetS.success('Bienvenido');
-      this.router.navigate(['/BibliotecaUTVCO'])
     },
     error: (error:any) => {
       this.swetS.error('Contraseña o Usuario incorrecto');

@@ -19,6 +19,16 @@ export class HeaderComponent {
   ) {
   }
 
+  ngOnInit(){
+    if(this.id_rol === '1'){
+      this.urlRol = 'BibliotecaUTVCO-Administracion-UTVCO-funciones';
+    }else if(this.id_rol === '2'){
+      this.urlRol = 'BibliotecaUTVCO';    }
+
+  }
+
+  url:string = 'BibliotecaUTVCO-Administracion-UTVCO-funciones';
+  urlRol:string = '';
   id_rol= this._toolS.getRol();
 
 
@@ -29,7 +39,7 @@ export class HeaderComponent {
         this._authS.logout().subscribe({
           next: (data: any) => {
             localStorage.clear();
-            this.router.navigate(['/login']);
+            this.router.navigate(['/auth/login']);
           },
           error: (error: any) => {
           }
