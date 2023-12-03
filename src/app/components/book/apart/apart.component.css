@@ -1,0 +1,13 @@
+
+.card {
+    width: 18rem;
+    transition: box-shadow 0.3s, background-color 0.3s; /* Transición  */
+  }
+  
+  .card:hover {
+    background-color: #e4e3e3; /* color de fondo  */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /*  sombra más pronunciada */
+  }
+  
+
+  
