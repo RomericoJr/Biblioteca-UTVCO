@@ -10,6 +10,8 @@
           <input formControlName="carrer_name" type="text" class="form-control" id="carrer_name" placeholder=" " style="width: 300px;">
           <label for="carrer_name" class="d-block text-wrap">Escribe la carrera</label>
         </div>
+        <small *ngIf="validarCarrer()" class="text-danger d-block mt-2">*Campo obligatoria</small>
+
       </div>
 
       <div class="d-grid gap-2">

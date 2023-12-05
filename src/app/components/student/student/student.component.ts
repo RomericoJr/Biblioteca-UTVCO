@@ -6,6 +6,7 @@ import { StudentService } from '../../../service/laravel/student.service';
 import { GenereService } from 'src/app/service/laravel/genere.service';
 import { CarrerService } from 'src/app/service/laravel/carrer.service';
 import { switchMap } from 'rxjs/operators';
+import { emailValid, id_carrersValid, id_genereValid, lastname_fatherValid, lastname_motherValid, matriculaValid, nameValid, phoneValid } from 'src/app/validation/estudiante.validator';
 @Component({
   selector: 'app-student',
   templateUrl: './student.component.html',
@@ -44,7 +45,8 @@ export class StudentComponent {
     password: ['cambiame_1'],
     id_genere: ['',[Validators.required, ]],
     id_carrers: ['',[Validators.required, ]],
-  });
+  },{validators:[nameValid,lastname_fatherValid,lastname_motherValid,matriculaValid,
+  phoneValid,emailValid,id_genereValid,id_carrersValid]});
 
 
   ngOnInit(){
@@ -172,6 +174,38 @@ export class StudentComponent {
     })
   }
 
+  validarStudiante_name(){
+    return !!this.formStudent?.errors?.['nameError']
+  }
 
+  validarStudiante_lastname_father(){
+    return !!this.formStudent?.errors?.['lastname_fatherError']
+  }
+
+  validarStudiante_lastname_mother(){
+    return !!this.formStudent?.errors?.['lastname_motherError']
+  }
+
+  validarStudiante_matricula(){
+    return !!this.formStudent?.errors?.['matriculaError']
+  }
+
+  validarStudiante_phone(){
+    return !!this.formStudent?.errors?.['phoneError']
+  }
+
+  validarStudiante_email(){
+    return !!this.formStudent?.errors?.['emailError']
+  }
+
+
+
+  validarStudiante_id_genere(){
+    return !!this.formStudent?.errors?.['id_genereError']
+  }
+
+  validarStudiante_id_carrers(){
+    return !!this.formStudent?.errors?.['id_carrersError']
+  }
 
 }

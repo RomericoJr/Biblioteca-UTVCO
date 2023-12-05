@@ -12,6 +12,8 @@
           <input formControlName="name" type="text" class="form-control" id="name" placeholder=" ">
           <label for="name">Nombre(s) del Estudiante</label>
         </div>
+        <small *ngIf="validarStudiante_name()" class="text-danger d-block mt-2">*Campo obligatoria</small>
+
       </div>
 
       <div class="mb-3 col-12 col-md-6">
@@ -19,6 +21,8 @@
           <input formControlName="lastname_father" type="text" class="form-control" id="lastname_father" placeholder=" ">
           <label for="lastname_father">Apellido Paterno</label>
         </div>
+        <small *ngIf="validarStudiante_lastname_father()" class="text-danger d-block mt-2">*Campo obligatoria</small>
+
       </div>
 
       <div class="mb-3 col-12 col-md-6">
@@ -26,6 +30,8 @@
           <input formControlName="lastname_mother" type="text" class="form-control" id="lastname_mother" placeholder=" ">
           <label for="lastname_mother">Apellido Materno</label>
         </div>
+        <small *ngIf="validarStudiante_lastname_mother()" class="text-danger d-block mt-2">*Campo obligatoria</small>
+
       </div>
 
       <div class="mb-3 col-12 col-md-6">
@@ -33,6 +39,8 @@
           <input formControlName="matricula" type="text" class="form-control" id="matricula" placeholder=" ">
           <label for="matricula">Matricula</label>
         </div>
+        <small *ngIf="validarStudiante_matricula()" class="text-danger d-block mt-2">*Campo obligatoria (10 caracteres)</small>
+
       </div>
 
       <div class="mb-3 col-12 col-md-6">
@@ -40,6 +48,7 @@
           <input formControlName="phone" type="text" class="form-control" id="phone" placeholder=" ">
           <label for="phone">Telefono</label>
         </div>
+        <small *ngIf="validarStudiante_phone()" class="text-danger d-block mt-2">*Campo obligatoria (10 caracteres)</small>
       </div>
 
       <div class="mb-3 col-12 col-md-6">
@@ -47,6 +56,7 @@
           <input formControlName="email" type="email" class="form-control" id="email" placeholder=" ">
           <label for="email">Email</label>
         </div>
+        <small *ngIf="validarStudiante_email()" class="text-danger d-block mt-2">*Campo obligatoria</small>
       </div>
 
 
@@ -55,6 +65,7 @@
           <option value="" disabled selected hidden>Seleccionar genero</option>
           <option *ngFor="let c of genere" [value]="c.id" >{{c.genere}}</option>
         </select>
+        <small *ngIf="validarStudiante_id_genere()" class="text-danger d-block mt-2">*Selecciona una opción</small>
       </div>
 
       <div class="mb-3 col-12 col-md-6">
@@ -62,6 +73,7 @@
           <option value="" disabled selected hidden>Seleccionar carrera</option>
           <option *ngFor="let c of carrers" [value]="c.id" >{{c.carrer_name}}</option>
         </select>
+        <small *ngIf="validarStudiante_id_carrers()" class="text-danger d-block mt-2">*Selecciona una opción</small>
       </div>
 
       <div *ngIf="userEmail" class="mb-3 col-12 col-md-6">

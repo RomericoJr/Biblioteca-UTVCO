@@ -5,6 +5,8 @@ import { EstadiasFirebaseService } from 'src/app/service/firebase/estadias-fireb
 import { SweetAlertService } from 'src/app/service/firebase/sweet-alert.service';
 import { CarrerService } from 'src/app/service/laravel/carrer.service';
 import { DonacionService } from 'src/app/service/laravel/donacion.service';
+import { authorValid, titleValid } from 'src/app/validation/book.validator';
+import { carrer_idValid, copiasValid, descriptionValid } from 'src/app/validation/books-donados.validator';
 
 @Component({
   selector: 'app-add-edit-estadia',
@@ -49,7 +51,7 @@ formDonacion: FormGroup = this.fb.group({
   description: ['', Validators.required],
   copias: ['', Validators.required],
   carrer_id: [,Validators.required],
-})
+},{validators:[titleValid,authorValid,descriptionValid,copiasValid,carrer_idValid]})
 
 option(){
 
@@ -119,5 +121,25 @@ getCarrers(){
     }
   })
 }
+
+validarTitle(){
+  return !!this.formDonacion?.errors?.['titleError']
+}
+validarAuthor(){
+  return !!this.formDonacion?.errors?.['authorError']
+}
+
+validarDescription(){
+  return !!this.formDonacion?.errors?.['descriptionError']
+}
+
+validarCopias(){
+  return !!this.formDonacion?.errors?.['copiasError']
+}
+
+validarCarrer_id(){
+  return !!this.formDonacion?.errors?.['carrer_idError']
+}
+
 
 }

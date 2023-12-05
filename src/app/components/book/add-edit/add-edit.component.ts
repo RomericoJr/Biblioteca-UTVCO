@@ -6,7 +6,8 @@ import { SweetAlertService } from 'src/app/service/firebase/sweet-alert.service'
 import { BookService } from '../../../service/laravel/book.service';
 import { CategoryService } from 'src/app/service/laravel/category.service';
 import { SubCategoryService } from '../../../service/laravel/sub-category.service';
-import { isbnValid, stockValid } from 'src/app/validation/book.validator';
+import { authorValid, editionValid, editorialValid, id_subcategoryValid, isbnValid, stockValid, titleValid } from 'src/app/validation/book.validator';
+import { id_categoryValid } from 'src/app/validation/subcategoria.validator';
 
 @Component({
   selector: 'app-add-edit',
@@ -70,7 +71,7 @@ constructor(
     id_category: ['', Validators.required],
     id_subcategory: ['', Validators.required],
   },
-  {validators:[isbnValid,stockValid]})
+  {validators:[isbnValid,titleValid,authorValid,editorialValid,editionValid,stockValid,id_categoryValid,id_subcategoryValid]})
 
 
   option(){
@@ -128,9 +129,37 @@ constructor(
       }
     })
   }
+  validarIsb(){
+    return !!this.formBook?.errors?.['isbnError']
+  }
+  validarTitle(){
+    return !!this.formBook?.errors?.['titleError']
+  }
+
+  validarAuthor(){
+    return !!this.formBook?.errors?.['authorError']
+  }
+
+  validarEditorial(){
+    return !!this.formBook?.errors?.['editorialError']
+  }
+
+  validaredition(){
+    return !!this.formBook?.errors?.['editionError']
+  }
 
   validarStok(){
     return !!this.formBook?.errors?.['stockError']
   }
 
+  validarid_category(){
+    return !!this.formBook?.errors?.['id_categoryError']
+  }
+
+  validarid_subcategory(){
+    return !!this.formBook?.errors?.['id_subcategoryError']
+  }
+
+
+  
 }

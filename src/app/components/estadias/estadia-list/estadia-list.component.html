@@ -20,12 +20,29 @@
             <td class="text-center border-bottom">{{ donation.description }}</td>
             <td class="text-center border-bottom">{{ donation.copias }}</td>
             <td class="text-center border-bottom">
-              <button type="button" class="btn btn-danger btn-sm btn-rounded" style="margin-right: 5px;" (click)="deleteDonacion(donation.id)">
+              <!-- <button type="button" class="btn btn-danger btn-sm btn-rounded" style="margin-right: 5px;" (click)="deleteDonacion(donation.id)">
                 Eliminar
               </button>
               <button type="button" class="btn btn-warning btn-sm btn-rounded" (click)="editDonacion(donation)">
                 Editar
-              </button>
+              </button> -->
+
+
+              <button
+              type="button"
+              class="btn btn-link btn-rounded btn-sm fw-bold"
+              data-mdb-ripple-color="dark"
+              (click)="editDonacion(donation)">
+        Edit
+      </button>
+
+      <button
+      type="button"
+      class="btn btn-link btn-rounded btn-sm fw-bold text-danger"
+      data-mdb-ripple-color="dark"
+      (click)="deleteDonacion(donation.id)">
+      Eliminar
+  </button>
             </td>
           </tr>
         </ng-container>

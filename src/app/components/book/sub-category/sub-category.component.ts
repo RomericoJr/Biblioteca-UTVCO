@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SweetAlertService } from 'src/app/service/firebase/sweet-alert.service';
 import { CategoryService } from 'src/app/service/laravel/category.service';
 import { SubCategoryService } from 'src/app/service/laravel/sub-category.service';
+import { categoryValid } from 'src/app/validation/categoria.validator';
+import { id_categoryValid, subcategoryValid } from 'src/app/validation/subcategoria.validator';
 
 @Component({
   selector: 'app-sub-category',
@@ -27,8 +29,10 @@ export class SubCategoryComponent {
 
   formSubCategory: FormGroup = this.fb.group({
     id_category: ['', [Validators.required]],
+    
     subcategory: ['', [Validators.required, Validators.minLength(3)]],
-  })
+  },
+  {validators:[id_categoryValid,subcategoryValid]})
 
 ngOnInit(){
   this.activatedRoute.params.subscribe({
@@ -105,9 +109,11 @@ ngOnInit(){
     })
   }
 
-
-  validarCategoria(){
-    return !!this.formSubCategory?.errors?.['categoryError']
+  validarId_category(){
+    return !!this.formSubCategory?.errors?.['id_categoryError']
+  }
+  validarSubcategoria(){
+    return !!this.formSubCategory?.errors?.['subcategoryError']
   }
 
 }
