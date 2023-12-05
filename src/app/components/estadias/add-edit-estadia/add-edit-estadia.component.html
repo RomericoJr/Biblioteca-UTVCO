@@ -1,5 +1,6 @@
 <div class="container mt-5 mb-5 d-flex justify-content-center align-items-center">
-  <div class="card shadow-lg p-5 p-md-5" style="margin-top: 45px; max-width: 1000px; margin-right: 100px; margin-left: 100px;">
+  <div class="card shadow-lg p-5 p-md-5" style="margin-top: 10px; max-width: 1000px; margin-right: 100px; margin-left: 100px; background-color: #f8f9fa; border: 1px solid #ced4da; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 10px; text-align: center; display: flex; flex-direction: column; align-items: center;">
+
     <h1 class="text-center mb-4" style="font-family: 'Roboto', sans-serif; font-size: 2.5em; color: #333; letter-spacing: 1px;">{{titleText}}</h1>
 
     <form [formGroup]="formDonacion" class="text-center">
@@ -7,15 +8,18 @@
       <div class="mb-3">
         <div class="form-floating">
           <input formControlName="title" type="text" class="form-control" id="title" placeholder=" ">
-          <label for="title" class="d-block text-wrap">Titulo</label>
+          <label for="title" class="d-block text-wrap">Título</label>
         </div>
+        <small *ngIf="validarTitle()" class="text-danger d-block mt-2">*Campo obligatoria</small>
       </div>
 
       <div class="mb-3">
         <div class="form-floating">
           <input formControlName="author" type="text" class="form-control" id="author" placeholder=" ">
-          <label for="author" class="d-block text-wrap">Author</label>
+          <label for="author" class="d-block text-wrap">Autor</label>
         </div>
+        <small *ngIf="validarAuthor()" class="text-danger d-block mt-2">*Campo obligatoria</small>
+
       </div>
 
       <div class="mb-3">
@@ -23,6 +27,8 @@
           <input formControlName="description" type="text" class="form-control" id="description" placeholder=" ">
           <label for="description" class="d-block text-wrap">Descripción</label>
         </div>
+        <small *ngIf="validarDescription()" class="text-danger d-block mt-2">*Campo obligatoria</small>
+
       </div>
 
       <div class="mb-3">
@@ -30,14 +36,19 @@
           <input formControlName="copias" type="number" class="form-control" id="copias" placeholder=" ">
           <label for="copias" class="d-block text-wrap">Copias libros</label>
         </div>
+        <small *ngIf="validarCopias()" class="text-danger d-block mt-2">*Campo obligatoria</small>
       </div>
 
       <div class="mb-3">
+        <label for="carrer_id">Carrera</label>
         <select formControlName="carrer_id" class="form-select" aria-label="Default select example">
-          <label for="carrer_id">Carrera</label>
-          <option *ngFor="let c of carrers" [value]="c.id |number" >{{c.carrer_name}}</option>
+          <option *ngFor="let c of carrers" [value]="c.id | number">{{c.carrer_name}}</option>
         </select>
+        <small *ngIf="validarCarrer_id()" class="text-danger d-block mt-2">*Selecciona una opción</small>
+
       </div>
+
+      
 
       <div class="d-grid gap-2">
         <button [disabled]="formDonacion.invalid" (click)="option()" type="button" class="btn btn-success" style="background-color: #7A3E48; box-shadow: 0 4px 8px rgba(159, 82, 94, 0.1);">{{titleBtn}}</button>
@@ -46,8 +57,3 @@
     </form>
   </div>
 </div>
-
-
-
-
-

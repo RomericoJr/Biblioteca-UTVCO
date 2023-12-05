@@ -97,7 +97,9 @@ export class CategoryComponent {
   }
 
   validarCategoria(){
-    return !!this.formCategory?.errors?.['subcategoryError']
+    return !!this.formCategory?.errors?.['categoryError']
   }
+
+  
 
 }

@@ -3,6 +3,7 @@ import { CarrerService } from '../../../service/laravel/carrer.service';
 import { SweetAlertService } from 'src/app/service/firebase/sweet-alert.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
+import { carrer_nameValid } from 'src/app/validation/carrera.validator';
 
 @Component({
   selector: 'app-carrer',
@@ -24,7 +25,9 @@ export class CarrerComponent {
 
   formCarrer = this.fb.group({
     carrer_name: ['',[Validators.required, Validators.minLength(3)]]
-  })
+  },
+  {validators:[carrer_nameValid]})
+  
 
   ngOnInit(){
     this.activatedRoute.params.subscribe({
@@ -76,6 +79,8 @@ export class CarrerComponent {
     })
   }
 
+  
+
   updateCarrer(){
     this._carrerS.updateCarrer(this.formCarrer.value, this.id).subscribe({
       next: (data) => {
@@ -87,4 +92,11 @@ export class CarrerComponent {
       }
     })
   }
+
+
+  validarCarrer(){
+    return !!this.formCarrer?.errors?.['carrer_nameError']
+  }
+  
 }
+

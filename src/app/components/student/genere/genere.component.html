@@ -10,6 +10,8 @@
           <input formControlName="genere" type="text" class="form-control" id="genere" placeholder=" " style="width: 300px;">
           <label for="genere" class="d-block text-wrap">Escribe el género</label>
         </div>
+        <small *ngIf="validarGenere()" class="text-danger d-block mt-2">*Campo obligatoria</small>
+
       </div>
 
       <div class="d-grid gap-2">

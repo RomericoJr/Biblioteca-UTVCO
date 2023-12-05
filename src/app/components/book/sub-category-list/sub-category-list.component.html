@@ -1,10 +1,14 @@
 <div class="container-fluid mt-5">
   <h2 class="text-center mb-4">Lista de subcategorías</h2>
 
-  <div class="md-form mt-3">
-    <input mdbInput type="text" id="searchInput" [(ngModel)]="searchTerm" class="form-control" (input)="filtrarDatos()">
-    <label for="searchInput">Buscar Por Categoria</label>
+  <div class="input-group rounded mx-auto w-50 mt-3">
+    <input mdbInput type="search" id="searchInput" [(ngModel)]="searchTerm" class="form-control rounded" (input)="filtrarDatos()" placeholder="Buscar Por Categoria" aria-label="Search" aria-describedby="search-addon" />
+    <span class="input-group-text border-0" id="search-addon">
+      <i class="fas fa-search"></i>
+    </span>
   </div>
+  
+  
 
 
   <div class="table-responsive">

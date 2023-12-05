@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SweetAlertService } from '../../../service/firebase/sweet-alert.service';
 import { GenereService } from 'src/app/service/laravel/genere.service';
+import { genereValid } from 'src/app/validation/genero.validators';
 
 @Component({
   selector: 'app-genere',
@@ -24,7 +25,7 @@ export class GenereComponent {
 
   formGenere = this.fb.group({
     genere: ['',[Validators.required, Validators.minLength(3)]]
-  })
+  },{validators:[genereValid]})
 
   ngOnInit(){
     this.activatedRoute.params.subscribe({
@@ -88,4 +89,9 @@ export class GenereComponent {
     })
   }
 
+
+
+  validarGenere(){
+    return !!this.formGenere?.errors?.['genereError']
+  }
 }

@@ -1,0 +1,29 @@
+/* mi-componente.css */
+
+/* Estilos generales para el título */
+.mi-componente {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px; /* Ajusta el espacio interno para mejorar la apariencia general */
+  }
+  
+  .mi-componente h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  /* Media query para pantallas más pequeñas */
+  @media (max-width: 768px) {
+    .mi-componente {
+      align-items: center; /* Centra verticalmente en pantallas más pequeñas */
+    }
+  
+    .mi-componente h1 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+  }
+  

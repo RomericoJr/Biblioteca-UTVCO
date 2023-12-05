@@ -10,6 +10,8 @@
           <option value="" disabled selected hidden>Seleccionar categoría</option>
           <option *ngFor="let c of category" [value]="c.id">{{c.category}}</option>
         </select>
+        <small *ngIf="validarId_category()" class="text-danger d-block mt-2">*Selecciona una opción</small>
+
       </div>
 
       <div class="mb-3">
@@ -17,6 +19,8 @@
           <input formControlName="subcategory" type="text" class="form-control" id="subcategory" placeholder=" ">
           <label for="subcategory" class="d-block text-wrap">Escribe la subcategoría</label>
         </div>
+        <small *ngIf="validarSubcategoria()" class="text-danger d-block mt-2">*Campo obligatoria</small>
+
       </div>
 
       <div class="d-grid gap-2">

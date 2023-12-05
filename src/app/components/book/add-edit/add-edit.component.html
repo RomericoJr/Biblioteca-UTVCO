@@ -12,6 +12,7 @@
           <input formControlName="isbn" type="text" class="form-control" id="isbn" placeholder=" ">
           <label for="isbn">ISBN</label>
         </div>
+        <small *ngIf="validarIsb()" class="text-danger d-block mt-2">*Campo requerido</small>
       </div>
 
       <div class="mb-3 col-12 col-md-6">
@@ -19,13 +20,15 @@
           <input formControlName="title" type="text" class="form-control" id="title" placeholder=" ">
           <label for="title">Título</label>
         </div>
+        <small *ngIf="validarTitle()" class="text-danger d-block mt-2">*Titulo obligatorio</small>
       </div>
 
       <div class="mb-3 col-12 col-md-6">
         <div class="form-floating">
           <input formControlName="author" type="text" class="form-control" id="author" placeholder=" ">
-          <label for="author">Autores</label>
+          <label for="author">*Autores</label>
         </div>
+        <small *ngIf="validarAuthor()" class="text-danger d-block mt-2">*Autore(s) obligatorios</small>
       </div>
 
       <div class="mb-3 col-12 col-md-6">
@@ -33,6 +36,8 @@
           <input formControlName="editorial" type="text" class="form-control" id="editorial" placeholder=" ">
           <label for="editorial">Editorial</label>
         </div>
+        <small *ngIf="validarEditorial()" class="text-danger d-block mt-2">*Editorial obligatorio</small>
+
       </div>
 
       <div class="mb-3 col-12 col-md-6">
@@ -40,6 +45,7 @@
           <input formControlName="edition" type="text" class="form-control" id="edition" placeholder=" ">
           <label for="edition">Edición</label>
         </div>
+        <small *ngIf="validaredition()" class="text-danger d-block mt-2">*Edicion obligatorio</small>
       </div>
 
       <div class="mb-3 col-12 col-md-6">
@@ -47,7 +53,7 @@
           <input formControlName="stock" type="number" class="form-control" id="stock" placeholder=" ">
           <label for="stock">Ejemplares</label>
         </div>
-        <small *ngIf="validarStok()" class="text-danger d-block mt-2">nonono</small>
+        <small *ngIf="validarStok()" class="text-danger d-block mt-2">*Ejemplares obligatorio</small>
       </div>
 
       <!-- <div class="mb-3 col-12 col-md-6">
@@ -61,22 +67,24 @@
           <option value="" disabled selected hidden>Seleccionar categoría</option>
           <option *ngFor="let c of categories" [value]="c.id">{{c.category}}</option>
         </select>
+        <small *ngIf="validarid_category()" class="text-danger d-block mt-2">*Selecciona una opción</small>
       </div>
+
 
       <div class="mb-3 col-12 col-md-6">
         <select formControlName="id_subcategory" class="form-select" id="id_subcategory">
           <option value="" disabled selected hidden>Seleccionar subcategoria</option>
           <option *ngFor="let sc of subcategories" [value]="sc.id">{{sc.subcategory}}</option>
         </select>
+        <small *ngIf="validarid_subcategory()" class="text-danger d-block mt-2">*Selecciona una opción</small>
       </div>
 
                 <option value="" disabled selected hidden>Seleccionar categoría</option>
-
-
       <div class="mb-3 col-12">
         <div class="d-grid gap-2">
           <button [disabled]="formBook.invalid" (click)="option()" type="button" class="btn btn-success" style="background-color: #7A3E48; box-shadow: 0 4px 8px rgba(159, 82, 94, 0.1);">{{titleBtn}}</button>
         </div>
+        
       </div>
 
     </form>
