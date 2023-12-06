@@ -1,117 +1,85 @@
-
 <div class="container mt-5">
-  <h2 class="text-center mb-4">{{title}}</h2>
-
-  <div class="container mt-5" *ngIf="role === '1'">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <select class="form-select mb-3" (change)="SearchPrestamo($event)">
-          <option [value]="status.id" *ngFor="let status of type_status">{{status.status}}</option>
-        </select>
+    <h2 class="text-center mb-4">{{ title }}</h2>
+  
+    <div class="container mt-3" *ngIf="role === '1'">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <select class="form-select mb-3" (change)="SearchPrestamo($event)">
+            <option [value]="status.id" *ngFor="let status of type_status">{{ status.status }}</option>
+          </select>
+        </div>
       </div>
     </div>
+  
+    <div class="table-responsive" *ngIf="role === '1'">
+      <table class="table">
+        <thead>
+          <tr class="text-white">
+            <th scope="col" class="text-center">Título</th>
+            <th scope="col" class="text-center">Matrícula del estudiante</th>
+            <th scope="col" class="text-center">Estado</th>
+            <th scope="col" class="text-center">Fecha de petición</th>
+            <th scope="col" class="text-center">Acciones</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="filterStatus.length >= 1">
+          <ng-container *ngFor="let aparto of filterStatus">
+            <tr>
+              <td class="text-center">{{ aparto.book.title }}</td>
+              <td class="text-center">{{ aparto.student.matricula }}</td>
+              <td class="text-center">
+                <span *ngIf="aparto.id_status == 1" class="badge badge-danger rounded-pill">Rechazado</span>
+                <span *ngIf="aparto.id_status == 2" class="badge badge-success rounded-pill">Aprobado</span>
+                <span *ngIf="aparto.id_status == 3" class="badge badge-primary rounded-pill">Pendiente</span>
+                <span *ngIf="aparto.id_status == 4" class="badge badge-warning rounded-pill">Devuelto</span>
+              </td>
+              <td class="text-center">{{ aparto.date_set_asaide }}</td>
+              <td *ngIf="aparto.id_status == 3" class="text-center">
+                <button type="button" class="btn btn-danger" (click)="aceptarApart(aparto)">Aceptar</button>
+                <button type="button" class="btn btn-warning" (click)="rechazarApart(aparto)">Rechazar</button>
+              </td>
+              <td *ngIf="aparto.id_status == 2" class="text-center">
+                <button type="button" class="btn btn-success" (click)="devolverApart(aparto)">Devolver</button>
+              </td>
+              <td *ngIf="aparto.id_status == 1 || aparto.id_status == 4" class="text-center">
+                <button type="button" class="btn btn-success" disabled>No hay función</button>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+        <tbody *ngIf="filterStatus.length === 0">
+          <tr>
+            <td colspan="5" class="text-center">No hay datos</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div class="table-responsive" *ngIf="role === '2'">
+      <table class="table">
+        <thead>
+          <tr class="text-white">
+            <th scope="col" class="text-center">Título</th>
+            <th scope="col" class="text-center">Estado</th>
+            <th scope="col" class="text-center">Fecha de aparto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let aparto of apartsUser">
+            <tr>
+              <td class="text-center">{{ aparto.book_name }}</td>
+              <td class="text-center">
+                <span *ngIf="aparto.id_status == 1" class="badge badge-danger rounded-pill">Rechazado</span>
+                <span *ngIf="aparto.id_status == 2" class="badge badge-success rounded-pill">Aprobado</span>
+                <span *ngIf="aparto.id_status == 3" class="badge badge-primary rounded-pill">Pendiente</span>
+                <span *ngIf="aparto.id_status == 4" class="badge badge-warning rounded-pill">Devuelto</span>
+              </td>
+              <td class="text-center">{{ aparto.date_set_asaide }}</td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  
   </div>
-
-  <table class="table" *ngIf="role === '1'">
-    <thead>
-      <tr class="text-white">
-        <th scope="col" class="text-center">Título</th>
-        <th scope="col" class="text-center">Matrícula del estudiante</th>
-        <th scope="col" class="text-center">Estado</th>
-        <th scope="col" class="text-center">Fecha de petición</th>
-        <th scope="col" class="text-center">Acciones</th>
-      </tr>
-    </thead>
-    <tbody *ngIf="filterStatus.length >= 1">
-      <ng-container *ngFor="let aparto of filterStatus">
-        <tr>
-          <td class="text-center">{{ aparto.book.title }}</td>
-          <td class="text-center">{{ aparto.student.matricula }}</td>
-          <!-- <td class="text-center">{{ aparto.status.status }}</td> -->
-          <td *ngIf="aparto.id_status  == 1">
-            <span class="badge badge-danger rounded-pill d-inline"
-                  >Rechazado</span
-              >
-          </td>
-          <td *ngIf="aparto.id_status  == 2">
-            <span class="badge badge-success rounded-pill d-inline"
-                  >Aprobador</span
-              >
-          </td>
-          <td *ngIf="aparto.id_status  == 3">
-            <span class="badge badge-primary rounded-pill d-inline"
-                  >Pendiente</span
-              >
-          </td>
-          <td *ngIf="aparto.id_status  == 4">
-            <span class="badge badge-warning rounded-pill d-inline"
-                  >Devuelto</span
-              >
-          </td>
-
-          <td class="text-center">{{ aparto.date_set_asaide}}</td>
-
-
-
-          <td *ngIf="aparto.id_status == 3" class="text-center">
-            <button type="button" class="btn btn-danger" (click)="aceptarApart(aparto)">Aceptar</button>
-            <button type="button" class="btn btn-warning"(click)="rechazarApart(aparto)">Rechazar</button>
-          </td>
-
-          <td *ngIf="aparto.id_status == 2" class="text-center">
-            <button type="button" class="btn btn-success" (click)="devolverApart(aparto)">Devolver</button>
-          </td>
-
-          <td *ngIf="aparto.id_status == 1 || aparto.id_status == 4" class="text-center">
-            <button type="button" class="btn btn-success" disabled>No hay función</button>
-
-        </tr>
-      </ng-container>
-    </tbody>
-    <tbody *ngIf="filterStatus.length === 0">
-      <tr>
-        <td colspan="5" class="text-center">No hay datos</td>
-      </tr>
-  </table>
-
-  <table class="table" *ngIf="role === '2'">
-    <thead>
-      <tr class="text-white">
-        <th scope="col" class="text-center">Título</th>
-        <th scope="col" class="text-center">Estado</th>
-        <th scope="col" class="text-center">Fecha de aparto</th>
-      </tr>
-    </thead>
-    <tbody>
-      <ng-container *ngFor="let aparto of apartsUser">
-        <tr>
-          <td class="text-center">{{ aparto.book_name }}</td>
-
-          <td *ngIf="aparto.id_status  == 1">
-            <span class="badge badge-danger rounded-pill d-inline"
-                  >Rechazado</span
-              >
-          </td>
-          <td *ngIf="aparto.id_status  == 2">
-            <span class="badge badge-success rounded-pill d-inline"
-                  >Aprobador</span
-              >
-          </td>
-          <td *ngIf="aparto.id_status  == 3">
-            <span class="badge badge-primary rounded-pill d-inline"
-                  >Pendiente</span
-              >
-          </td>
-          <td *ngIf="aparto.id_status  == 4">
-            <span class="badge badge-warning rounded-pill d-inline"
-                  >Devuelto</span
-              >
-          </td>
-
-          <td class="text-center">{{ aparto.date_set_asaide }}</td>
-        </tr>
-      </ng-container>
-    </tbody>
-  </table>
-
-</div>
+  

@@ -1,20 +1,20 @@
-<br>
-
-
-
 <div class="container">
-
-  <div class="card" style="width: 18rem;" *ngFor="let book of bookEstadias">
-    <div class="card-body">
-      <h5 class="card-title">{{book.title}}</h5>
-      <p class="card-text">
-
-        Author: {{book.author}}
-
-      </p>
-      <p class="card-text">Descripción: {{book.description}}</p>
-      <p class="card-text">Carrera: {{book.carrer.carrer_name}}</p>
-      <p class="card-text">Copias: {{book.copias}}</p>
+  <div class="row">
+    <div class="col-md-12 text-center mt-4 mb-4">
+      <h2 class="mdb-card-title">Libros a donar disponibles</h2>
+    </div>
+  </div>
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+    <div class="col mb-4" *ngFor="let book of bookEstadias">
+      <div class="card d-flex flex-column" style="height: 100%;">
+        <div class="card-body">
+          <h5 class="card-title">{{ book.title }}</h5>
+          <p class="card-text">Author: {{ book.author }}</p>
+          <p class="card-text">Descripción: {{ book.description }}</p>
+          <p class="card-text">Carrera: {{ book.carrer.carrer_name }}</p>
+          <p class="card-text">Copias: {{ book.copias }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
