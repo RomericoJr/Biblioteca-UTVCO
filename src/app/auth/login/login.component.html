@@ -10,7 +10,11 @@
             <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" placeholder="Contraseña" id="password" name="password" formControlName="password" />
             <span class="show-password" (click)="VerPassW()">{{ showPassword ? 'Ocultar' : 'Ver' }} Contraseña</span>
         </div>
-        <small  *ngIf="validarPassword()">El password debe ser mas de 6 caracteres</small>
+        <small *ngIf="validarPassword()" class="text-danger small">
+          <i class="bi bi-exclamation-triangle-fill me-1"></i> La contraseña debe tener al menos 6 caracteres.
+      </small>
+      
+
 
         <div class="mb-3">
           <!-- <p>
