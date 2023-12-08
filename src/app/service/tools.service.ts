@@ -63,4 +63,12 @@ export class ToolsService {
     return localStorage.getItem('name' || '[]');
   }
 
+  setTokenExpiration(expiration:string){
+    localStorage.setItem('expiration', expiration);
+  }
+
+  getTokenExpiration(){
+    return localStorage.getItem('expiration' || '[]');
+  }
+
 }
