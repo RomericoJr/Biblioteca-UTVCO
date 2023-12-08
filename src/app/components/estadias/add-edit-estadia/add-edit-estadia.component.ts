@@ -49,7 +49,7 @@ formDonacion: FormGroup = this.fb.group({
   title: ['', Validators.required],
   author: ['', Validators.required],
   description: ['', Validators.required],
-  copias: ['', Validators.required],
+  copias: ['', [Validators.required,Validators.pattern('^[0-9]+$')]],
   carrer_id: [,Validators.required],
 },{validators:[titleValid,authorValid,descriptionValid,copiasValid,carrer_idValid]})
 

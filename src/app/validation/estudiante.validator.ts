@@ -45,7 +45,7 @@ export function matriculaValid(ctrl: AbstractControl): ValidationErrors | null {
 
 export function phoneValid(ctrl: AbstractControl):ValidationErrors | null{
     const phone: string = ctrl?.get('phone')?.value;
-    if( !phone || phone.length < 2 ||  phone.length >= 11){
+    if( !phone || phone.length !=10){
         return ({'phoneError': true})
     }
     return null;

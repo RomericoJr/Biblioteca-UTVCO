@@ -36,11 +36,11 @@ export class StudentComponent {
   userEmail!: string;
 
   formStudent = this.fb.group({
-    name: ['',[Validators.required, Validators.minLength(3)]],
-    lastname_father: ['',[Validators.required, Validators.minLength(3)]],
-    lastname_mother: ['',[Validators.required, Validators.minLength(3)]],
+    name: ['',[Validators.required, Validators.minLength(3),Validators.pattern('^[a-zA-Z]+$')]],
+    lastname_father: ['',[Validators.required, Validators.minLength(3),Validators.pattern('^[a-zA-Z]+$')]],
+    lastname_mother: ['',[Validators.required, Validators.minLength(3),Validators.pattern('^[a-zA-Z]+$')]],
     matricula: ['',[Validators.required, ]],
-    phone: ['',[Validators.required, Validators.minLength(3)]],
+    phone: ['',[Validators.required, Validators.minLength(3),Validators.pattern('^[0-9]+$')]],
     email: ['',[Validators.required, Validators.email]],
     password: ['cambiame_1'],
     id_genere: ['',[Validators.required, ]],

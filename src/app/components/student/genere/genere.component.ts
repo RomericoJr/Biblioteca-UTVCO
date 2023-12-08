@@ -24,7 +24,7 @@ export class GenereComponent {
   id!: number;
 
   formGenere = this.fb.group({
-    genere: ['',[Validators.required, Validators.minLength(3)]]
+    genere: ['',[Validators.required, Validators.minLength(3),Validators.pattern('^[a-zA-Z]+$')]]
   },{validators:[genereValid]})
 
   ngOnInit(){

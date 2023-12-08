@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
       this._toolS.setRol(data.user.id_rol);
       this._toolS.setNameUser(data.user.name);
       this._toolS.setTokenExpiration(data.token.original.expires_in);
-      console.log(data.token.original.expiration_date);
+      // console.log(data.token.original.expiration_date);
       if(data.user.id_rol == 2){
         this._toolS.setIdStudent(data.user.id_students);
       }
@@ -71,7 +71,7 @@ export class LoginComponent implements OnInit {
   }
 
 
-  
+
   validarEmail(){
     return !!this.formLogin?.errors?.['emailError']
   }

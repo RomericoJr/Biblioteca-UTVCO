@@ -1,11 +1,11 @@
 <div class="login background">
     <img src="assets/imagenes/fondolog.png" alt="Fondo de inicio de sesión" class="background-image">
 
-    <form class="custom-form" [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+    <form class="custom-form" [formGroup]="formLogin" (ngSubmit)="onSubmit()" autocomplete="off">
         <h1><img src="assets/imagenes/logout.png"></h1>
         <div>
         <label for="email" class="form-label">Correo Electrónico</label>
-        
+
         <input type="email" class="form-control" placeholder="usuario@gmail.com" id="email" name="email" formControlName="email"/>
         <small *ngIf="validarEmail()" class="text-danger small">
           <i class="bi bi-exclamation-triangle-fill me-1"></i> Ingresa tu usuario.
@@ -19,7 +19,7 @@
         <small *ngIf="validarPassword()" class="text-danger small">
           <i class="bi bi-exclamation-triangle-fill me-1"></i> La contraseña debe tener al menos 6 caracteres.
       </small>
-      
+
 
 
         <div class="mb-3">

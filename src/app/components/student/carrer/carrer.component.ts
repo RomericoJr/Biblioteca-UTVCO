@@ -24,10 +24,10 @@ export class CarrerComponent {
   id!: number;
 
   formCarrer = this.fb.group({
-    carrer_name: ['',[Validators.required, Validators.minLength(3)]]
+    carrer_name: ['',[Validators.required, Validators.minLength(3),Validators.pattern('^[a-zA-Z]+$')]]
   },
   {validators:[carrer_nameValid]})
-  
+
 
   ngOnInit(){
     this.activatedRoute.params.subscribe({
@@ -79,7 +79,7 @@ export class CarrerComponent {
     })
   }
 
-  
+
 
   updateCarrer(){
     this._carrerS.updateCarrer(this.formCarrer.value, this.id).subscribe({
@@ -97,6 +97,6 @@ export class CarrerComponent {
   validarCarrer(){
     return !!this.formCarrer?.errors?.['carrer_nameError']
   }
-  
+
 }
 
