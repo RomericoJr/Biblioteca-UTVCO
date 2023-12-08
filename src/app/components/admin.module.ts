@@ -14,6 +14,8 @@ import { GenereComponent } from './student/genere/genere.component';
 import { GenereListComponent } from './student/genere-list/genere-list.component';
 import { AddEditEstadiaComponent } from './estadias/add-edit-estadia/add-edit-estadia.component';
 import { EstadiaListComponent } from './estadias/estadia-list/estadia-list.component';
+import { ActivateSoftwareComponent } from './activate-software/activate-software.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -111,18 +113,26 @@ const routes: Routes = [
     component: EstadiaListComponent
   },
   {
+    path: 'activate-software',
+    component: ActivateSoftwareComponent
+  },
+  {
     path: '**',
     redirectTo: 'function',
   }
 ];
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ActivateSoftwareComponent
+  ],
   imports: [
       RouterModule.forChild(routes),
+      ReactiveFormsModule
   ],
   exports: [
-      RouterModule
+      RouterModule,
+      ActivateSoftwareComponent
   ]
 })
 export class AdminModule { }
