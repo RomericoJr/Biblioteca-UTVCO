@@ -12,7 +12,7 @@ export function id_categoryValid(ctrl: AbstractControl): ValidationErrors | null
 
 export function subcategoryValid(ctrl: AbstractControl):ValidationErrors | null{
     const subcategory: string = ctrl?.get('subcategory')?.value;
-    if( subcategory.length < 50 ){
+    if(!subcategory || subcategory.length < 2 || subcategory.length >= 50){
         return ({'subcategoryError': true})
     }
     return null;

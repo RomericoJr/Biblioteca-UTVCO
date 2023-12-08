@@ -1,44 +1,25 @@
-
-  <div *ngIf="rol == '1'">
-    <div *ngIf="userProfileAdmin">
-      <h2>Detalles del perfil</h2>
-      <p><strong>ID:</strong> {{ userProfileAdmin.id }}</p>
-      <p><strong>Nombre:</strong> {{ userProfileAdmin.name }}</p>
-      <p><strong>Email:</strong> {{ userProfileAdmin.email }}</p>
-    </div>
-  </div>
-
-
-  <div *ngIf="rol == '2'">
-    <div *ngIf="userProfileStudent">
-      <h2>Detalles del perfil</h2>
-      <p><strong>ID:</strong> {{ userProfileStudent.id }}</p>
-      <p><strong>Nombre:</strong> {{ userProfileStudent.name }}</p>
-      <p><strong>Email:</strong> {{ userProfileStudent.email }}</p>
-      <!-- Agrega más propiedades según sea necesario -->
-
-      <button mdbBtn color="primary" (click)="toggleChangePassword()">Cambiar Contraseña</button>
-
-      <div *ngIf="toggleChangePassword" class="mt-3">
-        <!-- Sección de cambio de contraseña con componentes de MDB Bootstrap -->
-        <h3>Cambio de Contraseña</h3>
-        <form>
-          <div class="form-group">
-            <label for="contrasenaActual">Contraseña Actual</label>
-            <input type="password" class="form-control" id="contrasenaActual" placeholder="Contraseña Actual">
-          </div>
-          <div class="form-group">
-            <label for="nuevaContrasena">Nueva Contraseña</label>
-            <input type="password" class="form-control" id="nuevaContrasena" placeholder="Nueva Contraseña">
-          </div>
-          <div class="form-group">
-            <label for="confirmarNuevaContrasena">Confirmar Nueva Contraseña</label>
-            <input type="password" class="form-control" id="confirmarNuevaContrasena" placeholder="Confirmar Nueva Contraseña">
-          </div>
-          <button type="submit" mdbBtn color="primary">Guardar Cambios</button>
-        </form>
+<div class="container d-flex align-items-center justify-content-center" style="height: 70vh;">
+  <div class="card bg-light" style="max-width: 18rem; border: none;">
+    <div *ngIf="rol == '1'">
+      <div *ngIf="userProfileAdmin" class="card-body">
+        <h5 class="card-title text-center mb-4">Detalles del Perfil de Administrador</h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>ID:</strong> {{ userProfileAdmin.id }}</li>
+          <li class="list-group-item"><strong>Nombre:</strong> {{ userProfileAdmin.name }}</li>
+          <li class="list-group-item"><strong>Email:</strong> {{ userProfileAdmin.email }}</li>
+        </ul>
       </div>
     </div>
 
-
+    <div *ngIf="rol == '2'">
+      <div *ngIf="userProfileStudent" class="card-body">
+        <h5 class="card-title text-center mb-4">Detalles del Perfil de Estudiante</h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>ID:</strong> {{ userProfileStudent.id }}</li>
+          <li class="list-group-item"><strong>Nombre:</strong> {{ userProfileStudent.name }}</li>
+          <li class="list-group-item"><strong>Email:</strong> {{ userProfileStudent.email }}</li>
+        </ul>
+      </div>
+    </div>
   </div>
+</div>

@@ -1,18 +1,18 @@
 <div class="container">
-  <div class="row mt-4">
-    <div class="col-md-12 text-center">
+  <div class="row">
+    <div class="col-md-12 text-center mt-4">
       <h2 class="mdb-card-title">Libros disponibles</h2>
     </div>
   </div>
-  <div class="row mt-4 d-flex ">
-    <div class="col-6 col-md-3 mb-4" *ngFor="let book of books">
-      <div class="card h-100">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+    <div class="col" *ngFor="let book of books">
+      <div class="card h-100" style="margin-bottom: 20px;">
         <div class="card-body">
-          <h5 class="card-title">{{book.title}}</h5>
-          <p class="card-text">Author: {{book.author}}</p>
-          <p class="card-text">Editorial: {{book.editorial}}</p>
-          <p class="card-text">Edición: {{book.edition}}</p>
-          <p class="card-text">Ejemplares: {{book.stock}}</p>
+          <h5 class="card-title">{{ book.title }}</h5>
+          <p class="card-text">Author: {{ book.author }}</p>
+          <p class="card-text">Editorial: {{ book.editorial }}</p>
+          <p class="card-text">Edición: {{ book.edition }}</p>
+          <p class="card-text">Ejemplares: {{ book.stock }}</p>
           <div class="d-grid gap-2">
             <button (click)="setAsaide(book.id)" type="button" class="btn btn-success btn-block" style="background-color: #7A3E48; box-shadow: 0 4px 8px rgba(159, 82, 94, 0.1);">
               Apartar
