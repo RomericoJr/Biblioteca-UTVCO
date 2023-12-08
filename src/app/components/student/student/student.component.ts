@@ -88,7 +88,8 @@ export class StudentComponent {
         this.route.navigate(['/BibliotecaUTVCO-Administracion-UTVCO-funciones/student-list']);
       },
       error: (err) => {
-        console.log(err);
+        this.sweet.error('Error al agregar estudiante');
+        // console.log(err);
       }
     })
   }
@@ -147,6 +148,7 @@ export class StudentComponent {
         this.route.navigate(['/BibliotecaUTVCO-Administracion-UTVCO-funciones/student-list']);
       },
       error: (err) => {
+        this.sweet.error('Error al actualizar estudiante');
         console.log(err);
       }
     })

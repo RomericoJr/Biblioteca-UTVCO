@@ -1,7 +1,7 @@
 
 
 <div class="container mt-5">
-  <h2 class="text-center mb-4">Lista de Libros Admi</h2>
+  <h2 class="text-center mb-4">Lista de Libros </h2>
 
   <div class="input-group rounded mx-auto w-50 mt-3">
     <input mdbInput type="search" id="searchInput" [(ngModel)]="searchTerm" class="form-control rounded" (input)="filtrarDatos()" placeholder="Buscar Por Título" aria-label="Search" aria-describedby="search-addon" />
@@ -9,9 +9,9 @@
       <i class="fas fa-search"></i>
     </span>
   </div>
-  
-  
 
+
+  <div class="table-responsive">
 
   <table class="table">
     <thead>
@@ -67,4 +67,5 @@
         <td colspan="9" class="text-center">No hay datos</td>
       </tr>
   </table>
+  </div>
 </div>
