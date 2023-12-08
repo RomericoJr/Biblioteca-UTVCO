@@ -4,7 +4,7 @@
       <div *ngIf="userProfileAdmin" class="card-body">
         <h5 class="card-title text-center mb-4">Detalles del Perfil de Administrador</h5>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><strong>ID:</strong> {{ userProfileAdmin.id }}</li>
+          <!-- <li class="list-group-item"><strong>ID:</strong> {{ userProfileAdmin.id }}</li> -->
           <li class="list-group-item"><strong>Nombre:</strong> {{ userProfileAdmin.name }}</li>
           <li class="list-group-item"><strong>Email:</strong> {{ userProfileAdmin.email }}</li>
         </ul>
@@ -15,9 +15,13 @@
       <div *ngIf="userProfileStudent" class="card-body">
         <h5 class="card-title text-center mb-4">Detalles del Perfil de Estudiante</h5>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><strong>ID:</strong> {{ userProfileStudent.id }}</li>
-          <li class="list-group-item"><strong>Nombre:</strong> {{ userProfileStudent.name }}</li>
+          <!-- <li class="list-group-item"><strong>ID:</strong> {{ userProfileStudent.id }}</li> -->
+          <li class="list-group-item"><strong>Nombre:</strong> {{ userProfileStudent.name }}&nbsp; {{userProfileStudent.lastname_father}}&nbsp;  {{userProfileStudent.lastname_mother}}</li>
           <li class="list-group-item"><strong>Email:</strong> {{ userProfileStudent.email }}</li>
+          <li class="list-group-item"><strong>Matricula:</strong> {{ userProfileStudent.matricula }}</li>
+          <li class="list-group-item"><strong>Genero:</strong> {{ userProfileStudent.genere.genere }}</li>
+          <li class="list-group-item"><strong>Carrera:</strong> {{ userProfileStudent.carrer.carrer_name }}</li>
+
         </ul>
       </div>
     </div>

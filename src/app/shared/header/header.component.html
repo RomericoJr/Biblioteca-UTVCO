@@ -132,13 +132,13 @@
                     </li>
 
                     <li class="nav-item">
-                      <a class="nav-link" routerLink="/{{urlRol}}/activate-software">
-                        <i class="fas fa-key"></i> Activar producto
+                      <a *ngIf="id_rol === '1'"class="nav-link" routerLink="/{{urlRol}}/activate-software">
+                        <i  class="fas fa-key"></i>  Activar producto
                       </a>
                     </li>
 
-                    <li class="nav-item">
-                      <a class="nav-link"  (click)="salir()">
+                    <li class="nav-item"   >
+                      <a class="nav-link"  (click)="salir()" >
                         <i class="fa fa-sign-out"></i> Salir
                       </a>
                     </li>

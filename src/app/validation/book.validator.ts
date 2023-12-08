@@ -3,7 +3,7 @@ import { AbstractControl, ValidatorFn, ValidationErrors } from "@angular/forms";
 export function isbnValid(ctrl: AbstractControl):ValidationErrors | null{
     const isbn: string = ctrl?.get('isbn')?.value;
     // Verificar si el ISBN está presente y tiene una longitud menor que 50
-  if (!isbn || isbn.length < 1 || isbn.length >= 50) {
+  if (!isbn || isbn.length != 10) {
     return { 'isbnError': true };
   }
     return null;
@@ -11,7 +11,7 @@ export function isbnValid(ctrl: AbstractControl):ValidationErrors | null{
 
 export function titleValid(ctrl: AbstractControl):ValidationErrors | null{
     const title: string = ctrl?.get('title')?.value;
-    if(!title || title.length < 1 || title.length >=50){ 
+    if(!title || title.length < 5 || title.length >=50){
         return ({'titleError': true})
     }
     return null;
@@ -20,7 +20,7 @@ export function titleValid(ctrl: AbstractControl):ValidationErrors | null{
 /*  */
 export function authorValid(ctrl: AbstractControl):ValidationErrors | null{
     const author: string = ctrl?.get('author')?.value;
-    if( !author || author.length < 1 || author.length >=50 ){
+    if( !author || author.length < 5 || author.length >=50 ){
         return ({'authorError': true})
     }
     return null;
@@ -30,7 +30,7 @@ export function authorValid(ctrl: AbstractControl):ValidationErrors | null{
 
 export function editorialValid(ctrl: AbstractControl):ValidationErrors | null{
     const editorial: string = ctrl?.get('editorial')?.value;
-    if( !editorial || editorial.length < 1 || editorial.length >=50 ){
+    if( !editorial || editorial.length < 5 || editorial.length >=50 ){
         return ({'editorialError': true})
     }
     return null;
@@ -39,7 +39,7 @@ export function editorialValid(ctrl: AbstractControl):ValidationErrors | null{
 
 export function editionValid(ctrl: AbstractControl):ValidationErrors | null{
     const edition: string = ctrl?.get('edition')?.value;
-    if( !edition || edition.length < 1 || edition.length >=50){
+    if( !edition || edition.length < 5 || edition.length >=50){
         return ({'editionError': true})
     }
     return null;
@@ -112,9 +112,9 @@ const id_subcategory: string = ctrl?.get('id_subcategory')?.value;
      // Limpiar los errores y marcar el control como 'válido'
      ctrl.setErrors(null);
      ctrl.markAsUntouched();
- 
+
      // indicandor que la validación ha pasado
-     return null; 
+     return null;
 }
 
 export function id_subcategoryValid(ctrl: AbstractControl): ValidationErrors | null {

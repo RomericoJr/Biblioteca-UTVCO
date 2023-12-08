@@ -11,7 +11,7 @@ export function nameValid(ctrl: AbstractControl):ValidationErrors | null{
 
 export function lastname_fatherValid(ctrl: AbstractControl):ValidationErrors | null{
     const lastname_father: string = ctrl?.get('lastname_father')?.value;
-    if( !lastname_father || lastname_father.length < 2 || lastname_father.length >= 50 ){
+    if( !lastname_father || lastname_father.length < 4 || lastname_father.length >= 50 ){
         return ({'lastname_fatherError': true})
     }
     return null;
@@ -19,7 +19,7 @@ export function lastname_fatherValid(ctrl: AbstractControl):ValidationErrors | n
 
 export function lastname_motherValid(ctrl: AbstractControl):ValidationErrors | null{
     const lastname_mother: string = ctrl?.get('lastname_mother')?.value;
-    if( !lastname_mother || lastname_mother.length < 2 || lastname_mother.length >= 50 ){
+    if( !lastname_mother || lastname_mother.length < 4 || lastname_mother.length >= 50 ){
         return ({'lastname_motherError': true})
     }
     return null;
@@ -32,8 +32,9 @@ export function matriculaValid(ctrl: AbstractControl): ValidationErrors | null {
   const matricula: string = ctrl?.get('matricula')?.value;
 
   // Verificar si matricula está presente y tiene una longitud en el rango adecuado
-  if (!matricula || matricula.length < 2 || matricula.length >= 11) {
-    return { 'matriculaError': true };
+  // if (!matricula || matricula.length < 2 || matricula.length >= 11) {
+  if (!matricula || matricula.length !== 10) {
+  return { 'matriculaError': true };
   }
 
   return null;
@@ -53,7 +54,7 @@ export function phoneValid(ctrl: AbstractControl):ValidationErrors | null{
 
 export function emailValid(ctrl: AbstractControl):ValidationErrors | null{
     const email: string = ctrl?.get('email')?.value;
-    if( !email || email.length < 2 ||  email.length >= 55){
+    if( !email || email.length < 8 ||  email.length >= 55){
         return ({'emailError': true})
     }
     return null;
@@ -84,13 +85,13 @@ export function id_genereValid(ctrl: AbstractControl): ValidationErrors | null {
       if (!id_genere || id_genere.length === 0) {
       return { 'id_genereError': true };
     }
-  
+
     return null;
   }
 
 
 
-  
+
 
 
 export function id_carrersValid(ctrl: AbstractControl): ValidationErrors | null {
@@ -98,7 +99,7 @@ export function id_carrersValid(ctrl: AbstractControl): ValidationErrors | null 
       if (!id_carrers || id_carrers.length === 0) {
       return { 'id_carrersError': true };
     }
-  
+
     return null;
   }
 
