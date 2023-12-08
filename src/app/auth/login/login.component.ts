@@ -5,6 +5,7 @@ import { AuthFirebaseService } from 'src/app/service/firebase/auth-firebase.serv
 import { SweetAlertService } from 'src/app/service/firebase/sweet-alert.service';
 import { AuthService } from 'src/app/service/laravel/auth.service';
 import { ToolsService } from 'src/app/service/tools.service';
+import { emailValid } from 'src/app/validation/estudiante.validator';
 import { passwordValid } from 'src/app/validation/login.validator';
 
 @Component({
@@ -24,7 +25,7 @@ export class LoginComponent implements OnInit {
     email: ['', [Validators.required, Validators.email]],
     password: ['',[Validators.required, Validators.minLength(6)]]
   },
-  {validators:[passwordValid]}
+  {validators:[emailValid,passwordValid]}
   );
 
   constructor(
@@ -69,6 +70,11 @@ export class LoginComponent implements OnInit {
   })
   }
 
+
+  
+  validarEmail(){
+    return !!this.formLogin?.errors?.['emailError']
+  }
 
   validarPassword(){
     return !!this.formLogin?.errors?.['passwordError']

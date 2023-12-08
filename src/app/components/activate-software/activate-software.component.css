@@ -1,0 +1,57 @@
+/* Add these styles to your CSS file */
+.activation-input {
+    width: 100%; /* Make the input field responsive */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .activation-btn {
+    background-color: #7A3E48;
+    box-shadow: 0 4px 8px rgba(159, 82, 94, 0.1);
+    color: #fff;
+  }
+  
+  .activation-btn:hover {
+    background-color: #573135;
+  }
+  
+
+  /* En tu archivo CSS por separado */
+
+/* Estilo para el contenedor principal */
+.mb-4 {
+    margin-bottom: 1rem;
+  }
+  
+  /* Estilo para el título "Clave de Activación" */
+  h5 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Estilo para el ícono de candado */
+  .input-group-text {
+    background-color: #ffffff; /* Color de fondo del ícono de candado */
+    border: 1px solid #ced4da; /* Borde del ícono de candado */
+  }
+  
+  /* Estilo para el campo de entrada */
+  .activation-input {
+    border-radius: 0.25rem; /* Bordes redondeados */
+  }
+  
+  /* Añade separadores '-' cada 5 caracteres */
+  .activation-input::after {
+    content: '-';
+    position: absolute;
+    left: 78px;
+  }
+  
+  /* Ajusta el estilo del mensaje de error */
+  .text-danger {
+    color: #dc3545; /* Rojo oscuro para el mensaje de error */
+    margin-top: 0.5rem;
+    display: block;
+  }
+  
