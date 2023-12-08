@@ -1,5 +1,15 @@
 import { AbstractControl, ValidatorFn, ValidationErrors } from "@angular/forms";
 
+
+export function emaildValid(ctrl: AbstractControl):ValidationErrors | null{
+  const email: string = ctrl?.get('email')?.value;
+  
+if (!email || email.length <= 4 || email.length >= 50){
+  return { 'emailError': true };
+}
+  return null;
+}
+
 export function passwordValid(ctrl: AbstractControl):ValidationErrors | null{
     const password: string = ctrl?.get('password')?.value;
     
