@@ -32,34 +32,43 @@ constructor(
 
 books: any[] = [];
 
-setAsaideList: setAsade[] = [];
+setAsaideList: setAsade = {} as setAsade;
 
-idStudent!:number;
+idStudent!: number;
 
 ngOnInit() {
   this.getBookS();
   this.getuserDetail();
 }
 
-setAsaide(id:number){
+setAsaide(id: number) {
+  // END: ed8c6549bwf9
   this.sweetS.confirm('¿Desea apartar este libro?', 'Apartar').then((result) => {
     if (result.isConfirmed) {
       this.sweetS.loading('Apartando libro...');
 
-      this.setAsaideList.push({
-        id_book: id,
-        id_student: this.idStudent,
-        date_set_asaide: new Date().toISOString().slice(0, 10),
-        id_status: 3
-      });
-      this._setAsaide.postSetAsaide(this.setAsaideList[0]).subscribe({
+      // this.setAsaideList.push({
+      //   id_book: id,
+      //   id_student: this.idStudent,
+      //   date_set_asaide: new Date().toISOString().slice(0, 10),
+      //   id_status: 3
+      // });
+
+      this.setAsaideList.id_book = id;
+      this.setAsaideList.id_student = this.idStudent;
+      this.setAsaideList.date_set_asaide = new Date().toISOString().slice(0, 10);
+      this.setAsaideList.id_status = 3;
+
+      console.log(this.setAsaideList);
+
+      this._setAsaide.postSetAsaide(this.setAsaideList).subscribe({
         next: (data: any) => {
           this.sweetS.success('Libro apartado');
           this.router.navigate(['/BibliotecaUTVCO/function/apart-list']);
         },
         error: (error: any) => {
           this.sweetS.error('Ya haz apartado este libro');
-          console.log(error);
+          // console.log(error);
         }
       })
 

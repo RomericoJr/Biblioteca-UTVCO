@@ -74,7 +74,7 @@ getAparts(){
     next: (data: any) => {
       this.allAparts = data;
       this.filterStatus =data;
-      console.log(this.allAparts);
+      // console.log(this.allAparts);
     },
     error: (error: any) => {
       console.log(error);
@@ -86,7 +86,7 @@ getApartsByIdStudent(){
   this._setAsaide.getSetAsaideByIdStudent(this.idStudent).subscribe({
     next: (data: any) => {
       this.apartsUser = data;
-      console.log(this.apartsUser);
+      // console.log(this.apartsUser);
     },
     error: (error: any) => {
       console.log(error);
@@ -156,10 +156,10 @@ rechazarApart(data: any){
 
     this._sweetS.fireConfirm('¿Desea devolver el libro?', 'Se devolverá el libro', 'Devolver').then((result) => {
       if (result.isConfirmed) {
-        this._setAsaide.updateStatus(data.id, data).subscribe({
+        this._setAsaide.bookReturn(data.id).subscribe({
           next: (data: any) => {
             this._sweetS.fireToast('Devolviendo', '¡Libro devuelto!');
-            this.getApartsByIdStudent();
+            this.getAparts();
           },
           error: (error: any) => {
             console.log(error);
